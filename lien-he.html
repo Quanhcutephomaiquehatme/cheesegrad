@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Tra lịch và nhắn trực tiếp Cheese.Graduation để đặt lịch photographer.">
+<title>Đặt lịch — Cheese.Graduation</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/css/booking/01-core.css">
+<link rel="stylesheet" href="assets/css/booking/02-booking-polish.css">
+<link rel="stylesheet" href="assets/css/booking/03-mobile-optimized.css">
+<link rel="stylesheet" href="assets/css/shared/typography.css">
+<link rel="stylesheet" href="assets/css/shared/premium-2026.css">
+<link rel="stylesheet" href="assets/css/booking/04-photographer-card-text-fix.css">
+</head>
+<body class="page-booking">
+<header class="topbar">
+  <a class="brand" href="index.html">Cheese<i>.</i>Graduation</a>
+  <a class="back" href="index.html#photographers">← Chọn photographer khác</a>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <article class="photo-card">
+      <div class="photo"><img id="profilePhoto" alt=""><span class="photo-badge" id="profileTeam"></span></div>
+      <div class="photo-info"><small>Photographer</small><strong id="profileName"></strong><p id="profileStyle"></p></div>
+    </article>
+    <div class="hero-copy">
+      <span class="eyebrow">Tra lịch &amp; nhắn studio</span>
+      <h1>Đặt lịch cùng<br><em id="heroName"></em></h1>
+      <p>Tra lịch còn trống, chọn gói chụp và gửi tin nhắn trực tiếp cho studio. Sau khi xác nhận, admin sẽ cập nhật lại lịch để khách khác nhìn thấy trạng thái còn hay hết lịch.</p>
+    </div>
+  </section>
+
+  <div class="compact-switch-shell">
+    <button class="compact-switch-trigger" id="compactSwitchTrigger" type="button" aria-expanded="false">
+      <span class="compact-switch-avatar"><img id="compactSwitchAvatar" alt=""></span>
+      <span class="compact-switch-copy">
+        <small>Photographer</small>
+        <b id="compactSwitchName">Đổi photographer</b>
+      </span>
+      <span class="compact-switch-arrow">▾</span>
+    </button>
+  </div>
+
+  <div class="compact-switch-popover" id="compactSwitchPopover" aria-hidden="true">
+    <div class="compact-switch-card">
+      <div class="compact-switch-head">
+        <div><small>Chuyển thợ nhanh</small><strong>Chọn photographer</strong></div>
+        <button id="compactSwitchClose" type="button" aria-label="Đóng">×</button>
+      </div>
+      <div class="compact-switch-list" id="compactSwitchList"></div>
+    </div>
+  </div>
+
+  <section class="flow">
+    <div class="panel">
+      <div class="booking-intro">
+        <h2>Đặt lịch chụp</h2>
+        <p>Đặt lịch rõ ràng trong 4 bước.</p>
+      </div>
+
+      <div class="steps-list" aria-label="4 bước đặt lịch">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div class="step-body"><small class="step-kicker">Bắt đầu</small><strong>Chọn thợ & loại chụp</strong><span>Chọn photographer, chụp cá nhân / nhóm hoặc Tốt nghiệp đại học.</span></div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div class="step-body"><small class="step-kicker">Thiết lập</small><strong>Chọn gói & lịch</strong><span>Chọn gói, số người, ngày chụp và địa điểm phù hợp.</span></div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div class="step-body"><small class="step-kicker">Xác nhận</small><strong>Nhắn studio</strong><span>Website soạn sẵn nội dung để gửi trực tiếp cho Cheese.Graphy.</span></div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div class="step-body"><small class="step-kicker">Hoàn tất</small><strong>Cọc & chốt lịch</strong><span>Studio xác nhận lịch, gửi thông tin cọc và thống nhất buổi chụp.</span></div>
+        </div>
+      </div>
+
+      <div class="booking-divider"></div>
+
+      <form id="messageForm" class="form-card">
+        <label>
+          <span>Thợ muốn chụp</span>
+          <select id="photographerSelect"></select>
+        </label>
+        <input id="shootType" type="hidden" value="Kỷ yếu">
+        <div class="booking-type-tabs" role="tablist" aria-label="Chọn loại buổi chụp">
+          <button class="booking-type-tab active" type="button" data-shoot-type="Kỷ yếu" role="tab" aria-selected="true">Cá nhân / nhóm<small>Từ 1–5 người · linh hoạt theo nhu cầu</small></button>
+          <button class="booking-type-tab" type="button" data-shoot-type="Tốt nghiệp đại học" role="tab" aria-selected="false">Tốt nghiệp đại học<small>Lễ tốt nghiệp / Pre-Grad</small></button>
+        </div>
+
+        <div class="booking-type-panel" id="yearbookPanel" data-type-panel="Kỷ yếu">
+          <p class="yearbook-panel-note">Chọn gói cá nhân hoặc nhóm từ 1–5 người, giá cập nhật theo photographer.</p>
+
+        <div class="grid duration-date-grid">
+          <div class="duration-field">
+            <span class="field-label">Chụp cả ngày hay nửa ngày</span>
+            <select id="duration" aria-hidden="true" tabindex="-1">
+              <option value="Cả ngày">Cả ngày</option>
+              <option value="Sáng">Nửa ngày · Buổi sáng</option>
+              <option value="Chiều">Nửa ngày · Buổi chiều</option>
+            </select>
+            <div class="duration-toggle" role="group" aria-label="Chọn thời lượng chụp">
+              <button class="duration-main active" type="button" data-duration-mode="full">Cả ngày</button>
+              <button class="duration-main" type="button" data-duration-mode="half">Nửa ngày</button>
+            </div>
+            <div class="half-day-toggle" id="halfDayToggle" hidden>
+              <button class="half-slot active" type="button" data-slot-value="Sáng">Buổi sáng</button>
+              <button class="half-slot" type="button" data-slot-value="Chiều">Buổi chiều</button>
+            </div>
+          </div>
+          <label>
+            <span>Ngày chụp dự kiến</span>
+            <input id="shootDate" type="date">
+          </label>
+        </div>
+
+        <div class="package-card">
+          <div class="package-head">
+            <div>
+              <strong>Chọn gói chụp</strong>
+              <small>Chọn nhanh số người từ 1 đến 5. Giá sẽ cập nhật theo photographer đang chọn.</small>
+            </div>
+            <div class="package-summary">
+              <span id="packageTitle">1 người · gói lẻ</span>
+              <b id="packagePrice">từ 2.300.000đ</b>
+            </div>
+          </div>
+          <input id="peopleRange" type="hidden" value="1">
+          <div class="package-options" id="packageOptions" role="radiogroup" aria-label="Chọn gói chụp từ 1 đến 5 người">
+            <button class="package-option active" type="button" data-people="1" role="radio" aria-checked="true"><span class="package-count">1</span><small>Gói lẻ</small><b data-package-price="1">—</b></button>
+            <button class="package-option" type="button" data-people="2" role="radio" aria-checked="false"><span class="package-count">2</span><small>2 người</small><b data-package-price="2">—</b></button>
+            <button class="package-option" type="button" data-people="3" role="radio" aria-checked="false"><span class="package-count">3</span><small>3 người</small><b data-package-price="3">—</b></button>
+            <button class="package-option" type="button" data-people="4" role="radio" aria-checked="false"><span class="package-count">4</span><small>4 người</small><b data-package-price="4">—</b></button>
+            <button class="package-option" type="button" data-people="5" role="radio" aria-checked="false"><span class="package-count">5</span><small>5 người</small><b data-package-price="5">—</b></button>
+          </div>
+          <p class="package-note" id="packagePriceNote">Giá tham khảo theo photographer đang chọn.</p>
+        </div>
+
+
+        </div><!-- /yearbookPanel -->
+
+        <div class="booking-type-panel grad-package-panel" id="graduationPanel" data-type-panel="Tốt nghiệp đại học" hidden>
+          <span class="grad-step">Bước 01 · Gói &amp; giá</span>
+          <h3>Chọn gói và chốt giá của bạn.</h3>
+          <p class="grad-lead">Gói đo ni đóng giày cho dịp tốt nghiệp. Cá nhân hay nhóm — tạm tính hiện ngay bên dưới, sau đó chọn ngày và nhắn studio.</p>
+          <div class="grad-promo"><span>🎁</span><span>Khách book gói Senior tuần này được tặng 5 ảnh hậu kỳ extra + video BTS 30s.</span></div>
+
+          <div class="grad-package-grid" id="gradPackageGrid" role="radiogroup" aria-label="Chọn gói tốt nghiệp đại học">
+            <button class="grad-package-card active" type="button" data-grad-package="ceremony" role="radio" aria-checked="true">
+              <span class="grad-radio"></span><h4>Chụp Lễ Tốt Nghiệp</h4><div class="grad-card-rule"></div>
+              <span class="grad-from">Từ</span><strong class="grad-price">1.700.000đ</strong>
+              <div class="grad-group">♟ Nhóm tối đa 2 người</div><p class="grad-detail">✓ Trả toàn bộ file ảnh, chỉnh màu, retouch nhẹ</p>
+            </button>
+            <button class="grad-package-card" type="button" data-grad-package="pregrad" role="radio" aria-checked="false">
+              <span class="grad-radio"></span><h4>Chụp Pre-Grad</h4><div class="grad-card-rule"></div>
+              <span class="grad-from">Từ</span><strong class="grad-price">2.000.000đ</strong>
+              <div class="grad-group">♟ Nhóm tối đa 3 người</div><p class="grad-detail">✓ Trả toàn bộ file ảnh, chỉnh màu, trả 10 ảnh photoshop</p>
+            </button>
+            <button class="grad-package-card" type="button" data-grad-package="pregrad-plus" role="radio" aria-checked="false">
+              <span class="grad-radio"></span><h4>Chụp Pre-Grad</h4><div class="grad-card-rule"></div>
+              <span class="grad-from">Từ</span><strong class="grad-price">2.500.000đ</strong>
+              <div class="grad-group">♟ Nhóm tối đa 4 người</div><p class="grad-detail">✓ Trả toàn bộ file ảnh, chỉnh màu, trả 20 ảnh photoshop</p>
+            </button>
+          </div>
+
+          <div class="grad-people-wrap">
+            <span class="grad-people-label">Số người chụp *</span>
+            <div class="grad-people-box">
+              <div class="grad-people-top"><b id="gradPeopleTitle">1 người · gói lẻ</b><b class="grad-people-price" id="gradPeoplePrice">1.700.000đ</b></div>
+              <input class="grad-slider" id="gradPeopleRange" type="range" min="1" max="2" step="1" value="1">
+              <div class="grad-range-marks" id="gradRangeMarks"><span>1</span><span>2</span></div>
+              <p class="grad-helper" id="gradPeopleHelper">Mặc định 1 người (giá gói gốc). Kéo sang phải để tính giá theo nhóm.</p>
+            </div>
+          </div>
+          <div class="grad-summary"><b id="gradSummaryTitle">Chụp Lễ Tốt Nghiệp · 1 người</b><strong id="gradSummaryPrice">1.700.000đ</strong></div>
+        </div>
+
+
+        <div class="booking-type-panel" id="graduationSchedule" data-grad-common hidden>
+          <div class="grid duration-date-grid">
+            <div class="duration-field">
+              <span class="field-label">Chụp cả ngày hay nửa ngày</span>
+              <div class="duration-toggle" role="group" aria-label="Chọn thời lượng chụp tốt nghiệp">
+                <button class="duration-main active" type="button" data-grad-duration-mode="full">Cả ngày</button>
+                <button class="duration-main" type="button" data-grad-duration-mode="half">Nửa ngày</button>
+              </div>
+              <div class="half-day-toggle" id="gradHalfDayToggle" hidden>
+                <button class="half-slot active" type="button" data-grad-slot-value="Sáng">Buổi sáng</button>
+                <button class="half-slot" type="button" data-grad-slot-value="Chiều">Buổi chiều</button>
+              </div>
+            </div>
+            <div>
+              <span class="field-label">Ngày chụp dự kiến</span>
+              <input id="gradShootDateMirror" type="date" aria-label="Ngày chụp dự kiến tốt nghiệp">
+            </div>
+          </div>
+        </div>
+
+        <div class="availability-card">
+          <div class="availability-card-head">
+            <div><h3>Tra lịch photographer</h3><p id="availabilityText">Chọn ngày để kiểm tra lịch còn hay đã kín.</p></div>
+          </div>
+          <div class="availability-slots">
+            <div class="availability-slot" data-slot="Sáng"><b>Sáng</b><span>Chưa tra</span></div>
+            <div class="availability-slot" data-slot="Chiều"><b>Chiều</b><span>Chưa tra</span></div>
+            <div class="availability-slot" data-slot="Cả ngày"><b>Cả ngày</b><span>Chưa tra</span></div>
+          </div>
+          <div class="no-db" id="noDb" hidden>Website chưa nối Supabase nên chưa thể đọc lịch thật từ Admin.</div>
+        </div>
+
+        <div class="grid">
+          <label>
+            <span>Tỉnh / thành chụp</span>
+            <select id="provinceSelect"></select>
+          </label>
+          <label>
+            <span>Địa điểm cụ thể</span>
+            <input id="locationDetail" placeholder="VD: trường học, quận/huyện, studio...">
+          </label>
+        </div>
+        <p class="hint">Danh sách di chuyển chỉ gồm khu vực miền Bắc và miền Trung, kèm phí tham khảo bên cạnh.</p>
+
+        <label>
+          <span>Concept mong muốn</span>
+          <textarea id="conceptInput" placeholder="VD: tone pastel, chụp chiều, ưu tiên ảnh cá nhân và vài ảnh cùng nhóm bạn..."></textarea>
+        </label>
+
+        <div class="grid">
+          <label>
+            <span>Tên bạn</span>
+            <input id="customerName" placeholder="Không bắt buộc">
+          </label>
+          <label>
+            <span>Số điện thoại</span>
+            <input id="customerPhone" placeholder="Không bắt buộc">
+          </label>
+        </div>
+      </form>
+    </div>
+
+    <aside class="panel message-panel">
+      <div class="message-head"><div><small id="messageLabel">Tin nhắn gửi Cheese.Graduation</small><h3 class="message-title">Soạn tin nhắn</h3></div><button class="copy-btn" id="copyMessage" type="button">Sao chép</button></div>
+      <div class="message-box" id="messageBox"></div>
+      <p class="message-note">Bấm Instagram hoặc Messenger bên dưới để mở kênh chat. Tin nhắn sẽ được tự sao chép, bạn chỉ cần dán vào khung chat và gửi cho studio.</p>
+      <div class="contact-buttons">
+        <a class="contact-btn instagram" id="instagramBtn" href="#" target="_blank" rel="noopener"><span class="contact-icon">◎</span> Instagram</a>
+        <a class="contact-btn" id="messengerBtn" href="#" target="_blank" rel="noopener"><span class="contact-icon">●</span> Messenger</a>
+      </div>
+      <div class="contact-hint">✓ Admin là nơi duy nhất thêm lịch thật. Sau khi studio xác nhận, admin sẽ cập nhật lịch để khách khác tra được trạng thái còn / hết.</div>
+    </aside>
+  </section>
+</main>
+
+<script src="assets/js/booking/01-photographer-fallback-data.js"></script>
+<script src="config.js"></script>
+<script src="assets/js/shared/studio-contact.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/shared/photographer-public.js"></script>
+<script src="assets/js/booking/booking-prices.js"></script>
+<script src="assets/js/shared/pricing-public.js"></script>
+<script src="assets/js/booking/contact-booking.js"></script>
+<script src="assets/js/shared/music-player.js"></script>
+</body>
+</html>

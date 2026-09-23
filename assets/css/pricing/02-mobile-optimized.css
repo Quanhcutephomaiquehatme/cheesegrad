@@ -1,0 +1,99 @@
+
+/* =========================================================
+   Pricing page — mobile UX final overrides
+   ========================================================= */
+html,body{max-width:100%;overflow-x:hidden}
+@media(max-width:700px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{padding-bottom:env(safe-area-inset-bottom);touch-action:manipulation}
+  button,a,input,select,textarea{touch-action:manipulation}
+  button,a{-webkit-tap-highlight-color:transparent}
+
+  .price-topbar{
+    min-height:64px!important;
+    padding:8px max(11px,env(safe-area-inset-right)) 8px max(11px,env(safe-area-inset-left))!important;
+    gap:8px!important
+  }
+  .price-logo-shell{width:118px!important;height:44px!important}
+  .price-book-cta{
+    min-height:44px!important;
+    padding:0 10px!important;
+    font-size:10px!important;
+    white-space:nowrap
+  }
+
+  .pricing-hero{
+    padding:48px 14px 54px!important
+  }
+  .pricing-hero h1{
+    font-size:clamp(42px,13vw,58px)!important;
+    line-height:1.3!important
+  }
+  .pricing-hero-copy>p{font-size:14px!important;line-height:1.7!important}
+  .pricing-hero-actions{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:8px!important
+  }
+  .primary-action,.secondary-action{
+    width:100%!important;min-height:48px!important;
+    font-size:12px!important
+  }
+  .pricing-hero-card{
+    padding:18px!important;border-radius:18px!important
+  }
+
+  .pricing-section{
+    width:min(100% - 22px,1180px)!important;
+    padding:52px 0!important
+  }
+  .section-heading-modern h2{
+    font-size:36px!important;line-height:1.3!important
+  }
+  .section-heading-modern>p{font-size:13px!important;line-height:1.65!important}
+  .team-price-list{gap:10px!important}
+  .team-price-row{
+    min-height:auto!important;
+    padding:18px!important;
+    border-radius:17px!important
+  }
+  .team-price-row h3{font-size:29px!important}
+  .team-price-row p{font-size:12px!important;line-height:1.65!important}
+  .team-price-side{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    align-items:start!important;
+    gap:8px!important
+  }
+  .team-price-side strong{font-size:27px!important;white-space:normal!important}
+  .team-price-side span{width:max-content;max-width:100%;white-space:normal!important}
+
+  input,select,textarea{
+    min-height:48px!important;
+    font-size:16px!important
+  }
+  .province-tool-card{padding:15px!important}
+  .province-tool-copy h3{font-size:24px!important}
+  .province-tool-copy p{font-size:12px!important}
+  .province-summary-card{padding:14px!important}
+  .province-summary-price strong{white-space:normal!important}
+  .province-row{
+    padding:12px 0!important
+  }
+  .province-row b,.province-row span{font-size:12px!important}
+  .travel-notes-grid{gap:8px!important}
+  .travel-note{padding:13px!important}
+  .travel-note p{font-size:12px!important}
+
+  .pricing-bottom-cta{
+    width:min(100% - 22px,1180px)!important;
+    padding:20px!important;
+    border-radius:18px!important
+  }
+  .pricing-bottom-cta h2{font-size:31px!important}
+  .pricing-bottom-cta p{font-size:13px!important}
+  .outline-action,.gold-action{
+    min-height:48px!important;
+    font-size:12px!important
+  }
+}

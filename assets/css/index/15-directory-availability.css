@@ -1,0 +1,248 @@
+/* v45 — date/session availability filter incl. full-day. Dedicated to ?trang=tho only. */
+html.directory-mode body.page-home #photographers .directory-availability-panel{
+  display:grid;
+  grid-template-columns:minmax(190px,.78fr) minmax(390px,1.35fr);
+  gap:14px 22px;
+  align-items:center;
+  margin:0 0 18px;
+  padding:16px 18px;
+  border:1px solid rgba(23,61,93,.10);
+  border-radius:16px;
+  background:linear-gradient(118deg,rgba(255,253,248,.96),rgba(239,244,239,.92));
+  box-shadow:0 10px 34px rgba(23,61,93,.055);
+}
+html.directory-mode body.page-home #photographers .directory-availability-copy{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  min-width:0;
+}
+html.directory-mode body.page-home #photographers .directory-availability-kicker{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:#8b711f;
+}
+html.directory-mode body.page-home #photographers .directory-availability-kicker i,
+html.directory-mode body.page-home #photographers .directory-card-availability i,
+html.directory-mode body.page-home #photographers .directory-status-dot{
+  display:inline-block;
+  width:7px;
+  height:7px;
+  flex:0 0 7px;
+  border-radius:999px;
+  background:#54a46d;
+  box-shadow:0 0 0 4px rgba(84,164,109,.10);
+}
+html.directory-mode body.page-home #photographers .directory-availability-copy strong{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(21px,2vw,28px);
+  font-weight:600;
+  line-height:1.05;
+  letter-spacing:-.025em;
+  color:#173d5d;
+}
+html.directory-mode body.page-home #photographers .directory-availability-copy small{
+  max-width:430px;
+  font-size:11px;
+  line-height:1.55;
+  color:#718493;
+}
+html.directory-mode body.page-home #photographers .directory-availability-controls{
+  display:grid;
+  grid-template-columns:minmax(155px,.9fr) minmax(300px,1.55fr) auto;
+  gap:8px;
+  align-items:end;
+  min-width:0;
+}
+html.directory-mode body.page-home #photographers .directory-date-field,
+html.directory-mode body.page-home #photographers .directory-session-field{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  min-width:0;
+  margin:0;
+  padding:0;
+  border:0;
+}
+html.directory-mode body.page-home #photographers .directory-date-field>span,
+html.directory-mode body.page-home #photographers .directory-session-field>legend{
+  padding:0;
+  font-size:8.5px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#687d8b;
+}
+html.directory-mode body.page-home #photographers .directory-date-field input{
+  width:100%;
+  height:40px;
+  min-height:40px;
+  padding:0 11px;
+  border:1px solid rgba(23,61,93,.12);
+  border-radius:10px;
+  outline:none;
+  background:#fffdf9;
+  color:#173d5d;
+  font:700 11px/1 Inter,Arial,sans-serif;
+  color-scheme:light;
+}
+html.directory-mode body.page-home #photographers .directory-date-field input:focus{
+  border-color:rgba(166,129,43,.55);
+  box-shadow:0 0 0 3px rgba(181,154,87,.10);
+}
+html.directory-mode body.page-home #photographers .directory-session-toggle{
+  display:grid;
+  grid-template-columns:1fr 1fr 1.12fr;
+  gap:5px;
+  height:40px;
+  padding:3px;
+  border:1px solid rgba(23,61,93,.10);
+  border-radius:10px;
+  background:#f2f1eb;
+}
+html.directory-mode body.page-home #photographers .directory-session-toggle label{
+  position:relative;
+  display:block;
+  min-width:0;
+  cursor:pointer;
+}
+html.directory-mode body.page-home #photographers .directory-session-toggle input{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+html.directory-mode body.page-home #photographers .directory-session-toggle span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  width:100%;
+  height:100%;
+  border-radius:7px;
+  color:#667b88;
+  font-size:10px;
+  font-weight:800;
+  transition:background .22s ease,color .22s ease,box-shadow .22s ease,transform .22s ease;
+}
+html.directory-mode body.page-home #photographers .directory-session-toggle span b{
+  font-size:12px;
+  font-weight:500;
+}
+html.directory-mode body.page-home #photographers .directory-session-toggle input:checked+span{
+  background:#173d5d;
+  color:#fff;
+  box-shadow:0 4px 12px rgba(23,61,93,.16);
+}
+html.directory-mode body.page-home #photographers .directory-session-toggle input:focus-visible+span{
+  outline:2px solid #b49a5f;
+  outline-offset:2px;
+}
+html.directory-mode body.page-home #photographers .directory-schedule-clear{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:40px;
+  padding:0 11px;
+  border:1px solid rgba(23,61,93,.10);
+  border-radius:10px;
+  background:#fffdf9;
+  color:#6c7b84;
+  font-size:9.5px;
+  font-weight:800;
+  white-space:nowrap;
+  cursor:pointer;
+}
+html.directory-mode body.page-home #photographers .directory-schedule-clear[hidden]{display:none!important}
+html.directory-mode body.page-home #photographers .directory-schedule-clear:hover{color:#173d5d;border-color:rgba(23,61,93,.2)}
+html.directory-mode body.page-home #photographers .directory-availability-status{
+  grid-column:1/-1;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  min-height:18px;
+  padding-top:1px;
+  font-size:10.5px;
+  font-weight:650;
+  color:#687d8b;
+}
+html.directory-mode body.page-home #photographers .directory-availability-status[data-state="loading"] .directory-status-dot{
+  background:#b5903e;
+  box-shadow:0 0 0 4px rgba(181,144,62,.10);
+  animation:cgAvailabilityPulse 1s ease-in-out infinite alternate;
+}
+html.directory-mode body.page-home #photographers .directory-availability-status[data-state="error"] .directory-status-dot{
+  background:#a96e55;
+  box-shadow:0 0 0 4px rgba(169,110,85,.10);
+}
+html.directory-mode body.page-home #photographers .directory-availability-status[data-state="partial"] .directory-status-dot{
+  background:#b5903e;
+  box-shadow:0 0 0 4px rgba(181,144,62,.10);
+}
+@keyframes cgAvailabilityPulse{to{opacity:.45;transform:scale(.82)}}
+html.directory-mode body.page-home #photographers .directory-card-availability{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  width:max-content;
+  max-width:100%;
+  margin:0 0 8px;
+  padding:5px 8px;
+  border:1px solid rgba(74,145,96,.18);
+  border-radius:999px;
+  background:rgba(232,244,235,.78);
+  color:#39764b;
+  font-size:9px;
+  font-weight:850;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+html.directory-mode body.page-home #photographers .directory-card-availability[hidden]{display:none!important}
+html.directory-mode body.page-home #photographers .directory-card-availability i{
+  width:6px;
+  height:6px;
+  flex-basis:6px;
+  box-shadow:none;
+}
+html.directory-mode body.page-home #photographers[data-availability-status="loading"] .cheese-photographer-grid{
+  opacity:.86;
+  transition:opacity .2s ease;
+}
+@media(max-width:1180px){
+  html.directory-mode body.page-home #photographers .directory-availability-panel{
+    grid-template-columns:1fr;
+  }
+  html.directory-mode body.page-home #photographers .directory-availability-controls{
+    grid-template-columns:minmax(150px,.8fr) minmax(290px,1.45fr) auto;
+  }
+}
+@media(max-width:720px){
+  html.directory-mode body.page-home #photographers .directory-availability-panel{
+    gap:13px;
+    margin-bottom:14px;
+    padding:14px;
+    border-radius:14px;
+  }
+  html.directory-mode body.page-home #photographers .directory-availability-controls{
+    grid-template-columns:1fr;
+  }
+  html.directory-mode body.page-home #photographers .directory-schedule-clear{
+    width:max-content;
+    height:34px;
+  }
+  html.directory-mode body.page-home #photographers .directory-availability-status{
+    align-items:flex-start;
+    line-height:1.45;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  html.directory-mode body.page-home #photographers .directory-session-toggle span,
+  html.directory-mode body.page-home #photographers .directory-availability-status[data-state="loading"] .directory-status-dot{
+    transition:none;
+    animation:none;
+  }
+}

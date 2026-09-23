@@ -1,0 +1,488 @@
+/* =========================================================
+   Cheese.Graduation — Directory mobile 3-column grid (v62)
+   Scope: only ?trang=tho / html.directory-mode on phones.
+   New/filtered photographer cards automatically fill the next
+   available CSS-grid cell in row order.
+   ========================================================= */
+@media (max-width:700px){
+  html.directory-mode body.page-home #photographers{
+    padding-left:9px!important;
+    padding-right:9px!important;
+    padding-bottom:64px!important;
+  }
+
+  /* Keep the directory content full-width on phones. */
+  html.directory-mode body.page-home #photographers > .directory-shell,
+  html.directory-mode body.page-home #photographers .directory-main{
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+  }
+
+  /* Three cards per row; hidden filtered cards leave no holes. */
+  html.directory-mode body.page-home #photographers .photographer-grid,
+  html.directory-mode body.page-home #photographers .cheese-photographer-grid{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;
+    grid-auto-rows:auto!important;
+    align-items:start!important;
+    align-content:start!important;
+    justify-items:stretch!important;
+    gap:7px!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:visible!important;
+    scroll-snap-type:none!important;
+    transform:none!important;
+    touch-action:auto!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card,
+  html.directory-mode body.page-home #photographers .photographer-card{
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    min-width:0!important;
+    max-width:none!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    border-radius:10px!important;
+    overflow:hidden!important;
+    background:#fff!important;
+    border:1px solid rgba(23,61,93,.10)!important;
+    box-shadow:0 5px 14px rgba(13,40,57,.045)!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card.hidden{
+    display:none!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image{
+    flex:none!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    aspect-ratio:4/5!important;
+    border-radius:9px 9px 0 0!important;
+    background-position:center!important;
+    background-size:cover!important;
+  }
+
+  /* Tiny overlay controls so the photo remains the focus. */
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .badge{
+    top:5px!important;
+    left:5px!important;
+    max-width:calc(100% - 32px)!important;
+    padding:3px 5px!important;
+    border-radius:999px!important;
+    font-size:5.8px!important;
+    line-height:1.1!important;
+    letter-spacing:.04em!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .heart{
+    top:4px!important;
+    right:4px!important;
+    width:24px!important;
+    height:24px!important;
+    min-width:24px!important;
+    min-height:24px!important;
+    padding:0!important;
+    font-size:12px!important;
+    line-height:1!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-body{
+    flex:1 1 auto!important;
+    display:flex!important;
+    flex-direction:column!important;
+    width:100%!important;
+    min-width:0!important;
+    padding:7px 6px 6px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card h3{
+    display:-webkit-box!important;
+    width:100%!important;
+    min-height:26px!important;
+    margin:0 0 4px!important;
+    overflow:hidden!important;
+    -webkit-box-orient:vertical!important;
+    -webkit-line-clamp:2!important;
+    color:#10354e!important;
+    font-size:12px!important;
+    line-height:1.08!important;
+    letter-spacing:-.02em!important;
+    overflow-wrap:anywhere!important;
+  }
+
+  /* Secondary metadata is intentionally removed on the compact mobile grid. */
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-meta-line,
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-tags,
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .shoot-stats,
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .availability-chip,
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .directory-card-chip{
+    display:none!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block{
+    display:block!important;
+    width:100%!important;
+    margin:0 0 6px!important;
+    padding:0!important;
+    border:0!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block small{
+    display:none!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block strong{
+    display:block!important;
+    width:100%!important;
+    color:#173d5d!important;
+    font-size:9px!important;
+    line-height:1.2!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+
+  /* Short visual labels, original link text remains in the DOM for accessibility. */
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-card-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:4px!important;
+    width:100%!important;
+    margin-top:auto!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-card-actions a{
+    display:grid!important;
+    place-items:center!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:29px!important;
+    padding:4px 2px!important;
+    border-radius:7px!important;
+    font-size:0!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-card-actions a span{
+    display:none!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .profile-link::before{
+    content:"Hồ sơ";
+    font-size:7.5px!important;
+    font-weight:800!important;
+    line-height:1!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-book-now::before{
+    content:"Đặt lịch";
+    font-size:7.5px!important;
+    font-weight:900!important;
+    line-height:1!important;
+  }
+
+  /* Make the area above the grid more economical on a phone. */
+  html.directory-mode body.page-home #photographers .directory-results-bar{
+    margin-bottom:10px!important;
+  }
+  html.directory-mode body.page-home #photographers #photographerResult{
+    font-size:10px!important;
+  }
+}
+
+@media (max-width:380px){
+  html.directory-mode body.page-home #photographers{
+    padding-left:6px!important;
+    padding-right:6px!important;
+  }
+  html.directory-mode body.page-home #photographers .photographer-grid,
+  html.directory-mode body.page-home #photographers .cheese-photographer-grid{
+    gap:5px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-body{
+    padding:6px 5px 5px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card h3{
+    font-size:11px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block strong{
+    font-size:8px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .profile-link::before,
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-book-now::before{
+    font-size:6.8px!important;
+  }
+}
+
+/* =========================================================
+   v63 — Mobile directory polish
+   Keep 3 columns, but turn each photographer into a compact
+   editorial card with clearer hierarchy and a stronger CTA.
+   ========================================================= */
+@media (max-width:700px){
+  html.directory-mode body.page-home #photographers{
+    padding-left:10px!important;
+    padding-right:10px!important;
+  }
+
+  html.directory-mode body.page-home #photographers > .directory-page-heading{
+    margin-bottom:14px!important;
+    padding-bottom:16px!important;
+    text-align:center!important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading>a{
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    margin:0 auto 14px!important;
+    padding:7px 11px!important;
+    border:1px solid rgba(23,61,93,.10)!important;
+    border-radius:999px!important;
+    background:rgba(255,253,248,.72)!important;
+    color:#667b89!important;
+    font-size:9px!important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading .eyebrow{
+    justify-content:center!important;
+    margin-bottom:8px!important;
+    color:#a47d2d!important;
+    font-size:7px!important;
+    letter-spacing:.18em!important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading h1{
+    max-width:340px!important;
+    margin:0 auto!important;
+    font-size:27px!important;
+    line-height:1.08!important;
+    letter-spacing:-.025em!important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading h1 em{
+    display:block!important;
+    margin:4px auto 0!important;
+    font-size:31px!important;
+    line-height:1.02!important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading p{
+    max-width:330px!important;
+    margin:10px auto 0!important;
+    font-size:9.5px!important;
+    line-height:1.55!important;
+  }
+
+  /* Compact filter/search surface so the photographers remain the focus. */
+  html.directory-mode body.page-home #photographers .directory-filter-panel{
+    margin-bottom:11px!important;
+    padding:7px!important;
+    gap:6px!important;
+    border-radius:15px!important;
+    border:1px solid rgba(23,61,93,.08)!important;
+    background:rgba(255,253,248,.76)!important;
+    box-shadow:0 8px 24px rgba(23,61,93,.04)!important;
+  }
+  html.directory-mode body.page-home #photographers .directory-search-field input,
+  html.directory-mode body.page-home #photographers .directory-sort-field select,
+  html.directory-mode body.page-home #photographers .directory-filter-summary{
+    min-height:35px!important;
+    height:35px!important;
+    border-radius:10px!important;
+    background:#fff!important;
+    border:1px solid rgba(23,61,93,.09)!important;
+    font-size:9.5px!important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-options-row{
+    gap:5px!important;
+  }
+  html.directory-mode body.page-home #photographers .directory-results-bar{
+    margin:0 0 9px!important;
+    padding:0 2px!important;
+  }
+  html.directory-mode body.page-home #photographers #photographerResult{
+    color:#657b89!important;
+    font-size:9px!important;
+    font-weight:700!important;
+    letter-spacing:.02em!important;
+  }
+
+  html.directory-mode body.page-home #photographers .photographer-grid,
+  html.directory-mode body.page-home #photographers .cheese-photographer-grid{
+    gap:8px!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card,
+  html.directory-mode body.page-home #photographers .photographer-card{
+    position:relative!important;
+    border-radius:14px!important;
+    border:1px solid rgba(23,61,93,.075)!important;
+    background:linear-gradient(180deg,#fffefa 0%,#fff 100%)!important;
+    box-shadow:0 7px 20px rgba(15,45,63,.06)!important;
+    isolation:isolate!important;
+    transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card:active{
+    transform:scale(.985)!important;
+    border-color:rgba(177,141,70,.42)!important;
+    box-shadow:0 3px 10px rgba(15,45,63,.07)!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image{
+    position:relative!important;
+    aspect-ratio:4/5.15!important;
+    border-radius:13px 13px 0 0!important;
+    overflow:hidden!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image::after{
+    content:""!important;
+    position:absolute!important;
+    inset:auto 0 0!important;
+    height:42%!important;
+    z-index:1!important;
+    pointer-events:none!important;
+    background:linear-gradient(180deg,rgba(9,39,63,0),rgba(9,39,63,.17))!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .badge{
+    z-index:3!important;
+    top:6px!important;
+    left:6px!important;
+    padding:4px 6px!important;
+    border:1px solid rgba(255,255,255,.45)!important;
+    background:rgba(255,253,248,.82)!important;
+    -webkit-backdrop-filter:blur(8px)!important;
+    backdrop-filter:blur(8px)!important;
+    color:#173d5d!important;
+    font-size:5.6px!important;
+    font-weight:900!important;
+    letter-spacing:.07em!important;
+    box-shadow:0 3px 10px rgba(9,39,63,.08)!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .heart{
+    z-index:3!important;
+    top:5px!important;
+    right:5px!important;
+    width:25px!important;
+    height:25px!important;
+    min-width:25px!important;
+    min-height:25px!important;
+    border:1px solid rgba(255,255,255,.48)!important;
+    background:rgba(255,253,248,.78)!important;
+    -webkit-backdrop-filter:blur(8px)!important;
+    backdrop-filter:blur(8px)!important;
+    color:#173d5d!important;
+    box-shadow:0 3px 10px rgba(9,39,63,.08)!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .heart.active,
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .heart[aria-pressed="true"]{
+    background:#173d5d!important;
+    color:#f4d48a!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-body{
+    min-height:108px!important;
+    padding:8px 7px 7px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card h3{
+    min-height:24px!important;
+    margin:0 0 5px!important;
+    color:#0f3148!important;
+    font-family:'Playfair Display',Georgia,serif!important;
+    font-size:12px!important;
+    font-weight:600!important;
+    line-height:1.02!important;
+    letter-spacing:-.025em!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block{
+    position:relative!important;
+    margin:0 0 7px!important;
+    padding-top:6px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block::before{
+    content:""!important;
+    position:absolute!important;
+    left:0!important;
+    right:0!important;
+    top:0!important;
+    height:1px!important;
+    background:linear-gradient(90deg,rgba(23,61,93,.13),rgba(23,61,93,0))!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block strong{
+    color:#a3741d!important;
+    font-size:8.5px!important;
+    font-weight:900!important;
+    letter-spacing:-.015em!important;
+  }
+
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-card-actions{
+    grid-template-columns:.82fr 1.18fr!important;
+    gap:4px!important;
+    margin-top:auto!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-card-actions a{
+    min-height:31px!important;
+    border-radius:8px!important;
+    box-shadow:none!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .profile-link{
+    border:1px solid rgba(23,61,93,.12)!important;
+    background:#f5f7f7!important;
+    color:#536d7d!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-book-now{
+    border:1px solid #173d5d!important;
+    background:#173d5d!important;
+    color:#fffaf0!important;
+    box-shadow:0 5px 12px rgba(23,61,93,.14)!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .profile-link::before{
+    content:"Xem"!important;
+    font-size:7px!important;
+    font-weight:800!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-book-now::before{
+    content:"Chọn thợ"!important;
+    font-size:7px!important;
+    font-weight:900!important;
+    letter-spacing:-.01em!important;
+  }
+}
+
+@media (max-width:380px){
+  html.directory-mode body.page-home #photographers{
+    padding-left:7px!important;
+    padding-right:7px!important;
+  }
+  html.directory-mode body.page-home #photographers .photographer-grid,
+  html.directory-mode body.page-home #photographers .cheese-photographer-grid{
+    gap:6px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card{
+    border-radius:12px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image{
+    border-radius:11px 11px 0 0!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-body{
+    min-height:103px!important;
+    padding:7px 5px 6px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card h3{
+    min-height:22px!important;
+    font-size:10.8px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block strong{
+    font-size:7.7px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .photographer-card-actions a{
+    min-height:29px!important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .profile-link::before,
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-book-now::before{
+    font-size:6.3px!important;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Thư viện ảnh Cheese.Graduation — ảnh tốt nghiệp cá nhân và nhóm do studio thực hiện.">
+<title>Thư viện ảnh — Cheese.Graduation</title>
+
+
+
+<link rel="stylesheet" href="assets/css/library/01-library.css">
+<link rel="stylesheet" href="assets/css/shared/typography.css">
+<link rel="stylesheet" href="assets/css/shared/premium-2026.css">
+</head>
+<body class="page-library">
+<header class="library-nav">
+  <a class="library-logo" href="index.html" aria-label="Về trang chủ">
+    <img src="assets/images/home/photo-15.png" alt="Cheese.Graduation">
+  </a>
+  <nav>
+    <a href="index.html#photographers">Photographer</a>
+    <a href="index.html#gallery">Real work</a>
+    <a class="active" href="thu-vien.html">Thư viện ảnh</a>
+    <a href="bang-gia.html">Bảng giá</a>
+  </nav>
+  <a class="library-book" href="lien-he.html">Đặt lịch <span>↗</span></a>
+</header>
+
+<main>
+  <section class="library-hero">
+    <span class="eyebrow">Cheese.Graduation · Full archive</span>
+    <h1>Thư viện<br><em>của chúng mình</em></h1>
+    <div class="library-hero-bottom">
+      <p>Những khoảnh khắc tốt nghiệp cá nhân và nhóm được Cheese.Graduation thực hiện. Ảnh dọc và ngang được tự sắp xếp theo đúng tỉ lệ gốc.</p>
+      <div class="library-count"><b id="libraryCount">—</b><span>ảnh đang hiển thị</span></div>
+    </div>
+  </section>
+
+  <section class="library-shell">
+    <div class="library-toolbar">
+      <div><span class="library-live-dot"></span><b>Studio archive</b></div>
+      <span>Bấm vào ảnh để xem lớn</span>
+    </div>
+    <div class="library-masonry" id="libraryMasonry" aria-live="polite"></div>
+    <div class="library-more" id="libraryMore" hidden><button id="libraryLoadMore" type="button">Tải thêm ảnh</button><span id="libraryLoadedText"></span></div>
+    <div class="library-sentinel" id="librarySentinel" aria-hidden="true"></div>
+    <div class="library-loading" id="libraryLoading">
+      <span></span><p>Đang tải thư viện ảnh…</p>
+    </div>
+    <div class="library-empty" id="libraryEmpty" hidden>Thư viện đang được cập nhật.</div>
+  </section>
+
+  <section class="library-bottom">
+    <span>Muốn có một bộ ảnh của riêng bạn?</span>
+    <h2>Chọn photographer<br><em>Giữ lại ngày của mình</em></h2>
+    <a href="index.html#photographers">Xem photographer <span>↗</span></a>
+  </section>
+</main>
+
+<footer>
+  <span>© 2026 Cheese.Graduation</span>
+  <a href="https://www.instagram.com/cheese.graphy/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+</footer>
+
+<div class="library-lightbox" id="libraryLightbox" aria-hidden="true">
+  <div class="library-lightbox-bg" data-library-close></div>
+  <button class="library-lightbox-close" type="button" data-library-close aria-label="Đóng">×</button>
+  <button class="library-lightbox-arrow prev" id="libraryPrev" type="button" aria-label="Ảnh trước">←</button>
+  <figure class="library-lightbox-figure" id="libraryLightboxFigure">
+    <div class="library-lightbox-stage" id="libraryLightboxStage">
+      <img class="library-lightbox-photo current" id="libraryLightboxImage" alt="" draggable="false">
+      <img class="library-lightbox-photo incoming" id="libraryLightboxIncoming" alt="" draggable="false" aria-hidden="true">
+      <span class="library-swipe-hint" aria-hidden="true">Vuốt để chuyển ảnh</span>
+    </div>
+    <figcaption id="libraryLightboxCaption"></figcaption>
+  </figure>
+  <button class="library-lightbox-arrow next" id="libraryNext" type="button" aria-label="Ảnh sau">→</button>
+  <span class="library-lightbox-count" id="libraryLightboxCount"></span>
+</div>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/shared/library-public.js"></script>
+<script src="assets/js/shared/music-player.js"></script>
+</body>
+</html>

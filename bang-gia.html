@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Bảng giá ekip và phụ phí di chuyển tỉnh của Cheese.Graduation"/>
+  <meta name="theme-color" content="#08283f"/>
+  <title>Bảng giá & phụ phí tỉnh — Cheese.Graduation</title>
+  
+  
+  
+  <link rel="stylesheet" href="assets/css/pricing/01-core.css"/>
+<link rel="stylesheet" href="assets/css/pricing/02-mobile-optimized.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="assets/js/booking/01-photographer-fallback-data.js"></script>
+  <script src="assets/js/shared/photographer-public.js"></script>
+  <script src="assets/js/booking/booking-prices.js"></script>
+  <script src="assets/js/shared/pricing-public.js"></script>
+<link rel="stylesheet" href="assets/css/shared/typography.css">
+<link rel="stylesheet" href="assets/css/shared/premium-2026.css">
+</head>
+<body class="page-pricing">
+  <div class="price-grain" aria-hidden="true"></div>
+
+  <header class="price-topbar">
+    <a class="price-brand" href="index.html#top" aria-label="Cheese.Graduation - Trang chủ">
+      <span class="price-logo-shell"><img src="assets/images/home/photo-15.png" alt="Cheese.Graduation"/></span>
+    </a>
+    <nav class="price-nav" aria-label="Điều hướng bảng giá">
+      <a href="index.html#photographers">Chọn thợ</a>
+      <a class="active" href="bang-gia.html">Bảng giá</a>
+      <a href="thu-vien.html">Thư viện ảnh</a>
+      <a href="index.html#process">Cách đặt lịch</a>
+    </nav>
+    <a class="price-book-cta" href="lien-he.html">Đặt lịch <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="pricing-hero">
+      <div class="pricing-hero-inner">
+        <div class="pricing-hero-copy">
+          <span class="pricing-kicker"><i></i> CHEESE.GRADUATION · PRICING 2026</span>
+          <h1>Chọn đúng ekip<br/><em>Biết rõ chi phí</em></h1>
+          <p>Bảng giá được trình bày gọn để bạn dễ so sánh. Chi phí cuối cùng phụ thuộc photographer, gói chụp, số người và địa điểm thực tế.</p>
+          <div class="pricing-hero-actions">
+            <a class="primary-action" href="#team-pricing">Xem bảng giá <span>↓</span></a>
+            <a class="secondary-action" href="#province-pricing">Phụ phí tỉnh</a>
+          </div>
+        </div>
+        <div class="pricing-hero-card" aria-label="Tóm tắt bảng giá">
+          <div class="hero-card-head"><span>GIÁ THAM KHẢO</span><b>01</b></div>
+          <div class="hero-card-price"><small>Từ</small><strong id="heroReferencePrice">1.500.000đ</strong></div>
+          <p>Giá ekip và phụ phí tỉnh được tách riêng để dễ theo dõi.</p>
+          <div class="hero-mini-grid">
+            <div><b>4</b><span>hạng ekip</span></div>
+            <div><b id="heroProvinceCount">22</b><span>địa điểm</span></div>
+          </div>
+          <span class="hero-card-star" aria-hidden="true">✦</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing-section" id="team-pricing">
+      <div class="section-heading-modern">
+        <div>
+          <span class="section-number">01</span>
+          <span class="section-kicker">EQUIPMENT / PHOTOGRAPHER</span>
+          <h2>Bảng giá theo hạng ekip</h2>
+        </div>
+        <p>Giá khởi điểm cho một buổi chụp. Giá cuối có thể thay đổi theo photographer, loại chụp, số người và yêu cầu riêng.</p>
+      </div>
+
+      <div id="teamPriceList" class="team-price-list"></div>
+      <div class="soft-alert">
+        <span>i</span>
+        <p>Gói nhóm và nhu cầu đặc biệt sẽ được studio báo giá riêng sau khi xác nhận số người và lịch chụp.</p>
+      </div>
+    </section>
+
+    <section class="pricing-section province-section" id="province-pricing">
+      <div class="section-heading-modern">
+        <div>
+          <span class="section-number">02</span>
+          <span class="section-kicker">TRAVEL FEE</span>
+          <h2>Phụ phí di chuyển tỉnh</h2>
+        </div>
+        <p>Mức dưới đây tính cho 1 thợ và dùng để tham khảo. Địa điểm xa trung tâm hoặc cần lưu trú sẽ được xác nhận lại trước khi chốt lịch.</p>
+      </div>
+
+      <div class="province-tool-card">
+        <div class="province-tool-copy">
+          <span class="tool-chip">ƯỚC TÍNH NHANH</span>
+          <h3>Chọn địa điểm để xem tổng phụ phí</h3>
+          <p>Chọn nơi chụp và số thợ. Hệ thống sẽ nhân mức phí tham khảo giúp bạn dễ dự tính ngân sách.</p>
+        </div>
+        <div class="province-calculator">
+          <label class="field-box" for="provinceSelectCalc">
+            <span>Nơi chụp</span>
+            <select id="provinceSelectCalc"></select>
+            <small>Chọn tỉnh / khu vực</small>
+          </label>
+          <label class="field-box" for="photographerCountCalc">
+            <span>Số thợ</span>
+            <select id="photographerCountCalc">
+              <option value="1">1 thợ</option>
+              <option value="2">2 thợ</option>
+              <option value="3">3 thợ</option>
+              <option value="4">4 thợ</option>
+              <option value="5">5 thợ</option>
+            </select>
+            <small>Phụ phí nhân theo số thợ</small>
+          </label>
+        </div>
+        <div class="province-summary-card">
+          <div>
+            <small>Đang tính cho</small>
+            <b id="provinceSummaryName">Chưa chọn nơi chụp</b>
+            <p id="provinceSummaryNote">Chọn địa điểm để xem ghi chú chi tiết.</p>
+          </div>
+          <div class="province-summary-price"><small>Phụ phí dự kiến</small><strong id="provinceSummaryPrice">—</strong></div>
+        </div>
+      </div>
+
+      <details class="province-details" open>
+        <summary><span><b>Danh sách phụ phí</b><small id="provinceCountLabel"></small></span><i>+</i></summary>
+        <div id="provinceTableWrap" class="province-table-wrap"></div>
+      </details>
+
+      <div class="travel-notes-grid">
+        <article><span>01</span><p>Book theo nhóm để chia sẻ phụ phí di chuyển.</p></article>
+        <article><span>02</span><p>Gói nhóm 2–4 người không mặc định tăng thêm thợ khi chụp tỉnh xa.</p></article>
+        <article><span>03</span><p>Địa điểm xa trung tâm hoặc cần lưu trú sẽ được studio xác nhận lại.</p></article>
+        <article><span>04</span><p>Chụp thêm buổi tối đến 20h: cộng 500.000đ.</p></article>
+      </div>
+    </section>
+
+    <section class="pricing-bottom-cta">
+      <div>
+        <span>ĐÃ CÓ NGÀY CHỤP?</span>
+        <h2>Chọn thợ trước<br/><em>Studio chốt giá sau</em></h2>
+      </div>
+      <div class="pricing-bottom-actions">
+        <a class="outline-action" href="index.html#photographers">Xem danh sách thợ</a>
+        <a class="gold-action" href="lien-he.html">Nhắn studio để báo giá <span>↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pricing-footer">
+    <a href="index.html#top" class="footer-wordmark"><img src="assets/images/home/photo-15.png" alt="Cheese.Graduation"/></a>
+    <p>Graduation photography · Hà Nội</p>
+    <div><a href="index.html#photographers">Photographer</a><a href="bang-gia.html">Bảng giá</a><a href="thu-vien.html">Thư viện ảnh</a><a href="lien-he.html">Đặt lịch</a></div>
+  </footer>
+
+  <script src="assets/js/pricing/pricing-page.js"></script>
+  <script src="assets/js/shared/music-player.js"></script>
+</body>
+</html>

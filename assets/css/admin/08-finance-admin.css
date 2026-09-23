@@ -1,0 +1,148 @@
+
+.finance-rule-banner{
+  display:grid;grid-template-columns:1fr 1fr 1fr 1.4fr;gap:10px;margin-bottom:15px
+}
+.finance-rule-banner>div,.finance-rule-banner>p{
+  margin:0;border:1px solid #dce6ec;border-radius:15px;background:#fff;padding:15px
+}
+.finance-rule-banner>div small{display:block;font-size:7px;font-weight:900;letter-spacing:.08em;color:#7c8e9b}
+.finance-rule-banner>div strong{display:block;margin:5px 0 3px;font-size:22px;color:#173d5d}
+.finance-rule-banner>div span{font-size:7.5px;color:#728591}
+.finance-rule-banner>div:nth-child(2){background:#edf6f0;border-color:#cae2d0}
+.finance-rule-banner>div:nth-child(2) strong{color:#347447}
+.finance-rule-banner>div.founder-rule{background:#fff8e5;border-color:#ead49a}
+.finance-rule-banner>div.founder-rule strong{color:#9b7107}
+.finance-rule-banner>p{display:flex;align-items:center;background:#fff8e7;border-color:#ead9aa;color:#716541;font-size:8px;line-height:1.65}
+
+.finance-filterbar{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px;
+  padding:13px;border:1px solid var(--line);border-radius:15px;background:#fff
+}
+.finance-filter-main{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+.finance-filterbar label{display:grid;gap:5px}
+.finance-filterbar label>span{font-size:6.5px;font-weight:900;text-transform:uppercase;letter-spacing:.07em;color:#7b8c97}
+.finance-filterbar input,.finance-filterbar select{
+  height:38px;border:1px solid #d8e2e8;border-radius:9px;background:#fff;padding:0 9px;
+  color:#173d5d;font:700 8px "Be Vietnam Pro",sans-serif
+}
+.finance-filterbar button{
+  height:38px;border:0;border-radius:9px;background:#173d5d;color:#fff;padding:0 12px;font-size:8px;font-weight:900
+}
+
+.finance-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}
+.finance-stats article{
+  border:1px solid #dfe7ec;border-radius:14px;background:#fff;padding:14px
+}
+.finance-stats small{display:block;color:#81919c;font-size:6.5px;font-weight:900;text-transform:uppercase;letter-spacing:.07em}
+.finance-stats strong{display:block;margin:7px 0 3px;color:#173d5d;font-size:20px}
+.finance-stats span{font-size:7px;color:#788a96}
+.finance-stats article.studio{background:#173d5d;border-color:#173d5d}
+.finance-stats article.studio small,.finance-stats article.studio span{color:#c9d9e2}
+.finance-stats article.studio strong{color:#f1c64c}
+.finance-stats article.cash{background:#fff8e5;border-color:#ead6a0}
+.finance-stats article.cash strong{color:#996d00}
+
+.finance-panel{overflow:hidden}
+.finance-panel-head{align-items:center}
+.finance-table-legend{display:flex;gap:6px}
+.finance-table-legend span,.finance-type-pill{
+  display:inline-flex;padding:5px 7px;border-radius:999px;font-size:6.5px;font-weight:900;white-space:nowrap
+}
+.finance-table-legend .founder,.finance-type-pill.founder{background:#fff1c9;color:#936b08}
+.finance-table-legend .partner,.finance-type-pill.partner{background:#e6f3e9;color:#39764a}
+.finance-table-legend .regular,.finance-type-pill.regular{background:#eef2f5;color:#5b6d79}
+.finance-table{min-width:1450px}
+.finance-table tbody tr{cursor:default}
+.finance-table .fin-primary{font-weight:900;color:#173d5d}
+.finance-table .fin-sub{display:block;margin-top:3px;color:#82919b;font-size:7px}
+.finance-table .fin-money{font-weight:800;white-space:nowrap}
+.finance-table .fin-positive{color:#377645}
+.finance-table .fin-warning{color:#a56a1f}
+.finance-table .fin-negative{color:#a8464e}
+.finance-edit-btn{
+  border:1px solid #cddae2;border-radius:8px;background:#f7fafb;color:#173d5d;
+  padding:7px 9px;font-size:7px;font-weight:900;white-space:nowrap
+}
+
+.photographer-type-note{
+  border:1px solid #dce5ea;border-radius:10px;background:#f8fafb;padding:9px 11px;
+  display:flex;flex-direction:column;justify-content:center;gap:3px
+}
+.photographer-type-note b{font-size:9px;color:#173d5d}
+.photographer-type-note span{font-size:7px;color:#7d8e99}
+.photographer-admin-type{
+  display:inline-flex;margin-top:7px;padding:5px 7px;border-radius:999px;font-size:6.5px;font-weight:900
+}
+.photographer-admin-type.founder{background:#fff1c9;color:#936b08}
+.photographer-admin-type.partner{background:#e5f3e8;color:#377748}
+.photographer-admin-type.regular{background:#edf1f4;color:#5b6d79}
+
+.finance-modal{
+  position:fixed;inset:0;z-index:230;display:grid;place-items:center;padding:18px;
+  opacity:0;visibility:hidden;transition:.2s
+}
+.finance-modal.open{opacity:1;visibility:visible}
+.finance-modal-backdrop{position:absolute;inset:0;background:rgba(5,24,38,.66);backdrop-filter:blur(8px)}
+.finance-modal-card{
+  position:relative;z-index:1;width:min(860px,100%);max-height:calc(100svh - 30px);overflow:auto;
+  padding:26px;border-radius:22px;background:#fffaf0;box-shadow:0 36px 110px rgba(0,0,0,.28)
+}
+.finance-modal-close{
+  position:absolute;right:15px;top:15px;width:36px;height:36px;border:1px solid var(--line);
+  border-radius:50%;background:#fff;color:#173d5d;font-size:20px
+}
+.finance-modal-kicker{font-size:7px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#a77912}
+.finance-modal-card h2{margin:6px 45px 3px 0;font-family:"Playfair Display",serif;font-size:31px;letter-spacing:0}
+.finance-modal-meta{margin:0 0 15px;color:#768993;font-size:8px;line-height:1.5}
+#financeForm{display:grid;gap:11px}
+.finance-split-preview{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:7px
+}
+.finance-split-preview>div{
+  border:1px solid #dfe7ec;border-radius:11px;background:#fff;padding:10px
+}
+.finance-split-preview small{display:block;color:#84939e;font-size:6px;text-transform:uppercase;font-weight:900}
+.finance-split-preview strong{display:block;margin-top:4px;color:#173d5d;font-size:11px}
+.finance-form-section{
+  display:grid;gap:9px;padding:13px;border:1px solid #dfe7ec;border-radius:13px;background:#fff
+}
+.finance-form-section>b{font-size:9px;color:#173d5d;padding-bottom:6px;border-bottom:1px solid #eef2f4}
+.finance-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.finance-form-grid.two{grid-template-columns:1fr 1fr}
+#financeForm label{display:grid;gap:5px}
+#financeForm label>span{font-size:6.5px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;color:#7b8d99}
+#financeForm input{
+  height:40px;border:1px solid #d7e1e7;border-radius:9px;background:#fff;padding:0 10px;
+  color:#173d5d;font:700 9px "Be Vietnam Pro",sans-serif
+}
+.finance-live-summary{
+  display:grid;grid-template-columns:repeat(5,1fr);gap:7px
+}
+.finance-live-summary>div{
+  border:1px solid #dde6eb;border-radius:10px;background:#f9fbfc;padding:9px
+}
+.finance-live-summary span{display:block;color:#83929c;font-size:6px;text-transform:uppercase;font-weight:900}
+.finance-live-summary b{display:block;margin-top:4px;color:#173d5d;font-size:9px}
+.finance-live-summary .cash{background:#fff8e5;border-color:#ead8a6}
+.finance-modal-actions{display:grid;grid-template-columns:auto 1fr;gap:8px}
+.finance-modal-actions button{min-height:42px;border-radius:10px;padding:0 13px;font-size:8px;font-weight:900}
+.finance-reset-btn{border:1px solid #e3c5c8;background:#fff2f3;color:#a34850}
+.finance-save-btn{border:0;background:#173d5d;color:#fff}
+
+@media(max-width:1050px){
+  .finance-rule-banner{grid-template-columns:1fr 1fr}
+  .finance-rule-banner>p{grid-column:span 2}
+  .finance-stats{grid-template-columns:repeat(2,1fr)}
+  .finance-live-summary{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:720px){
+  .finance-rule-banner,.finance-stats{grid-template-columns:1fr}
+  .finance-rule-banner>p{grid-column:auto}
+  .finance-filterbar{align-items:stretch;flex-direction:column}
+  .finance-filter-main{display:grid;grid-template-columns:1fr 1fr}
+  .finance-filterbar button{width:100%}
+  .finance-split-preview{grid-template-columns:1fr 1fr}
+  .finance-form-grid,.finance-form-grid.two{grid-template-columns:1fr}
+  .finance-live-summary{grid-template-columns:1fr 1fr}
+  .finance-modal-actions{grid-template-columns:1fr}
+}

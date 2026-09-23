@@ -1,0 +1,132 @@
+
+/* Cheese.Graduation — Upcoming schedule + richer dashboard */
+.overview-stats .money-stat{
+  background:linear-gradient(145deg,#173d5d,#09273f);
+  border-color:#173d5d;color:#fff
+}
+.overview-stats .money-stat small,.overview-stats .money-stat span{color:rgba(255,255,255,.62)}
+.overview-stats .money-stat strong{color:#f1c64c}
+.overview-open-upcoming{
+  min-height:36px;border:1px solid var(--line);border-radius:10px;padding:0 11px;
+  background:#fff;color:#173d5d;font-size:8px;font-weight:900
+}
+.overview-upcoming{display:grid;padding:8px 16px 16px}
+.overview-upcoming .upcoming-day-group{border:0;border-radius:0;background:transparent;box-shadow:none;margin:0}
+.overview-upcoming .upcoming-day-head{padding:11px 0 8px;border-bottom:1px solid rgba(23,61,93,.08)}
+.overview-upcoming .upcoming-day-items{padding:0}
+.overview-upcoming .upcoming-card{margin-top:8px}
+
+.upcoming-panel{overflow:hidden}
+.upcoming-panel-head{align-items:center}
+.upcoming-schedule-list{display:grid;gap:14px;padding:16px}
+.upcoming-day-group{
+  border:1px solid rgba(23,61,93,.11);border-radius:15px;background:#fff;overflow:hidden
+}
+.upcoming-day-head{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 14px;background:#f8f5ed;border-bottom:1px solid rgba(23,61,93,.08)
+}
+.upcoming-day-head b{font-family:"Playfair Display",serif;font-size:17px;color:#173d5d}
+.upcoming-day-head span{font-size:7.5px;color:#7d8e99;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
+.upcoming-day-items{display:grid;gap:8px;padding:10px}
+.upcoming-card{
+  display:grid;grid-template-columns:88px minmax(0,1fr) auto;gap:12px;align-items:center;
+  padding:12px;border:1px solid #e1e8ec;border-radius:12px;background:#fff;cursor:pointer;
+  transition:transform .16s,box-shadow .16s,border-color .16s
+}
+.upcoming-card:hover{transform:translateY(-1px);border-color:#bfcfd9;box-shadow:0 8px 22px rgba(9,39,63,.06)}
+.upcoming-card.manual{background:#faf7fd;border-color:rgba(123,90,166,.17)}
+.upcoming-time{
+  min-height:48px;display:grid;place-items:center;text-align:center;padding:6px;
+  border-radius:10px;background:#edf3f7;color:#173d5d;font-size:8px;font-weight:900
+}
+.upcoming-card.manual .upcoming-time{background:#f1eafa;color:#755398}
+.upcoming-main{min-width:0}
+.upcoming-main h3{margin:0;font-size:11px;color:#173d5d}
+.upcoming-main p{margin:4px 0 0;color:#728490;font-size:8.5px;line-height:1.5}
+.upcoming-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.upcoming-tags span{
+  display:inline-flex;padding:4px 6px;border-radius:999px;background:#eef3f6;
+  color:#587082;font-size:6.5px;font-weight:800
+}
+.upcoming-tags .confirmed{background:#e4f2e5;color:#387543}
+.upcoming-tags .pending{background:#fff0d9;color:#8b5e22}
+.upcoming-tags .manual-tag{background:#eee6f7;color:#725394}
+.upcoming-side{text-align:right;min-width:100px}
+.upcoming-side strong{display:block;color:#173d5d;font-size:10px}
+.upcoming-side small{display:block;margin-top:4px;color:#82919b;font-size:7px}
+.upcoming-side button{
+  margin-top:6px;border:1px solid #d7e1e8;border-radius:7px;background:#f7fafb;
+  color:#173d5d;padding:6px 8px;font-size:7px;font-weight:900
+}
+
+.day.selected{box-shadow:inset 0 0 0 2px #e6b315;background:#fffbed}
+.day-bookings{gap:10px}
+.day-booking.detailed{
+  display:block;padding:14px;border-radius:14px;cursor:pointer;transition:.16s
+}
+.day-booking.detailed:hover{border-color:#bfcfd9;box-shadow:0 8px 22px rgba(9,39,63,.055)}
+.day-detail-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.day-detail-title b{display:block;font-size:12px;color:#173d5d}
+.day-detail-title span{display:block;margin-top:4px;color:#748692;font-size:8px}
+.day-detail-badges{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.day-detail-badges span{padding:5px 7px;border-radius:999px;background:#eef3f6;color:#536f80;font-size:6.5px;font-weight:900}
+.day-detail-badges .paid{background:#e4f3e6;color:#34723c}
+.day-detail-badges .pending{background:#fff0d6;color:#8c5f24}
+.day-detail-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin-top:11px
+}
+.day-detail-grid div{padding:8px 9px;border:1px solid #e6ecef;border-radius:9px;background:#fbfcfd}
+.day-detail-grid small{display:block;color:#8997a0;font-size:6px;text-transform:uppercase;letter-spacing:.06em}
+.day-detail-grid b{display:block;margin-top:3px;color:#294a61;font-size:8px;line-height:1.35}
+.day-detail-note{margin-top:9px!important;padding:8px 9px;border-radius:9px;background:#f6f8f9;color:#637985!important;font-size:8px!important;line-height:1.55!important}
+.day-booking.manual-entry.detailed{background:#faf7fd}
+.day-booking.manual-entry.detailed .day-detail-grid div{background:#fff}
+.day-event-actions{margin-top:10px}
+
+@media(max-width:900px){
+  .upcoming-card{grid-template-columns:76px 1fr}
+  .upcoming-side{grid-column:2;text-align:left;display:flex;align-items:center;gap:8px}
+  .upcoming-side small{margin:0}
+  .day-detail-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .upcoming-panel-head{align-items:stretch!important}
+  .upcoming-card{grid-template-columns:1fr;gap:8px}
+  .upcoming-time{min-height:auto;display:inline-flex;width:max-content;padding:6px 9px}
+  .upcoming-side{grid-column:auto}
+  .day-detail-head{display:grid}
+  .day-detail-badges{justify-content:flex-start}
+  .day-detail-grid{grid-template-columns:1fr}
+}
+
+
+/* Explicit edit/delete controls for every schedule */
+.schedule-edit-section{
+  display:grid;gap:10px;padding:13px;border:1px solid #dfe7ec;border-radius:13px;background:#fff
+}
+.schedule-edit-section>b{
+  font-size:10px;color:#173d5d;padding-bottom:7px;border-bottom:1px solid #edf1f3
+}
+.schedule-edit-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.booking-edit-actions{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center}
+.booking-delete-btn{
+  margin-top:5px;border:1px solid #e5c2c6;border-radius:12px;padding:13px 15px;
+  background:#fff1f2;color:#a33f49;font-size:9px;font-weight:900;cursor:pointer
+}
+.booking-delete-btn:hover{background:#fbe2e5}
+.schedule-inline-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.schedule-inline-actions button{
+  min-height:31px;border-radius:8px;padding:0 10px;font-size:7px;font-weight:900;cursor:pointer
+}
+.schedule-inline-actions .schedule-edit{
+  border:1px solid #ccdbe3;background:#f7fafb;color:#173d5d
+}
+.schedule-inline-actions .schedule-delete{
+  border:1px solid #e5c8cb;background:#fff1f2;color:#a3464d
+}
+.upcoming-side .schedule-edit{border-color:#ccdbe3;background:#f7fafb;color:#173d5d}
+.upcoming-side .schedule-delete{border-color:#e5c8cb;background:#fff1f2;color:#a3464d}
+@media(max-width:620px){
+  .schedule-edit-grid,.booking-edit-actions{grid-template-columns:1fr}
+}

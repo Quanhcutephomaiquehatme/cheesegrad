@@ -1,0 +1,158 @@
+
+/* =========================================================
+   Cheese.Graduation — Mobile UX final overrides
+   ========================================================= */
+html,body{max-width:100%;overflow-x:hidden}
+@media(max-width:700px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{padding-bottom:env(safe-area-inset-bottom);touch-action:manipulation}
+  button,a,input,select,textarea{touch-action:manipulation}
+  button,a{ -webkit-tap-highlight-color:transparent }
+
+  /* Header */
+  .nav-wrap.motion-nav{
+    min-height:66px!important;
+    padding:8px max(12px,env(safe-area-inset-right)) 8px max(12px,env(safe-area-inset-left))!important;
+    gap:8px!important
+  }
+  .nav-wrap.motion-nav .brand-logo{width:104px!important;height:46px!important}
+  .nav-wrap.motion-nav .nav-cta{
+    min-height:42px!important;
+    padding:0 10px!important;
+    font-size:10px!important;
+    white-space:nowrap
+  }
+  .mobile-menu-toggle{
+    width:44px!important;height:44px!important;min-width:44px!important;border-radius:12px!important
+  }
+  .mobile-drawer{
+    padding:calc(86px + env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom))!important;
+    background:#f7f0e3!important
+  }
+  .mobile-drawer nav{gap:6px!important}
+  .mobile-drawer a{
+    min-height:54px!important;
+    display:flex!important;align-items:center!important;
+    padding:0 4px!important;
+    font-size:clamp(24px,8vw,34px)!important;
+    line-height:1.3!important
+  }
+
+  /* Hero */
+  .cheese-motion-hero{
+    min-height:max(720px,100svh)!important;
+    padding:94px 14px 92px!important
+  }
+  .cheese-motion-hero .hero-copy{width:100%!important;max-width:440px!important}
+  .cheese-motion-hero .hero-wordmark{
+    font-size:clamp(40px,12.2vw,58px)!important;
+    line-height:1.3!important
+  }
+  .cheese-motion-hero .hero-copy>.hero-subtitle{
+    font-size:16px!important;line-height:1.55!important;max-width:330px!important
+  }
+  .hero-stats{
+    display:grid!important;grid-template-columns:1fr!important;
+    width:min(100%,300px)!important;gap:6px!important
+  }
+  .hero-stats span{
+    justify-content:center!important;
+    min-height:38px!important;
+    font-size:11px!important;padding:8px 12px!important
+  }
+  .hero-cta-row{
+    display:grid!important;grid-template-columns:1fr!important;
+    width:min(100%,340px)!important
+  }
+  .hero-main-btn,.hero-secondary-btn{
+    min-height:50px!important;width:100%!important;
+    font-size:13px!important
+  }
+  .hero-motion-toggle{
+    right:10px!important;
+    bottom:calc(12px + env(safe-area-inset-bottom))!important;
+    min-height:40px!important
+  }
+  .hero-scroll{display:none!important}
+
+  /* Sections */
+  .section-pad{padding-top:58px!important;padding-bottom:58px!important}
+  .section-head,.section-heading{gap:12px!important}
+  .section-head h2,.section-heading h2{font-size:clamp(34px,10vw,48px)!important}
+  .section-head p,.section-heading p{font-size:14px!important;line-height:1.65!important}
+
+  /* Filters become swipe-friendly instead of squeezing */
+  #photographers .filters{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    overflow-x:auto!important;
+    overscroll-behavior-x:contain;
+    gap:7px!important;
+    padding:2px 2px 8px!important;
+    scrollbar-width:none
+  }
+  #photographers .filters::-webkit-scrollbar{display:none}
+  #photographers .filter{
+    flex:0 0 auto!important;
+    min-height:42px!important;
+    padding:0 13px!important;
+    white-space:nowrap!important
+  }
+  .directory-tools{
+    display:grid!important;grid-template-columns:1fr!important;gap:8px!important
+  }
+  .directory-tools input,.directory-tools select{
+    width:100%!important;min-height:48px!important;font-size:16px!important
+  }
+
+  /* Photographer cards: one card per row on phones */
+  .cheese-photographer-grid{
+    grid-template-columns:1fr!important;
+    gap:14px!important
+  }
+  .cheese-photographer-card{
+    border-radius:18px!important
+  }
+  .cheese-photographer-card .card-image{
+    aspect-ratio:4/4.7!important;
+    max-height:520px
+  }
+  .cheese-photographer-card .card-body{padding:15px 14px 14px!important}
+  .cheese-photographer-card h3{font-size:28px!important}
+  .photographer-tags span{font-size:11px!important;padding:6px 8px!important}
+  .shoot-stats{font-size:12px!important}
+  .price-block small{font-size:12px!important}
+  .price-block strong{font-size:26px!important}
+  .card-book-link,.card-book-now{
+    min-height:46px!important;
+    font-size:12px!important
+  }
+
+  /* Profile mode */
+  .profile-shell{
+    padding:78px 12px 48px!important;
+    max-width:100%!important
+  }
+  .profile-hero-grid,.profile-main-grid{grid-template-columns:1fr!important}
+  .profile-slides{border-radius:14px!important}
+  .profile-simple-booking-btn,.profile-drive-btn,.profile-album-link{
+    min-height:48px!important
+  }
+  .profile-photo-arrow{width:44px!important;height:44px!important}
+  .profile-portfolio-grid{grid-template-columns:1fr!important}
+  .profile-gallery-meta{font-size:12px!important}
+
+  /* General touch size */
+  .music-toggle{
+    min-width:46px!important;min-height:46px!important;
+    right:10px!important;
+    bottom:calc(10px + env(safe-area-inset-bottom))!important
+  }
+}
+
+@media(max-width:390px){
+  .nav-wrap.motion-nav .brand-logo{width:92px!important}
+  .nav-wrap.motion-nav .nav-cta{font-size:9px!important;padding:0 8px!important}
+  .cheese-motion-hero .hero-wordmark{font-size:40px!important}
+  .cheese-motion-hero{padding-left:11px!important;padding-right:11px!important}
+}

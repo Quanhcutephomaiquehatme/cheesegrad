@@ -1,0 +1,289 @@
+/* =========================================================
+   Cheese.Graduation — Admin responsive refinement v64
+   Loads last so desktop + mobile remain predictable.
+   ========================================================= */
+
+body.portal-admin .shell{grid-template-columns:264px minmax(0,1fr)!important}
+body.portal-admin .sidebar{padding:20px 15px!important}
+body.portal-admin .sidebar .brand{padding:13px 12px 20px!important}
+body.portal-admin .sidebar .brand b{font-size:22px!important}
+body.portal-admin .nav{gap:5px!important;padding-top:16px!important}
+body.portal-admin .nav button{
+  min-height:44px!important;
+  padding:10px 11px!important;
+  font-size:10px!important;
+}
+body.portal-admin .nav .ico{flex:0 0 28px;width:28px!important;height:28px!important}
+body.portal-admin .main{
+  min-width:0!important;
+  padding:28px clamp(18px,3vw,42px) 58px!important;
+}
+body.portal-admin .topbar{gap:14px!important;margin-bottom:18px!important}
+body.portal-admin .topbar>div:first-child{min-width:0}
+body.portal-admin .topbar h1{font-size:clamp(32px,3.5vw,46px)!important;line-height:1.05!important}
+body.portal-admin .topbar p{max-width:760px!important;line-height:1.55!important}
+body.portal-admin .notify-tools{flex:0 0 auto!important}
+body.portal-admin .panel{min-width:0}
+body.portal-admin .panel-head{gap:10px!important}
+body.portal-admin .filters input,
+body.portal-admin .filters select{min-height:40px}
+
+@media(max-width:1100px) and (min-width:761px){
+  body.portal-admin .shell{grid-template-columns:214px minmax(0,1fr)!important}
+  body.portal-admin .sidebar{padding-inline:11px!important}
+  body.portal-admin .sidebar .brand{padding-inline:9px!important}
+  body.portal-admin .sidebar .brand b{font-size:19px!important}
+  body.portal-admin .nav button{font-size:9px!important;padding-inline:9px!important}
+  body.portal-admin .main{padding-inline:18px!important}
+}
+
+@media(max-width:760px){
+  body.portal-admin{background:#f4f0e8!important}
+  body.portal-admin .shell{display:block!important;min-height:100svh!important}
+  body.portal-admin .sidebar{display:none!important}
+
+  /* Mobile navigation: brand row + large native view selector */
+  body.portal-admin .mobile-top{
+    position:sticky!important;
+    top:0!important;
+    z-index:75!important;
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:9px!important;
+    min-height:64px!important;
+    padding:calc(7px + env(safe-area-inset-top)) 9px 7px!important;
+    background:rgba(247,242,232,.96)!important;
+    border-bottom:1px solid rgba(23,61,93,.09)!important;
+    box-shadow:0 5px 20px rgba(9,39,63,.06)!important;
+    backdrop-filter:blur(18px)!important;
+  }
+  body.portal-admin .mobile-top b{
+    max-width:118px!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    font-size:13px!important;
+    white-space:nowrap!important;
+  }
+  body.portal-admin .mobile-top select{
+    width:100%!important;
+    min-width:0!important;
+    height:46px!important;
+    padding:0 34px 0 12px!important;
+    border:1px solid rgba(23,61,93,.12)!important;
+    border-radius:13px!important;
+    background:#fffdf8!important;
+    color:#17354f!important;
+    font-size:15px!important;
+    font-weight:800!important;
+  }
+
+  body.portal-admin .main{
+    padding:10px 8px calc(42px + env(safe-area-inset-bottom))!important;
+  }
+  body.portal-admin .topbar{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    align-items:start!important;
+    gap:10px!important;
+    margin:0 0 10px!important;
+    padding:15px 13px!important;
+    border-radius:18px!important;
+  }
+  body.portal-admin .topbar h1{
+    font-size:clamp(26px,9vw,34px)!important;
+    line-height:1.04!important;
+  }
+  body.portal-admin .topbar p{
+    margin-top:5px!important;
+    font-size:10px!important;
+    line-height:1.45!important;
+  }
+  body.portal-admin .topbar .notify-tools{
+    position:static!important;
+    display:flex!important;
+    align-items:center!important;
+    gap:5px!important;
+  }
+  body.portal-admin .notify-enable{display:none!important}
+  body.portal-admin .live{display:none!important}
+  body.portal-admin .admin-bell{
+    width:44px!important;height:44px!important;min-width:44px!important;
+  }
+  body.portal-admin .notify-popover{
+    top:calc(66px + env(safe-area-inset-top))!important;
+    left:8px!important;right:8px!important;
+    width:auto!important;
+    max-height:70svh!important;
+    border-radius:18px!important;
+  }
+
+  /* Dashboard cards */
+  body.portal-admin .stats,
+  body.portal-admin .overview-stats{
+    grid-template-columns:1fr 1fr!important;
+    gap:7px!important;
+    margin-bottom:10px!important;
+  }
+  body.portal-admin .stat{
+    min-width:0!important;
+    padding:12px!important;
+    border-radius:15px!important;
+  }
+  body.portal-admin .stat small{font-size:7.5px!important;line-height:1.3!important}
+  body.portal-admin .stat strong{
+    margin-top:7px!important;
+    font-size:clamp(19px,6vw,24px)!important;
+    overflow-wrap:anywhere!important;
+  }
+  body.portal-admin .stat span{font-size:7.5px!important;line-height:1.35!important}
+
+  /* Panels and filters */
+  body.portal-admin .panel{border-radius:17px!important;overflow:hidden!important}
+  body.portal-admin .panel-head{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:9px!important;
+    padding:13px!important;
+  }
+  body.portal-admin .panel-head h2{font-size:15px!important;line-height:1.3!important}
+  body.portal-admin .panel-head p{font-size:9px!important;line-height:1.45!important}
+  body.portal-admin .filters{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:6px!important;
+    width:100%!important;
+  }
+  body.portal-admin .filters input,
+  body.portal-admin .filters select,
+  body.portal-admin input,
+  body.portal-admin select,
+  body.portal-admin textarea{
+    max-width:100%!important;
+    min-height:46px!important;
+    font-size:16px!important;
+  }
+  body.portal-admin textarea{min-height:100px!important}
+
+  /* Calendar: true phone-width month view. Event text becomes compact bars. */
+  body.portal-admin .calendar-wrap{overflow:visible!important;width:100%!important}
+  body.portal-admin .calendar{
+    min-width:0!important;
+    width:100%!important;
+    grid-template-columns:repeat(7,minmax(0,1fr))!important;
+  }
+  body.portal-admin .dow{
+    min-width:0!important;
+    padding:7px 1px!important;
+    font-size:6.5px!important;
+  }
+  body.portal-admin .day{
+    min-width:0!important;
+    min-height:66px!important;
+    padding:4px 2px!important;
+    overflow:hidden!important;
+  }
+  body.portal-admin .num{width:22px!important;height:22px!important;font-size:8px!important}
+  body.portal-admin .day-state{display:none!important}
+  body.portal-admin .event{
+    height:5px!important;
+    min-height:5px!important;
+    margin-top:3px!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:999px!important;
+    background:#9ab2c2!important;
+    font-size:0!important;
+    line-height:0!important;
+  }
+  body.portal-admin .event.paid{background:#55a267!important}
+  body.portal-admin .event.pending{background:#d6a34a!important}
+  body.portal-admin .event.manual{background:#8599aa!important}
+  body.portal-admin .calendar-toolbar{
+    display:grid!important;
+    grid-template-columns:1fr!important;
+    gap:7px!important;
+    margin-bottom:9px!important;
+  }
+  body.portal-admin .calendar-toolbar>div{
+    display:grid!important;
+    grid-template-columns:auto minmax(0,1fr) auto!important;
+    gap:5px!important;
+    width:100%!important;
+  }
+  body.portal-admin .calendar-toolbar>div:nth-child(2){grid-template-columns:1fr 1fr!important}
+  body.portal-admin .calendar-toolbar button,
+  body.portal-admin .calendar-toolbar select{
+    width:100%!important;
+    min-height:44px!important;
+    padding:0 7px!important;
+    font-size:10px!important;
+  }
+  body.portal-admin .month-title{
+    min-width:0!important;
+    font-size:16px!important;
+    white-space:nowrap!important;
+  }
+  body.portal-admin .calendar-legend{padding:9px!important;gap:6px!important}
+  body.portal-admin .calendar-legend span{font-size:7px!important}
+
+  /* Clicking a day must reveal useful detail on phone. */
+  body.portal-admin .day-drawer:not([hidden]){
+    display:block!important;
+    margin-top:9px!important;
+    scroll-margin-top:76px!important;
+  }
+  body.portal-admin .day-actions{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    width:100%!important;
+    gap:6px!important;
+  }
+  body.portal-admin .day-actions button{width:100%!important;min-height:44px!important}
+  body.portal-admin .day-bookings{padding:9px!important;gap:8px!important}
+  body.portal-admin .day-booking{grid-template-columns:1fr!important;padding:11px!important}
+
+  /* Editors / drawers behave like app sheets */
+  body.portal-admin .drawer{
+    width:100%!important;
+    height:100dvh!important;
+    padding:20px 13px calc(18px + env(safe-area-inset-bottom))!important;
+    border-radius:0!important;
+  }
+  body.portal-admin .drawer-close{width:44px!important;height:44px!important;top:12px!important;right:12px!important}
+  body.portal-admin .drawer h2{font-size:27px!important;margin-right:48px!important}
+  body.portal-admin .detail-grid{grid-template-columns:1fr!important;gap:7px!important}
+  body.portal-admin .detail{padding:10px!important}
+  body.portal-admin .edit-form input,
+  body.portal-admin .edit-form select,
+  body.portal-admin .edit-form textarea{font-size:16px!important}
+
+  /* Login/session guard shown inside admin.html */
+  body.portal-admin .login{padding:12px!important}
+  body.portal-admin .login-card{
+    width:min(430px,100%)!important;
+    padding:24px 18px!important;
+    border-radius:22px!important;
+  }
+  body.portal-admin .login-card h1{font-size:32px!important;line-height:1.08!important}
+  body.portal-admin .login-card p{font-size:11px!important}
+}
+
+@media(max-width:430px){
+  body.portal-admin .mobile-top{
+    grid-template-columns:1fr!important;
+    gap:6px!important;
+  }
+  body.portal-admin .mobile-top b{max-width:none!important;padding-left:3px!important}
+  body.portal-admin .stats,
+  body.portal-admin .overview-stats,
+  body.portal-admin .finance-stats{grid-template-columns:1fr 1fr!important}
+  body.portal-admin .day{min-height:61px!important}
+}
+
+@media(max-width:350px){
+  body.portal-admin .stats,
+  body.portal-admin .overview-stats,
+  body.portal-admin .finance-stats{grid-template-columns:1fr!important}
+}

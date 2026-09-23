@@ -1,0 +1,392 @@
+/* ===== split-booking-grad-css ===== */
+.booking-type-tabs{
+  display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:4px 0 18px;padding:5px;
+  border:1px solid rgba(23,61,93,.12);border-radius:15px;background:#f3f6f8
+}
+.booking-type-tab{
+  min-height:50px;border:0;border-radius:11px;background:transparent;color:#526b7d;
+  font-size:10px;font-weight:900;letter-spacing:.01em;transition:.2s
+}
+.booking-type-tab.active{background:#173d5d;color:#fff;box-shadow:0 8px 20px rgba(23,61,93,.16)}
+.booking-type-tab small{display:block;margin-top:3px;font-size:7.5px;font-weight:600;opacity:.72}
+.booking-type-panel[hidden]{display:none!important}
+.grad-package-panel{margin:2px 0 16px;padding:18px;border:1px solid rgba(23,61,93,.13);border-radius:16px;background:#fffdf9}
+.grad-step{color:#6b7881;font-size:7px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+.grad-package-panel h3{margin:7px 0 7px;font-family:"Playfair Display",serif;font-size:31px;line-height:1.3;letter-spacing:0;color:#142f46}
+.grad-lead{margin:0;color:#6e7e89;font-size:9.5px;line-height:1.6}
+.grad-promo{display:flex;align-items:center;gap:8px;margin:16px 0 11px;padding:10px 12px;border:1px solid #edbd63;border-radius:8px;background:#fff7e6;color:#7a5820;font-size:8px;line-height:1.45}
+.grad-package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.grad-package-card{position:relative;min-height:150px;padding:13px;border:1px solid #d8d8d4;border-radius:8px;background:#fff;color:#182f42;text-align:left;transition:.18s}
+.grad-package-card:hover{transform:translateY(-1px);border-color:#8b969e}
+.grad-package-card.active{border:1.5px solid #111;box-shadow:0 8px 22px rgba(9,39,63,.06)}
+.grad-radio{position:absolute;right:10px;top:10px;width:14px;height:14px;border:1px solid #d5d5d0;border-radius:50%;background:#fff}
+.grad-package-card.active .grad-radio{border:4px solid #111}
+.grad-package-card h4{margin:0 23px 9px 0;font-size:11px;font-weight:900}
+.grad-card-rule{height:1px;background:#e3e1da;margin:0 0 9px}
+.grad-from{font-size:8px;color:#7d878d}.grad-price{display:block;margin-top:3px;font-size:17px;font-weight:900;color:#071e31}
+.grad-group{margin:10px 0 8px;padding-top:8px;border-top:1px solid #e4e2dc;font-size:8px;font-weight:800;color:#7b3d75}
+.grad-detail{margin:0;font-size:8px;line-height:1.5;color:#465b69}
+.grad-people-wrap{margin-top:16px}.grad-people-label{font-size:8px;font-weight:900;color:#263f52}.grad-people-box{margin-top:7px;padding:12px;border:1px solid #102d43;border-radius:9px;background:#fff}
+.grad-people-top{display:flex;align-items:center;justify-content:space-between;gap:12px}.grad-people-top b{font-size:9px}.grad-people-price{font-size:13px!important;color:#0b65a3}
+.grad-slider{width:100%;height:4px;appearance:none;-webkit-appearance:none;margin:13px 0 7px;background:linear-gradient(90deg,#0c7bc4 0%,#0c7bc4 var(--grad-fill,0%),#dedede var(--grad-fill,0%),#dedede 100%);border-radius:999px;outline:none}
+.grad-slider::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#111;border:2px solid #fff;box-shadow:0 1px 5px #0004}
+.grad-slider::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:#111;border:2px solid #fff}
+.grad-range-marks{display:flex;justify-content:space-between;color:#7f8d96;font-size:7px}
+.grad-helper{margin:7px 0 0;color:#84919a;font-size:7.5px;line-height:1.45}
+.grad-summary{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:14px;padding:12px;border:1px solid #e5e0d5;border-radius:7px;background:#faf9f5}
+.grad-summary b{font-size:9px}.grad-summary strong{font-size:11px;color:#071e31}
+.yearbook-panel-note{margin:0 0 12px;color:#788995;font-size:8.5px;line-height:1.5}
+@media(max-width:760px){
+  .grad-package-grid{grid-template-columns:1fr}.grad-package-card{min-height:0}.grad-package-panel{padding:14px}.grad-package-panel h3{font-size:27px}
+}
+@media(max-width:520px){.booking-type-tabs{grid-template-columns:1fr}.booking-type-tab{min-height:44px}}
+
+/* ===== booking-steps-polish-v2 ===== */
+.booking-intro{padding-bottom:2px}
+.booking-intro h2{margin-bottom:7px!important}
+.booking-intro p{margin:0!important;color:#748693!important}
+.steps-list{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  gap:12px!important;
+  margin:24px 0 26px!important;
+  padding:0!important;
+}
+.steps-list::before{
+  content:"";
+  position:absolute;
+  top:22px;
+  left:7%;
+  right:7%;
+  height:1px;
+  background:linear-gradient(90deg,#0c7bc4 0%,rgba(12,123,196,.55) 52%,rgba(23,61,93,.16) 100%);
+  z-index:0;
+}
+.step{
+  position:relative!important;
+  z-index:1;
+  display:block!important;
+  min-width:0;
+  padding:0 4px!important;
+  text-align:center;
+}
+.step-num{
+  width:44px!important;
+  height:44px!important;
+  display:grid!important;
+  place-items:center!important;
+  margin:0 auto 12px!important;
+  border:5px solid #fff!important;
+  border-radius:50%!important;
+  background:#0c7bc4!important;
+  color:#fff!important;
+  box-shadow:0 0 0 1px rgba(12,123,196,.22),0 6px 16px rgba(12,123,196,.16)!important;
+  font-size:10px!important;
+  font-weight:900!important;
+  letter-spacing:.04em!important;
+}
+.step:nth-child(3) .step-num,
+.step:nth-child(4) .step-num{
+  background:#173d5d!important;
+  box-shadow:0 0 0 1px rgba(23,61,93,.18),0 6px 16px rgba(23,61,93,.12)!important;
+}
+.step strong{
+  display:block!important;
+  margin:0!important;
+  color:#17354f!important;
+  font-size:11px!important;
+  line-height:1.35!important;
+  font-weight:900!important;
+}
+.step span:not(.step-num){
+  display:block!important;
+  max-width:150px;
+  margin:5px auto 0!important;
+  color:#758794!important;
+  font-size:8.5px!important;
+  line-height:1.5!important;
+}
+.step-kicker{
+  display:block;
+  margin-bottom:3px;
+  color:#8ea0ad;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.11em;
+  text-transform:uppercase;
+}
+@media(max-width:760px){
+  .steps-list{
+    grid-template-columns:1fr!important;
+    gap:0!important;
+    margin:21px 0 24px!important;
+  }
+  .steps-list::before{
+    top:20px!important;
+    bottom:20px!important;
+    left:20px!important;
+    right:auto!important;
+    width:1px!important;
+    height:auto!important;
+    background:linear-gradient(180deg,#0c7bc4 0%,rgba(12,123,196,.45) 55%,rgba(23,61,93,.14) 100%)!important;
+  }
+  .step{
+    display:grid!important;
+    grid-template-columns:42px minmax(0,1fr)!important;
+    gap:13px!important;
+    align-items:start!important;
+    padding:0 0 16px!important;
+    text-align:left!important;
+  }
+  .step:last-child{padding-bottom:0!important}
+  .step-num{
+    width:40px!important;
+    height:40px!important;
+    margin:0!important;
+    border-width:4px!important;
+  }
+  .step-body{padding-top:4px}
+  .step span:not(.step-num){max-width:none!important;margin:4px 0 0!important}
+}
+
+/* ===== booking-ui-spacing-hover-polish ===== */
+body{line-height:1.55}
+h1,h2,h3,h4,p,small,strong,b,span,label,button,a{min-width:0}
+h1,h2,h3,h4{text-wrap:balance}
+button,a{line-height:1.35}
+p,.hint,.grad-detail,.grad-helper,.message-note,.contact-hint,
+.step span:not(.step-num),.yearbook-panel-note{
+  overflow-wrap:anywhere;
+}
+
+/* Header + hero text spacing */
+.hero-copy>p{
+  line-height:1.8!important;
+}
+.photo-info strong{
+  line-height:1.3!important;
+  margin-top:6px!important;
+}
+.photo-info p{
+  line-height:1.55!important;
+  margin-top:7px!important;
+}
+.booking-intro h2{
+  line-height:1.3!important;
+}
+.booking-intro p{
+  line-height:1.65!important;
+}
+
+/* Timeline */
+.step strong{
+  line-height:1.42!important;
+}
+.step span:not(.step-num){
+  line-height:1.62!important;
+}
+.step-kicker{
+  line-height:1.3!important;
+}
+
+/* Form spacing */
+label{
+  line-height:1.4;
+}
+label>span,.field-label{
+  line-height:1.4!important;
+  margin-bottom:1px;
+}
+input,select,textarea{
+  line-height:1.45!important;
+}
+.hint{
+  line-height:1.65!important;
+  margin-bottom:12px!important;
+}
+
+/* Tabs / options / package cards */
+.booking-type-tabs{
+  gap:10px!important;
+}
+.booking-type-tab,
+.duration-toggle button,
+.half-slot,
+.package-option,
+.grad-package-card{
+  line-height:1.4!important;
+}
+.booking-type-tab strong,
+.package-option strong,
+.grad-package-card h4{
+  line-height:1.35!important;
+}
+.booking-type-tab small,
+.package-note,
+.grad-detail,
+.grad-helper{
+  line-height:1.6!important;
+}
+.package-card,
+.grad-package-panel{
+  margin-top:14px!important;
+}
+.package-head{
+  row-gap:10px!important;
+}
+.package-summary,
+.grad-summary{
+  row-gap:8px!important;
+}
+.grad-promo{
+  line-height:1.5!important;
+}
+.grad-people-top{
+  align-items:flex-start!important;
+}
+.grad-people-price{
+  line-height:1.35!important;
+  text-align:right;
+}
+
+/* Availability and message */
+.availability-card h3{
+  line-height:1.4!important;
+}
+.availability-card p{
+  line-height:1.55!important;
+}
+.availability-slot b,
+.availability-slot span{
+  line-height:1.35!important;
+}
+.message-title{
+  line-height:1.3!important;
+}
+.message-box{
+  line-height:1.72!important;
+}
+.message-note,.contact-hint{
+  line-height:1.65!important;
+}
+.contact-btn{
+  line-height:1.35!important;
+}
+
+/* Photographer switch */
+.compact-switch-copy b{
+  line-height:1.35!important;
+}
+.compact-photographer-option b{
+  line-height:1.35!important;
+}
+.compact-photographer-option small{
+  line-height:1.55!important;
+}
+
+/* Hover: images/cards/icons */
+.photo-card,
+.package-option,
+.grad-package-card,
+.booking-type-tab,
+.duration-toggle button,
+.half-slot,
+.compact-photographer-option,
+.availability-slot,
+.contact-btn,
+.copy-btn,
+.compact-switch-trigger{
+  transition:
+    transform .24s cubic-bezier(.2,.75,.2,1),
+    box-shadow .24s ease,
+    border-color .24s ease,
+    background .24s ease,
+    color .24s ease,
+    filter .24s ease!important;
+}
+.photo img,
+.compact-photographer-option img,
+.compact-switch-avatar img{
+  transition:transform .5s cubic-bezier(.2,.75,.2,1),filter .3s ease!important;
+}
+.photo-card:hover .photo img{
+  transform:scale(1.025);
+  filter:saturate(1.04) contrast(1.02);
+}
+.package-option:hover,
+.grad-package-card:hover,
+.booking-type-tab:hover,
+.duration-toggle button:hover,
+.half-slot:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(9,39,63,.08);
+}
+.package-option.active,
+.grad-package-card.active,
+.booking-type-tab.active{
+  box-shadow:0 10px 24px rgba(9,39,63,.10)!important;
+}
+.compact-switch-trigger:hover{
+  transform:translateY(-2px);
+}
+.compact-photographer-option:hover{
+  transform:translateY(-3px)!important;
+}
+.compact-photographer-option:hover img{
+  transform:scale(1.045);
+}
+.availability-slot:hover{
+  transform:translateY(-1px);
+}
+.contact-btn:not(.disabled):hover,
+.copy-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 9px 20px rgba(9,39,63,.10);
+}
+.contact-btn:not(.disabled):active,
+.copy-btn:active,
+.compact-switch-trigger:active{
+  transform:scale(.985);
+}
+.contact-icon{
+  display:inline-grid;
+  place-items:center;
+  transition:transform .22s ease!important;
+}
+.contact-btn:hover .contact-icon{
+  transform:scale(1.12) rotate(-4deg);
+}
+.compact-switch-arrow{
+  transition:transform .22s ease!important;
+}
+
+@media(max-width:620px){
+  .package-summary,.grad-summary{
+    align-items:flex-start!important;
+    flex-direction:column!important;
+  }
+  .grad-people-top{
+    gap:7px!important;
+  }
+}
+@media(hover:none){
+  .photo-card:hover .photo img,
+  .package-option:hover,
+  .grad-package-card:hover,
+  .booking-type-tab:hover,
+  .compact-photographer-option:hover{
+    transform:none!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .photo img,
+  .compact-photographer-option img,
+  .package-option,
+  .grad-package-card,
+  .booking-type-tab,
+  .contact-btn,
+  .copy-btn{
+    transition:none!important;
+  }
+}

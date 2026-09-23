@@ -1,0 +1,104 @@
+/* =========================================================
+   Booking photographer card — title spacing + contrast fix
+   Scoped only to lien-he.html / body.page-booking hero card.
+   ========================================================= */
+
+/* Keep the decorative CHEESE.GRADUATION word behind the real content. */
+body.page-booking .hero::after{
+  z-index:0!important;
+}
+body.page-booking .hero > .photo-card,
+body.page-booking .hero > .hero-copy{
+  position:relative!important;
+  z-index:2!important;
+}
+
+/* Photographer info block: clearer hierarchy on the dark hero. */
+body.page-booking .hero .photo-card .photo-info{
+  position:relative!important;
+  z-index:3!important;
+  padding:15px 18px 18px!important;
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.075))!important;
+}
+
+body.page-booking .hero .photo-card .photo-info small{
+  display:block!important;
+  margin:0 0 7px!important;
+  color:rgba(238,215,161,.86)!important;
+  font-size:8px!important;
+  font-weight:700!important;
+  line-height:1.2!important;
+  letter-spacing:.11em!important;
+  text-shadow:0 1px 10px rgba(0,0,0,.24)!important;
+}
+
+body.page-booking .hero .photo-card .photo-info strong{
+  display:block!important;
+  margin:0!important;
+  transform:translateY(-2px)!important;
+  color:#fffaf0!important;
+  font-family:"Playfair Display",Georgia,serif!important;
+  font-size:clamp(27px,2.4vw,34px)!important;
+  font-weight:600!important;
+  line-height:1.05!important;
+  letter-spacing:-.025em!important;
+  text-shadow:0 3px 18px rgba(0,0,0,.30)!important;
+}
+
+body.page-booking .hero .photo-card .photo-info p{
+  display:block!important;
+  margin:8px 0 0!important;
+  color:rgba(255,250,240,.76)!important;
+  font-size:10px!important;
+  font-weight:500!important;
+  line-height:1.45!important;
+  letter-spacing:.005em!important;
+  text-shadow:0 1px 10px rgba(0,0,0,.22)!important;
+}
+
+@media(max-width:700px){
+  body.page-booking .hero .photo-card .photo-info{
+    padding:13px 14px 15px!important;
+  }
+  body.page-booking .hero .photo-card .photo-info small{
+    margin-bottom:6px!important;
+    font-size:8px!important;
+  }
+  body.page-booking .hero .photo-card .photo-info strong{
+    transform:translateY(-2px)!important;
+    font-size:25px!important;
+    line-height:1.04!important;
+  }
+  body.page-booking .hero .photo-card .photo-info p{
+    margin-top:8px!important;
+    font-size:11px!important;
+    line-height:1.4!important;
+  }
+}
+
+/* =========================================================
+   Booking hero title — reserve real space below the large
+   photographer script name so it never overlaps description.
+   ========================================================= */
+body.page-booking .hero .hero-copy h1{
+  margin-top:17px!important;
+  margin-bottom:clamp(58px,5.6vw,82px)!important;
+}
+
+body.page-booking .hero .hero-copy > p{
+  position:relative!important;
+  z-index:3!important;
+  margin-top:0!important;
+}
+
+@media(max-width:760px){
+  body.page-booking .hero .hero-copy h1{
+    margin-bottom:42px!important;
+  }
+}
+
+@media(max-width:430px){
+  body.page-booking .hero .hero-copy h1{
+    margin-bottom:34px!important;
+  }
+}

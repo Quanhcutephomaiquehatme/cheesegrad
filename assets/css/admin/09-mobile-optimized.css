@@ -1,0 +1,545 @@
+
+/* =========================================================
+   Studio Admin — Mobile UX final overrides
+   ========================================================= */
+html,body{max-width:100%;overflow-x:hidden}
+@media(max-width:760px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{
+    padding-bottom:env(safe-area-inset-bottom);
+    touch-action:manipulation
+  }
+  button,a,input,select,textarea{touch-action:manipulation}
+  button,a{-webkit-tap-highlight-color:transparent}
+
+  /* Login */
+  .login{
+    align-items:center!important;
+    padding:
+      calc(14px + env(safe-area-inset-top))
+      12px
+      calc(14px + env(safe-area-inset-bottom))!important
+  }
+  .login-card{
+    padding:22px 16px!important;
+    border-radius:20px!important
+  }
+  .login-card h1{font-size:34px!important}
+  .login-card p{font-size:13px!important}
+  .login-card label{font-size:10px!important}
+  .login-card input{
+    min-height:50px!important;
+    font-size:16px!important
+  }
+  .login-card button{
+    min-height:48px!important;
+    font-size:13px!important
+  }
+
+  /* Sticky mobile navigation */
+  .mobile-top{
+    position:sticky!important;top:0!important;z-index:75!important;
+    min-height:62px!important;
+    padding:
+      calc(8px + env(safe-area-inset-top))
+      max(10px,env(safe-area-inset-right))
+      8px
+      max(10px,env(safe-area-inset-left))!important;
+    gap:8px!important;
+    background:rgba(247,240,227,.97)!important;
+    box-shadow:0 5px 18px rgba(9,39,63,.07)!important
+  }
+  .mobile-top b{
+    font-size:15px!important;
+    line-height:1.3!important
+  }
+  .mobile-top select{
+    flex:1!important;min-width:0!important;
+    height:44px!important;
+    padding:0 10px!important;
+    font-size:16px!important;
+    font-weight:800!important
+  }
+
+  .main{
+    padding:18px 10px calc(54px + env(safe-area-inset-bottom))!important
+  }
+  .topbar{
+    position:relative!important;
+    display:block!important;
+    margin-bottom:16px!important;
+    padding-right:50px!important
+  }
+  .topbar h1{font-size:32px!important;line-height:1.3!important}
+  .topbar p{font-size:12px!important;line-height:1.5!important}
+  .topbar .notify-tools{
+    position:absolute!important;
+    right:0!important;top:0!important
+  }
+  .admin-bell{
+    width:44px!important;height:44px!important;
+    min-width:44px!important
+  }
+  .notify-popover{
+    left:10px!important;right:10px!important;top:72px!important;
+    width:auto!important;max-width:none!important
+  }
+
+  /* Base readability / touch targets */
+  .panel{border-radius:15px!important}
+  .panel-head{
+    padding:14px!important;
+    gap:10px!important
+  }
+  .panel-head h2{font-size:17px!important}
+  .panel-head p{font-size:11px!important;line-height:1.5!important}
+  .filters{
+    display:grid!important;grid-template-columns:1fr!important;
+    width:100%!important;gap:7px!important
+  }
+  .filters input,.filters select,
+  input,select,textarea{
+    min-height:46px!important;
+    font-size:16px!important
+  }
+  textarea{min-height:100px!important}
+  button{min-height:42px}
+  .small-btn,.add-calendar-btn,.overview-open-upcoming{
+    min-height:44px!important;
+    font-size:11px!important
+  }
+
+  /* Dashboard */
+  .stats,.overview-stats{
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important
+  }
+  .stat{
+    padding:13px!important;
+    border-radius:14px!important
+  }
+  .stat small{font-size:8px!important}
+  .stat strong{font-size:21px!important}
+  .stat span{font-size:8px!important;line-height:1.4!important}
+  .overview-upcoming{padding:7px 10px 12px!important}
+
+  /* Upcoming schedule cards */
+  .upcoming-schedule-list{padding:10px!important;gap:10px!important}
+  .upcoming-day-group{border-radius:13px!important}
+  .upcoming-day-head{padding:11px 12px!important}
+  .upcoming-day-head b{font-size:16px!important}
+  .upcoming-day-head span{font-size:8px!important}
+  .upcoming-day-items{padding:8px!important}
+  .upcoming-card{
+    grid-template-columns:1fr!important;
+    gap:8px!important;
+    padding:11px!important;
+    border-radius:11px!important
+  }
+  .upcoming-time{
+    width:max-content!important;min-height:0!important;
+    padding:6px 9px!important;
+    font-size:10px!important
+  }
+  .upcoming-main h3{font-size:13px!important;line-height:1.4!important}
+  .upcoming-main p{font-size:10px!important}
+  .upcoming-tags span{font-size:8px!important;padding:5px 7px!important}
+  .upcoming-side{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:6px!important;
+    min-width:0!important;
+    text-align:left!important
+  }
+  .upcoming-side strong,.upcoming-side small{grid-column:1/-1}
+  .upcoming-side button{
+    width:100%!important;min-height:42px!important;
+    margin:0!important;font-size:10px!important
+  }
+
+  /* Calendar fits the phone instead of forcing a 700px horizontal canvas */
+  .calendar-wrap{
+    overflow:visible!important;
+    width:100%!important
+  }
+  .calendar{
+    min-width:0!important;
+    width:100%!important;
+    grid-template-columns:repeat(7,minmax(0,1fr))!important
+  }
+  .dow{
+    min-width:0!important;
+    padding:7px 1px!important;
+    font-size:7px!important
+  }
+  .day{
+    min-width:0!important;
+    min-height:78px!important;
+    padding:4px 3px!important
+  }
+  .num{
+    width:24px!important;height:24px!important;
+    font-size:9px!important
+  }
+  .day-state{display:none!important}
+  .event{
+    margin-top:3px!important;
+    padding:4px!important;
+    border-left-width:2px!important;
+    border-radius:5px!important;
+    font-size:6px!important;
+    line-height:1.3!important
+  }
+  .calendar-toolbar{
+    gap:9px!important;
+    margin-bottom:10px!important
+  }
+  .calendar-toolbar>div{
+    display:grid!important;
+    grid-template-columns:auto 1fr auto!important;
+    gap:6px!important;
+    width:100%!important
+  }
+  .calendar-toolbar>div:nth-child(2){
+    grid-template-columns:1fr 1fr!important
+  }
+  .calendar-toolbar button,.calendar-toolbar select{
+    width:100%!important;
+    min-height:44px!important;
+    font-size:11px!important
+  }
+  .month-title{text-align:center!important;font-size:17px!important}
+  .calendar-legend{
+    gap:7px!important;
+    padding:10px!important
+  }
+  .calendar-legend span{font-size:8px!important}
+
+  /* Critical: day details were hidden on mobile in the old CSS */
+  .day-drawer:not([hidden]){
+    display:block!important;
+    margin-top:10px!important
+  }
+  .day-bookings{padding:10px!important}
+  .day-booking.detailed{
+    padding:12px!important;
+    border-radius:12px!important
+  }
+  .day-detail-title b{font-size:13px!important}
+  .day-detail-title span{font-size:10px!important}
+  .day-detail-badges span{font-size:8px!important}
+  .day-detail-grid{
+    grid-template-columns:1fr!important;
+    gap:6px!important
+  }
+  .day-detail-grid div{padding:9px!important}
+  .day-detail-grid small{font-size:8px!important}
+  .day-detail-grid b{font-size:11px!important}
+  .day-detail-note{font-size:10px!important}
+  .schedule-inline-actions{
+    display:grid!important;grid-template-columns:1fr 1fr!important
+  }
+  .schedule-inline-actions button{
+    width:100%!important;min-height:44px!important;font-size:10px!important
+  }
+
+  /* Manual monthly list */
+  .manual-month-row{
+    grid-template-columns:1fr!important;
+    gap:5px!important;
+    margin:8px!important;
+    padding:12px!important;
+    border:1px solid #e3eaee!important;
+    border-radius:12px!important
+  }
+  .manual-month-date,.manual-month-photographer,.manual-month-slot,.manual-month-title,
+  .manual-month-actions{
+    grid-column:auto!important;grid-row:auto!important
+  }
+  .manual-month-date b,.manual-month-title b{font-size:12px!important}
+  .manual-month-date small,.manual-month-title small,.manual-month-photographer,.manual-month-slot{font-size:10px!important}
+  .manual-month-actions{
+    display:grid!important;grid-template-columns:1fr 1fr!important;
+    width:100%!important
+  }
+  .manual-month-actions button{width:100%!important;min-height:42px!important;font-size:10px!important}
+
+  /* Drawer becomes a full-screen editor */
+  .drawer{
+    width:100%!important;
+    height:100dvh!important;
+    padding:
+      calc(18px + env(safe-area-inset-top))
+      14px
+      calc(24px + env(safe-area-inset-bottom))!important
+  }
+  .drawer-close{
+    width:44px!important;height:44px!important;
+    top:calc(10px + env(safe-area-inset-top))!important;right:10px!important
+  }
+  .drawer h2{font-size:28px!important}
+  .drawer-sub{font-size:12px!important}
+  .detail-grid{gap:7px!important;margin:15px 0!important}
+  .detail{padding:10px!important}
+  .detail small{font-size:8px!important}
+  .detail b{font-size:11px!important}
+  .edit-form label{font-size:9px!important}
+  .booking-edit-actions{
+    grid-template-columns:1fr!important;
+    position:sticky;bottom:0;
+    padding-top:8px;
+    background:linear-gradient(180deg,transparent,#fffaf0 24%)
+  }
+  .booking-delete-btn,.save-btn{min-height:48px!important;font-size:12px!important}
+
+  /* Manual event modal = bottom sheet */
+  .manual-event-modal{
+    place-items:end center!important;
+    padding:0!important
+  }
+  .manual-event-card{
+    width:100%!important;max-height:92dvh!important;
+    border-radius:22px 22px 0 0!important;
+    padding:
+      22px
+      14px
+      calc(20px + env(safe-area-inset-bottom))!important
+  }
+  .manual-event-close{width:44px!important;height:44px!important}
+  .manual-event-card h2{font-size:28px!important}
+  .manual-event-intro{font-size:11px!important}
+  #manualEventForm label{font-size:9px!important}
+  .manual-event-actions{
+    grid-template-columns:1fr!important
+  }
+  .manual-event-save,.manual-event-delete{min-height:48px!important;font-size:11px!important}
+
+  /* Photographer CMS */
+  .photographer-admin-grid{
+    grid-template-columns:1fr!important;
+    padding:10px!important;
+    gap:10px!important
+  }
+  .photographer-admin-head .photographer-add-btn{width:100%!important;min-height:46px!important}
+  .photographer-admin-body h3{font-size:22px!important}
+  .photographer-admin-meta,.photographer-admin-profilemeta{font-size:10px!important}
+  .photographer-admin-type{font-size:8px!important}
+  .photographer-editor-card{
+    width:100%!important;
+    max-height:94dvh!important;
+    border-radius:20px 20px 0 0!important;
+    padding:20px 13px calc(18px + env(safe-area-inset-bottom))!important
+  }
+  .photographer-form-grid,.photographer-form-grid.three,.photographer-form-grid.four,
+  .cover-editor-row,.gallery-add-row{
+    grid-template-columns:1fr!important
+  }
+  .photographer-price-grid.five,.photographer-price-grid.grad{
+    grid-template-columns:1fr 1fr!important
+  }
+  .photographer-gallery-editor,.photographer-photo-slots{
+    grid-template-columns:1fr 1fr!important
+  }
+  .photographer-editor-card input,.photographer-editor-card select,.photographer-editor-card textarea{
+    font-size:16px!important
+  }
+
+  /* Pricing CMS */
+  .pricing-admin-section,.pricing-admin-highlight{
+    margin-left:8px!important;margin-right:8px!important
+  }
+  .pricing-team-row,.pricing-province-row{grid-template-columns:1fr!important}
+  .pricing-team-row label:nth-child(3),.pricing-team-row label:nth-child(4),
+  .pricing-province-row label:nth-child(4){grid-column:auto!important}
+  .pricing-admin-savebar{
+    padding:12px 10px!important;
+    gap:8px!important
+  }
+  .pricing-admin-savebar button{min-height:48px!important;font-size:11px!important}
+
+  /* Hero image CMS */
+  .hero-admin-grid{
+    grid-template-columns:1fr!important;
+    padding:10px!important
+  }
+  .hero-admin-upload{padding:12px 10px!important}
+  .hero-admin-upload input{font-size:16px!important}
+  .hero-admin-toolbar{padding-left:10px!important;padding-right:10px!important}
+  .hero-admin-toolbar button{min-height:46px!important}
+
+  /* Take Care */
+  .takecare-rate-strip,.takecare-stats{grid-template-columns:1fr!important}
+  .takecare-rate-note{grid-column:auto!important}
+  .takecare-add-form,.takecare-shift-form,.takecare-staff-card{grid-template-columns:1fr!important}
+  .takecare-add-form label:nth-child(3),.takecare-add-form button,
+  .takecare-staff-card label:nth-child(3),.takecare-staff-actions,
+  .takecare-shift-form .wide,.takecare-cost-preview,.takecare-shift-form button{
+    grid-column:auto!important
+  }
+  .takecare-add-form,.takecare-shift-form{padding:12px!important}
+  .takecare-staff-list{padding:4px 12px 14px!important}
+  .takecare-staff-actions{
+    display:grid!important;grid-template-columns:1fr 1fr 1fr!important
+  }
+  .takecare-staff-actions button{min-height:42px!important;font-size:10px!important}
+  .takecare-filters{
+    width:100%!important;display:grid!important;grid-template-columns:1fr!important
+  }
+  .takecare-person-summary{grid-template-columns:1fr!important;padding:0 10px 12px!important}
+
+  /* Turn Take Care table into mobile cards */
+  .takecare-table{
+    min-width:0!important;display:block!important
+  }
+  .takecare-table thead{display:none!important}
+  .takecare-table tbody{display:grid!important;gap:9px!important;padding:10px!important}
+  .takecare-table tr{
+    display:grid!important;
+    border:1px solid #dfe7ec!important;
+    border-radius:12px!important;
+    background:#fff!important;
+    overflow:hidden!important
+  }
+  .takecare-table td{
+    display:flex!important;
+    align-items:center!important;justify-content:space-between!important;
+    gap:12px!important;
+    min-height:42px!important;
+    padding:9px 11px!important;
+    border-bottom:1px solid #edf1f3!important;
+    font-size:11px!important;
+    text-align:right!important
+  }
+  .takecare-table td:last-child{border-bottom:0!important}
+  .takecare-table td::before{
+    color:#80909b;font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.06em;
+    text-align:left
+  }
+  .takecare-table td:nth-child(1)::before{content:"Ngày làm"}
+  .takecare-table td:nth-child(2)::before{content:"Take Care"}
+  .takecare-table td:nth-child(3)::before{content:"Ca"}
+  .takecare-table td:nth-child(4)::before{content:"Chi phí"}
+  .takecare-table td:nth-child(5)::before{content:"Ghi chú"}
+  .takecare-table td:nth-child(6)::before{content:"Thao tác"}
+  .takecare-table .tc-remove-shift{min-height:40px!important;font-size:10px!important}
+
+  /* Finance filters/stats */
+  .finance-rule-banner{
+    grid-template-columns:1fr!important;
+    gap:8px!important
+  }
+  .finance-rule-banner>p{grid-column:auto!important}
+  .finance-filterbar{
+    align-items:stretch!important;
+    flex-direction:column!important;
+    padding:10px!important
+  }
+  .finance-filter-main{
+    display:grid!important;grid-template-columns:1fr!important;width:100%!important
+  }
+  .finance-filterbar label,.finance-filterbar input,.finance-filterbar select{width:100%!important}
+  .finance-filterbar button{width:100%!important;min-height:46px!important;font-size:11px!important}
+  .finance-stats{grid-template-columns:1fr 1fr!important;gap:8px!important}
+  .finance-stats article{padding:12px!important}
+  .finance-stats small{font-size:8px!important}
+  .finance-stats strong{font-size:18px!important}
+  .finance-stats span{font-size:8px!important}
+  .finance-table-legend{flex-wrap:wrap!important}
+
+  /* Finance table becomes one card per shoot */
+  .finance-table{
+    min-width:0!important;display:block!important
+  }
+  .finance-table thead{display:none!important}
+  .finance-table tbody{
+    display:grid!important;gap:10px!important;padding:10px!important
+  }
+  .finance-table tr{
+    display:grid!important;
+    border:1px solid #dfe7ec!important;
+    border-radius:13px!important;
+    background:#fff!important;
+    overflow:hidden!important
+  }
+  .finance-table td{
+    display:flex!important;
+    align-items:center!important;justify-content:space-between!important;
+    gap:12px!important;
+    min-height:44px!important;
+    padding:9px 11px!important;
+    border-bottom:1px solid #edf1f3!important;
+    font-size:11px!important;
+    text-align:right!important
+  }
+  .finance-table td:last-child{border-bottom:0!important}
+  .finance-table td::before{
+    flex:0 0 108px;
+    color:#80909b;font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;
+    text-align:left
+  }
+  .finance-table td:nth-child(1)::before{content:"Ngày / lịch"}
+  .finance-table td:nth-child(2)::before{content:"Photographer"}
+  .finance-table td:nth-child(3)::before{content:"Doanh thu"}
+  .finance-table td:nth-child(4)::before{content:"Chi phí"}
+  .finance-table td:nth-child(5)::before{content:"STU"}
+  .finance-table td:nth-child(6)::before{content:"Thợ"}
+  .finance-table td:nth-child(7)::before{content:"Khách đã trả"}
+  .finance-table td:nth-child(8)::before{content:"Đã trả thợ"}
+  .finance-table td:nth-child(9)::before{content:"Còn phải thu"}
+  .finance-table td:nth-child(10)::before{content:"Còn trả thợ"}
+  .finance-table td:nth-child(11)::before{content:"Thao tác"}
+  .finance-table td>*{max-width:calc(100% - 118px)}
+  .finance-table .fin-primary{font-size:12px!important}
+  .finance-table .fin-sub{font-size:9px!important}
+  .finance-edit-btn{min-height:42px!important;font-size:10px!important}
+
+  /* Finance modal = mobile bottom sheet */
+  .finance-modal{
+    place-items:end center!important;
+    padding:0!important
+  }
+  .finance-modal-card{
+    width:100%!important;max-height:94dvh!important;
+    border-radius:22px 22px 0 0!important;
+    padding:
+      22px
+      13px
+      calc(20px + env(safe-area-inset-bottom))!important
+  }
+  .finance-modal-close{width:44px!important;height:44px!important}
+  .finance-modal-card h2{font-size:28px!important}
+  .finance-modal-meta{font-size:11px!important}
+  .finance-split-preview{
+    grid-template-columns:1fr 1fr!important
+  }
+  .finance-split-preview small{font-size:8px!important}
+  .finance-split-preview strong{font-size:12px!important}
+  .finance-form-grid,.finance-form-grid.two{grid-template-columns:1fr!important}
+  #financeForm label>span{font-size:9px!important}
+  #financeForm input{font-size:16px!important}
+  .finance-live-summary{
+    grid-template-columns:1fr 1fr!important
+  }
+  .finance-live-summary span{font-size:8px!important}
+  .finance-live-summary b{font-size:11px!important}
+  .finance-modal-actions{
+    grid-template-columns:1fr!important;
+    position:sticky;bottom:0;
+    padding-top:8px;
+    background:linear-gradient(180deg,transparent,#fffaf0 24%)
+  }
+  .finance-modal-actions button{min-height:48px!important;font-size:11px!important}
+}
+
+@media(max-width:390px){
+  .mobile-top b{font-size:13px!important}
+  .stats,.overview-stats,.finance-stats{grid-template-columns:1fr!important}
+  .photographer-price-grid.five,.photographer-price-grid.grad,
+  .photographer-gallery-editor,.photographer-photo-slots,
+  .finance-split-preview,.finance-live-summary{
+    grid-template-columns:1fr!important
+  }
+  .calendar-toolbar>div:nth-child(2){grid-template-columns:1fr!important}
+  .day{min-height:70px!important}
+  .event{font-size:5.6px!important}
+}

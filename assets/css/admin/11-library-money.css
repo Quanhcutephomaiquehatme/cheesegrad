@@ -1,0 +1,30 @@
+
+/* Library admin + formatted money fields */
+[data-money-input]{font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.library-admin-toolbar-actions{display:flex;align-items:center;gap:7px}
+.library-admin-toolbar-actions a,.library-admin-toolbar-actions button{
+  min-height:36px;display:inline-flex;align-items:center;justify-content:center;padding:0 10px;
+  border:1px solid #d7e1e7;border-radius:9px;background:#fff;color:#173d5d;font-size:7px;font-weight:900
+}
+.library-admin-grid .hero-admin-image{aspect-ratio:auto;min-height:220px;background-size:cover}
+@media(max-width:760px){
+  .library-admin-toolbar-actions{display:grid;grid-template-columns:1fr 1fr;width:100%}
+  .library-admin-toolbar-actions a,.library-admin-toolbar-actions button{min-height:44px;font-size:10px}
+}
+
+
+/* PRO library controls */
+.library-admin-grid .hero-admin-card{overflow:hidden}
+.library-admin-grid .hero-admin-image{position:relative;aspect-ratio:4/3;min-height:0;background-size:cover;background-position:center}
+.library-admin-grid .hero-admin-body::before{content:"Thumbnail nhẹ · Full khi mở";display:block;margin-bottom:7px;color:#87959e;font-size:6.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.library-admin-meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:-2px}
+.library-admin-meta span{padding:4px 6px;border-radius:999px;background:#f1f5f7;color:#607684;font-size:6px;font-weight:850}
+.hero-admin-actions.library-actions{grid-template-columns:1fr 1fr}
+.library-promote-btn{grid-column:1/-1!important;background:#173d5d!important;color:#fff!important;border-color:#173d5d!important}
+.library-promote-btn.done{background:#e7f2e9!important;color:#3f744a!important;border-color:#cce0d0!important}
+.money-format-note{color:#7e8d97;font-size:7px}
+@media(max-width:760px){
+  .library-admin-meta span{font-size:8px}
+  .hero-admin-actions.library-actions{grid-template-columns:1fr 1fr!important}
+  .library-promote-btn{min-height:44px!important;font-size:9px!important}
+}

@@ -1,0 +1,19 @@
+/* Original logo, brief welcome and a no-JavaScript exit. */
+.fx-loader{background:#f6f1e7;animation:welcomeFallback .35s ease 1.4s forwards}
+.fx-loader::before{background:radial-gradient(ellipse at 20% 25%,#e9c86e40,transparent 52%),radial-gradient(ellipse at 85% 80%,#bcd5d940,transparent 48%)}
+.fx-loader-inner{width:min(90vw,640px);padding:24px 12px}
+.fx-loader .fx-loader-logo{display:flex;align-items:center;justify-content:center;width:clamp(128px,22vw,186px);height:clamp(128px,22vw,186px);border-radius:50%;background:#fffcf4;border:1px solid #d9bc7266;box-shadow:0 18px 70px #173d5d12;margin:0 auto 22px;animation:welcomeLogo .9s cubic-bezier(.16,1,.3,1) both;overflow:hidden}
+.fx-loader .fx-loader-logo img{width:88%;height:auto;object-fit:contain}
+.fx-loader .fx-loader-line{width:74px;margin:0 auto 18px;background:#dacdb2}
+.fx-loader .fx-loader-line span{background:#ba963e}
+.welcome-kicker{margin:0 0 8px;color:#627080;font-size:clamp(14px,3vw,18px);animation:welcomeText .8s ease .25s both}
+.welcome-title{margin:0;color:#173d5d;font-family:var(--font-display);font-weight:600;font-size:clamp(26px,6vw,46px);line-height:1.35;animation:welcomeText .8s ease .45s both}
+.fx-loader .fx-loader-inner small{font-size:clamp(10px,2.7vw,13px);line-height:1.7;letter-spacing:.02em;text-transform:none;opacity:1;color:#6b7a86;animation:welcomeText .8s ease .65s both}
+.welcome-skip{margin-top:30px;border:1px solid #173d5d30;border-radius:999px;background:#ffffff70;color:#173d5d;padding:11px 20px;font:500 12px/1.5 var(--font-sans);cursor:pointer;transition:background .2s,transform .2s}
+.welcome-skip:hover{background:#fff;transform:translateY(-2px)}.welcome-skip:focus-visible{outline:3px solid #b89642;outline-offset:4px}
+footer .founder-credit{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 26px;border-top:1px solid #173d5d20;padding-top:22px;margin-top:20px;width:100%;grid-column:1/-1}
+footer .founder-credit p{margin:0;color:inherit;font-size:13px;line-height:1.7}footer .founder-credit nav{display:flex;gap:22px}footer .founder-credit a{font-size:12px;text-decoration:none}footer .founder-credit a:hover{text-decoration:underline;text-underline-offset:4px}
+@keyframes welcomeLogo{from{opacity:0;transform:translateY(22px) scale(.84) rotate(-6deg)}to{opacity:1;transform:none}}
+@keyframes welcomeText{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes welcomeFallback{to{opacity:0;visibility:hidden;pointer-events:none}}
+@media(prefers-reduced-motion:reduce){.fx-loader,.fx-loader::before,.fx-loader *{animation:none!important;transition:none!important}.fx-loader{animation:welcomeFallback 0s 1s forwards!important}}

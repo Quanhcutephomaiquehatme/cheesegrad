@@ -1,0 +1,1318 @@
+/* =====================================================
+   CHEESE.GRADUATION — DIRECTORY V35
+   Dedicated photographer directory. No sidebar layout.
+   ===================================================== */
+
+html.directory-mode body.page-home {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(226,190,105,.12), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(17,55,80,.07), transparent 26%),
+    #f7f3eb !important;
+  overflow-x:hidden !important;
+}
+
+html.directory-mode body.page-home #top > section:not(#photographers),
+html.directory-mode body.page-home .fx-loader {
+  display:none !important;
+}
+
+html.directory-mode body.page-home #photographers {
+  display:block !important;
+  min-height:100vh !important;
+  padding:128px 28px 88px !important;
+  background:transparent !important;
+  overflow:visible !important;
+}
+
+html.directory-mode body.page-home #photographers > .section-head,
+html.directory-mode body.page-home #photographers > .photographers-bg-word {
+  display:none !important;
+}
+
+/* ----- Page heading ----- */
+html.directory-mode body.page-home #photographers > .directory-page-heading {
+  display:block !important;
+  width:min(100%, 1360px) !important;
+  max-width:1360px !important;
+  margin:0 auto 34px !important;
+  padding:0 0 28px !important;
+  border-bottom:1px solid rgba(15,47,68,.10) !important;
+  text-align:left !important;
+}
+
+html.directory-mode body.page-home #photographers > .directory-page-heading > a {
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:8px !important;
+  margin:0 0 18px !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  color:#5e7280 !important;
+  text-decoration:none !important;
+}
+
+html.directory-mode body.page-home #photographers > .directory-page-heading .eyebrow {
+  display:block !important;
+  margin-bottom:10px !important;
+  font-size:10px !important;
+  letter-spacing:.18em !important;
+  color:#8c6c28 !important;
+}
+
+html.directory-mode body.page-home #photographers > .directory-page-heading h1 {
+  margin:0 !important;
+  max-width:1040px !important;
+  font-family:'Playfair Display', Georgia, serif !important;
+  font-size:clamp(54px,6vw,92px) !important;
+  line-height:.86 !important;
+  letter-spacing:-.055em !important;
+  color:#0c2e45 !important;
+}
+
+html.directory-mode body.page-home #photographers > .directory-page-heading h1 em {
+  display:block !important;
+  width:max-content !important;
+  max-width:100% !important;
+  margin:.04em 0 0 !important;
+  font-size:.64em !important;
+  line-height:1 !important;
+  font-weight:500 !important;
+  color:#c89f46 !important;
+  white-space:normal !important;
+}
+
+html.directory-mode body.page-home #photographers > .directory-page-heading p {
+  max-width:760px !important;
+  margin:18px 0 0 !important;
+  font-size:15px !important;
+  line-height:1.75 !important;
+  color:#6b7b86 !important;
+}
+
+/* ----- Main container: one centered column, no sidebar ----- */
+html.directory-mode body.page-home #photographers > .directory-shell {
+  display:block !important;
+  width:min(100%, 1360px) !important;
+  max-width:1360px !important;
+  margin:0 auto !important;
+  padding:0 !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-sidebar {
+  display:none !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-main {
+  display:block !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-heading,
+html.directory-mode body.page-home #photographers .browse-top,
+html.directory-mode body.page-home #photographers .directory-tools,
+html.directory-mode body.page-home #photographers .swipe-hint {
+  display:none !important;
+}
+
+/* ----- Filter panel ----- */
+html.directory-mode body.page-home #photographers .directory-filter-panel {
+  width:100% !important;
+  margin:0 0 30px !important;
+  padding:22px !important;
+  border:1px solid rgba(16,47,66,.08) !important;
+  border-radius:28px !important;
+  background:rgba(255,255,255,.76) !important;
+  box-shadow:0 20px 60px rgba(31,44,51,.07) !important;
+  backdrop-filter:blur(14px) !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-top {
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) 240px auto !important;
+  gap:12px !important;
+  align-items:end !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-search-field,
+html.directory-mode body.page-home #photographers .directory-sort-field {
+  display:flex !important;
+  flex-direction:column !important;
+  gap:7px !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-size:10px !important;
+  font-weight:800 !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color:#667681 !important;
+  background:none !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-search-field input,
+html.directory-mode body.page-home #photographers .directory-sort-field select {
+  display:block !important;
+  width:100% !important;
+  min-height:48px !important;
+  margin:0 !important;
+  padding:0 15px !important;
+  border:1px solid rgba(19,51,72,.12) !important;
+  border-radius:14px !important;
+  outline:none !important;
+  background:#fffdf9 !important;
+  box-shadow:none !important;
+  font:600 14px/1.2 Inter, Arial, sans-serif !important;
+  letter-spacing:0 !important;
+  text-transform:none !important;
+  color:#173c56 !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-search-field input:focus,
+html.directory-mode body.page-home #photographers .directory-sort-field select:focus {
+  border-color:rgba(187,143,47,.55) !important;
+  box-shadow:0 0 0 4px rgba(210,174,93,.11) !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-reset-filters {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  min-height:48px !important;
+  padding:0 17px !important;
+  border:1px solid rgba(19,51,72,.11) !important;
+  border-radius:14px !important;
+  background:#102f45 !important;
+  color:#fff !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+  cursor:pointer !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-style-wrap {
+  margin-top:20px !important;
+  padding-top:18px !important;
+  border-top:1px solid rgba(18,49,68,.08) !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-label {
+  margin-bottom:9px !important;
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.13em !important;
+  text-transform:uppercase !important;
+  color:#4f6371 !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-style-wrap .filters {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-style-wrap .filter {
+  min-height:34px !important;
+  padding:7px 12px !important;
+  border:1px solid rgba(16,48,69,.10) !important;
+  border-radius:999px !important;
+  background:#f9f6ef !important;
+  color:#445d6e !important;
+  font-size:11px !important;
+  font-weight:700 !important;
+  box-shadow:none !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-style-wrap .filter.active {
+  border-color:#102f45 !important;
+  background:#102f45 !important;
+  color:#fff !important;
+}
+
+html.directory-mode body.page-home #photographers .filter-count {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-width:18px !important;
+  height:18px !important;
+  margin-left:5px !important;
+  padding:0 5px !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.17) !important;
+  font-size:9px !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-advanced-filters {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:0 26px !important;
+  margin-top:18px !important;
+  padding-top:4px !important;
+  border-top:1px solid rgba(18,49,68,.08) !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group {
+  display:block !important;
+  margin:0 !important;
+  padding:17px 0 15px !important;
+  border:0 !important;
+  border-bottom:1px solid rgba(18,49,68,.07) !important;
+  border-radius:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group .sidebar-title-row {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:10px !important;
+  margin:0 0 10px !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group .sidebar-title-row h3 {
+  margin:0 !important;
+  font-size:10px !important;
+  font-weight:900 !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color:#193b52 !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group .sidebar-title-row span {
+  font-size:9px !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  color:#99a2a7 !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group label {
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  width:auto !important;
+  min-height:31px !important;
+  margin:0 6px 7px 0 !important;
+  padding:6px 9px !important;
+  border:1px solid rgba(18,49,68,.09) !important;
+  border-radius:999px !important;
+  background:#fffdf9 !important;
+  font-size:11px !important;
+  line-height:1.25 !important;
+  color:#516572 !important;
+  cursor:pointer !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group label span {
+  display:inline !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group input[type="checkbox"],
+html.directory-mode body.page-home #photographers .directory-filter-group input[type="radio"] {
+  width:13px !important;
+  height:13px !important;
+  flex:0 0 13px !important;
+  margin:0 !important;
+  accent-color:#143950 !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-filter-group small,
+html.directory-mode body.page-home #photographers .directory-filter-group > strong,
+html.directory-mode body.page-home #photographers .directory-filter-group > p {
+  display:none !important;
+}
+
+/* ----- Results ----- */
+html.directory-mode body.page-home #photographers .directory-results-bar {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  min-height:42px !important;
+  margin:0 0 16px !important;
+}
+
+html.directory-mode body.page-home #photographers .directory-result-count,
+html.directory-mode body.page-home #photographers .rail-toolbar {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:flex-start !important;
+  min-height:0 !important;
+  margin:0 !important;
+  padding:0 !important;
+  text-align:left !important;
+}
+
+html.directory-mode body.page-home #photographers #photographerResult {
+  margin:0 !important;
+  font-size:13px !important;
+  font-weight:800 !important;
+  color:#183b52 !important;
+}
+
+html.directory-mode body.page-home #photographers .cheese-photographer-grid {
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:24px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:visible !important;
+  scroll-snap-type:none !important;
+  cursor:default !important;
+  align-items:start !important;
+}
+
+html.directory-mode body.page-home #photographers .cheese-photographer-card {
+  display:flex !important;
+  flex-direction:column !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+  overflow:hidden !important;
+  border:1px solid rgba(17,48,66,.08) !important;
+  border-radius:26px !important;
+  background:#fffdf9 !important;
+  box-shadow:0 16px 46px rgba(29,42,48,.07) !important;
+  opacity:1 !important;
+  transform:none !important;
+  visibility:visible !important;
+}
+
+html.directory-mode body.page-home #photographers .cheese-photographer-card.hidden {
+  display:none !important;
+}
+
+html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image {
+  width:100% !important;
+  aspect-ratio:4/4.7 !important;
+  min-height:0 !important;
+  background-size:cover !important;
+  background-position:center !important;
+}
+
+html.directory-mode body.page-home #photographers .cheese-photographer-card .card-body {
+  display:flex !important;
+  flex:1 !important;
+  flex-direction:column !important;
+  padding:20px 20px 21px !important;
+}
+
+html.directory-mode body.page-home #photographers .cheese-photographer-card h3 {
+  margin:0 0 9px !important;
+  font-size:clamp(28px,2.2vw,38px) !important;
+  line-height:.98 !important;
+  letter-spacing:-.035em !important;
+  color:#0e324a !important;
+  overflow:visible !important;
+  word-break:normal !important;
+}
+
+html.directory-mode body.page-home #photographers .photographer-meta-line {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  justify-content:space-between !important;
+  gap:6px 12px !important;
+  margin-bottom:12px !important;
+  font-size:11px !important;
+  line-height:1.45 !important;
+  color:#697985 !important;
+}
+
+html.directory-mode body.page-home #photographers .photographer-tags {
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:6px !important;
+  margin:0 0 14px !important;
+}
+
+html.directory-mode body.page-home #photographers .photographer-tags span {
+  padding:6px 9px !important;
+  border-radius:999px !important;
+  background:#f3eee4 !important;
+  font-size:10px !important;
+  line-height:1 !important;
+  color:#4c6473 !important;
+}
+
+html.directory-mode body.page-home #photographers .shoot-stats {
+  margin:0 0 15px !important;
+  font-size:11px !important;
+  line-height:1.45 !important;
+  color:#617381 !important;
+}
+
+html.directory-mode body.page-home #photographers .price-block {
+  margin-top:auto !important;
+  padding-top:14px !important;
+  border-top:1px solid rgba(18,49,68,.08) !important;
+}
+
+html.directory-mode body.page-home #photographers .price-block small {
+  display:block !important;
+  margin-bottom:3px !important;
+  font-size:9px !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color:#82909a !important;
+}
+
+html.directory-mode body.page-home #photographers .price-block strong {
+  display:block !important;
+  font-size:25px !important;
+  line-height:1 !important;
+  color:#153c57 !important;
+}
+
+html.directory-mode body.page-home #photographers .photographer-card-actions {
+  display:grid !important;
+  grid-template-columns:1fr 1fr !important;
+  gap:8px !important;
+  margin-top:15px !important;
+}
+
+html.directory-mode body.page-home #photographers .photographer-card-actions a {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  min-height:42px !important;
+  padding:9px 11px !important;
+  border-radius:12px !important;
+  font-size:10.5px !important;
+  font-weight:800 !important;
+  line-height:1.2 !important;
+  text-align:center !important;
+  text-decoration:none !important;
+}
+
+html.directory-mode body.page-home #photographers .card-book-link {
+  border:1px solid rgba(18,49,68,.10) !important;
+  background:#f4f0e8 !important;
+  color:#173b52 !important;
+}
+
+html.directory-mode body.page-home #photographers .card-book-now {
+  border:1px solid #13384f !important;
+  background:#13384f !important;
+  color:#fff !important;
+}
+
+/* ----- Responsive ----- */
+@media (max-width:1100px) {
+  html.directory-mode body.page-home #photographers {
+    padding-left:22px !important;
+    padding-right:22px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-advanced-filters {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:20px !important;
+  }
+}
+
+@media (max-width:760px) {
+  html.directory-mode body.page-home #photographers {
+    padding:104px 16px 64px !important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading {
+    margin-bottom:22px !important;
+    padding-bottom:22px !important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading h1 {
+    font-size:clamp(44px,11vw,68px) !important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading h1 em {
+    font-size:.62em !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-panel {
+    padding:16px !important;
+    border-radius:22px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-top {
+    grid-template-columns:1fr 1fr !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-search-field {
+    grid-column:1/-1 !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-reset-filters {
+    min-width:0 !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-advanced-filters {
+    grid-template-columns:1fr !important;
+    gap:0 !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-group {
+    padding:14px 0 12px !important;
+  }
+}
+
+@media (max-width:560px) {
+  html.directory-mode body.page-home #photographers {
+    padding-left:12px !important;
+    padding-right:12px !important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading {
+    text-align:center !important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading h1,
+  html.directory-mode body.page-home #photographers > .directory-page-heading p {
+    margin-left:auto !important;
+    margin-right:auto !important;
+  }
+  html.directory-mode body.page-home #photographers > .directory-page-heading h1 em {
+    width:auto !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-top {
+    grid-template-columns:1fr !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-search-field {
+    grid-column:auto !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-style-wrap .filters {
+    flex-wrap:nowrap !important;
+    overflow-x:auto !important;
+    padding-bottom:4px !important;
+    scrollbar-width:none !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-style-wrap .filters::-webkit-scrollbar {
+    display:none !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-style-wrap .filter {
+    flex:0 0 auto !important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-grid {
+    grid-template-columns:1fr !important;
+    gap:16px !important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image {
+    aspect-ratio:4/4.25 !important;
+  }
+  html.directory-mode body.page-home #photographers .cheese-photographer-card h3 {
+    font-size:34px !important;
+  }
+}
+
+
+/* ===== v36 compact accordion filters ===== */
+html.directory-mode body.page-home #photographers .directory-filter-panel{
+  padding:18px !important;
+  border-radius:24px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-top{
+  grid-template-columns:minmax(0,1fr) 220px auto !important;
+  gap:10px !important;
+}
+html.directory-mode body.page-home #photographers .directory-reset-filters{
+  min-height:46px !important;
+  white-space:nowrap !important;
+}
+html.directory-mode body.page-home #photographers .directory-style-wrap{
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+}
+html.directory-mode body.page-home #photographers .directory-advanced-filters{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:12px !important;
+  margin-top:12px !important;
+  padding-top:0 !important;
+  border-top:0 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion{
+  margin-top:12px !important;
+  border:1px solid rgba(17,48,66,.08) !important;
+  border-radius:18px !important;
+  background:rgba(255,255,255,.9) !important;
+  box-shadow:0 10px 24px rgba(25,40,48,.04) !important;
+  overflow:hidden !important;
+}
+html.directory-mode body.page-home #photographers .directory-advanced-filters .directory-filter-accordion{
+  margin-top:0 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary{
+  list-style:none !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  padding:14px 16px !important;
+  cursor:pointer !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary::-webkit-details-marker{
+  display:none !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:3px !important;
+  min-width:0 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy strong{
+  display:block !important;
+  font-size:11px !important;
+  font-weight:900 !important;
+  letter-spacing:.12em !important;
+  text-transform:uppercase !important;
+  color:#153950 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy small{
+  display:block !important;
+  font-size:10px !important;
+  font-weight:700 !important;
+  letter-spacing:.08em !important;
+  text-transform:uppercase !important;
+  color:#8a959d !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-icon{
+  width:28px !important;
+  height:28px !important;
+  flex:0 0 28px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(17,48,66,.10) !important;
+  background:#fffaf1 !important;
+  position:relative !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-icon::before,
+html.directory-mode body.page-home #photographers .directory-filter-summary-icon::after{
+  content:'' !important;
+  position:absolute !important;
+  top:50% !important;
+  left:50% !important;
+  width:10px !important;
+  height:1.6px !important;
+  border-radius:999px !important;
+  background:#153950 !important;
+  transform:translate(-50%,-50%) !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-icon::after{
+  transform:translate(-50%,-50%) rotate(90deg) !important;
+  transition:opacity .2s ease !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary-icon::after{
+  opacity:0 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body{
+  padding:0 16px 16px !important;
+  border-top:1px solid rgba(17,48,66,.07) !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body .directory-filter-group{
+  margin:0 !important;
+  padding:12px 0 0 !important;
+  border:0 !important;
+  background:transparent !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body .sidebar-title-row{
+  display:none !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body label{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:7px !important;
+  width:auto !important;
+  min-height:32px !important;
+  margin:0 6px 7px 0 !important;
+  padding:6px 10px !important;
+  border:1px solid rgba(18,49,68,.08) !important;
+  border-radius:999px !important;
+  background:#fffdf9 !important;
+  font-size:11px !important;
+  line-height:1.25 !important;
+  color:#516572 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body .filters{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  margin:0 !important;
+  padding-top:12px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body input[type="checkbox"],
+html.directory-mode body.page-home #photographers .directory-filter-body input[type="radio"]{
+  width:13px !important;
+  height:13px !important;
+  margin:0 !important;
+  accent-color:#143950 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body small,
+html.directory-mode body.page-home #photographers .directory-filter-body > strong,
+html.directory-mode body.page-home #photographers .directory-filter-body > p{
+  display:none !important;
+}
+@media(max-width:980px){
+  html.directory-mode body.page-home #photographers .directory-advanced-filters{
+    grid-template-columns:1fr !important;
+  }
+}
+@media(max-width:760px){
+  html.directory-mode body.page-home #photographers .directory-filter-top{
+    grid-template-columns:1fr !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-panel{
+    padding:14px !important;
+    border-radius:18px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-summary{
+    padding:13px 14px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-body{
+    padding:0 14px 14px !important;
+  }
+}
+
+
+/* ===== v37 compact search controls ===== */
+html.directory-mode body.page-home #photographers .directory-filter-panel{
+  padding:14px 16px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-top{
+  display:flex !important;
+  align-items:flex-end !important;
+  justify-content:flex-start !important;
+  gap:8px !important;
+  flex-wrap:wrap !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field{
+  flex:1 1 320px !important;
+  max-width:460px !important;
+}
+html.directory-mode body.page-home #photographers .directory-sort-field{
+  flex:0 0 190px !important;
+  max-width:190px !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field,
+html.directory-mode body.page-home #photographers .directory-sort-field{
+  gap:5px !important;
+  font-size:9px !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field input,
+html.directory-mode body.page-home #photographers .directory-sort-field select{
+  min-height:40px !important;
+  height:40px !important;
+  padding:0 12px !important;
+  border-radius:12px !important;
+  font-size:12px !important;
+}
+html.directory-mode body.page-home #photographers .directory-reset-filters{
+  min-height:40px !important;
+  height:40px !important;
+  padding:0 13px !important;
+  border-radius:12px !important;
+  font-size:10.5px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion--style{
+  margin-top:10px !important;
+}
+@media(max-width:760px){
+  html.directory-mode body.page-home #photographers .directory-filter-top{
+    display:grid !important;
+    grid-template-columns:minmax(0,1fr) 140px !important;
+    gap:8px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-search-field{
+    max-width:none !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-sort-field{
+    max-width:none !important;
+    width:100% !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-reset-filters{
+    grid-column:1/-1 !important;
+    width:max-content !important;
+    justify-self:start !important;
+  }
+}
+@media(max-width:520px){
+  html.directory-mode body.page-home #photographers .directory-filter-top{
+    grid-template-columns:1fr !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-reset-filters{
+    grid-column:auto !important;
+  }
+}
+
+
+/* ===== v38 ultra-compact top filter bar + animated dropdowns ===== */
+html.directory-mode body.page-home #photographers .directory-filter-panel{
+  display:flex !important;
+  align-items:flex-end !important;
+  gap:8px !important;
+  width:100% !important;
+  margin:0 0 20px !important;
+  padding:8px 10px !important;
+  border-radius:16px !important;
+  overflow:visible !important;
+  background:rgba(255,255,255,.82) !important;
+  box-shadow:0 10px 30px rgba(31,44,51,.05) !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-top{
+  display:flex !important;
+  align-items:flex-end !important;
+  gap:6px !important;
+  flex:0 0 auto !important;
+  flex-wrap:nowrap !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field,
+html.directory-mode body.page-home #photographers .directory-sort-field{
+  display:block !important;
+  margin:0 !important;
+  padding:0 !important;
+  font-size:0 !important;
+  line-height:0 !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field{
+  width:210px !important;
+  flex:0 0 210px !important;
+  max-width:210px !important;
+}
+html.directory-mode body.page-home #photographers .directory-sort-field{
+  width:145px !important;
+  flex:0 0 145px !important;
+  max-width:145px !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field input,
+html.directory-mode body.page-home #photographers .directory-sort-field select{
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 10px !important;
+  border-radius:10px !important;
+  font-size:11px !important;
+  line-height:1.2 !important;
+}
+html.directory-mode body.page-home #photographers .directory-reset-filters{
+  height:34px !important;
+  min-height:34px !important;
+  padding:0 10px !important;
+  border-radius:10px !important;
+  font-size:9.5px !important;
+  white-space:nowrap !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-options-row{
+  display:flex !important;
+  align-items:flex-end !important;
+  gap:6px !important;
+  flex:1 1 auto !important;
+  min-width:0 !important;
+  overflow:visible !important;
+  white-space:nowrap !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion{
+  position:relative !important;
+  display:block !important;
+  flex:0 0 auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:10px !important;
+  overflow:visible !important;
+  background:transparent !important;
+  box-shadow:none !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+  min-height:34px !important;
+  height:34px !important;
+  padding:0 10px !important;
+  border:1px solid rgba(17,48,66,.10) !important;
+  border-radius:10px !important;
+  background:#fffaf3 !important;
+  list-style:none !important;
+  cursor:pointer !important;
+  transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary:hover{
+  transform:translateY(-1px) !important;
+  border-color:rgba(191,150,61,.34) !important;
+  box-shadow:0 6px 14px rgba(28,43,51,.06) !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] > .directory-filter-summary{
+  background:#12364d !important;
+  border-color:#12364d !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy{
+  display:block !important;
+  min-width:0 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy strong{
+  display:block !important;
+  font-size:9.5px !important;
+  line-height:1 !important;
+  letter-spacing:.05em !important;
+  text-transform:none !important;
+  white-space:nowrap !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy small{
+  display:none !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary-copy strong{
+  color:#fff !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-icon{
+  width:14px !important;
+  height:14px !important;
+  flex:0 0 14px !important;
+  border:0 !important;
+  background:transparent !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-icon::before,
+html.directory-mode body.page-home #photographers .directory-filter-summary-icon::after{
+  width:7px !important;
+  height:1px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary-icon::before,
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary-icon::after{
+  background:#fff !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body{
+  position:absolute !important;
+  z-index:100 !important;
+  top:calc(100% + 8px) !important;
+  left:0 !important;
+  width:max-content !important;
+  min-width:240px !important;
+  max-width:min(420px,calc(100vw - 32px)) !important;
+  margin:0 !important;
+  padding:12px !important;
+  border:1px solid rgba(17,48,66,.10) !important;
+  border-radius:14px !important;
+  background:rgba(255,253,249,.98) !important;
+  box-shadow:0 18px 48px rgba(23,39,48,.16) !important;
+  backdrop-filter:blur(14px) !important;
+  transform-origin:top left !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] > .directory-filter-body{
+  animation:cgDirectoryFilterDrop .24s cubic-bezier(.2,.8,.2,1) both !important;
+}
+@keyframes cgDirectoryFilterDrop{
+  0%{opacity:0;transform:translateY(-6px) scale(.98)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+html.directory-mode body.page-home #photographers .directory-filter-body .filters{
+  padding-top:0 !important;
+  gap:6px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body label,
+html.directory-mode body.page-home #photographers .directory-style-wrap .filter{
+  min-height:30px !important;
+  margin:0 5px 5px 0 !important;
+  padding:5px 9px !important;
+  font-size:10px !important;
+}
+html.directory-mode body.page-home #photographers .directory-style-wrap{
+  margin:0 !important;
+  padding:0 !important;
+}
+@media(max-width:1180px){
+  html.directory-mode body.page-home #photographers .directory-filter-panel{
+    overflow-x:auto !important;
+    overflow-y:visible !important;
+    scrollbar-width:none !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-panel::-webkit-scrollbar{
+    display:none !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-top,
+  html.directory-mode body.page-home #photographers .directory-filter-options-row{
+    flex:0 0 auto !important;
+  }
+}
+@media(max-width:700px){
+  html.directory-mode body.page-home #photographers .directory-filter-panel{
+    padding:7px 8px !important;
+    gap:6px !important;
+    border-radius:14px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-search-field{
+    width:180px !important;
+    flex-basis:180px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-sort-field{
+    width:132px !important;
+    flex-basis:132px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-reset-filters{
+    padding:0 8px !important;
+  }
+}
+
+
+/* ===== v39 refine compact filter bar spacing + dropdown stacking ===== */
+html.directory-mode body.page-home #photographers .directory-filter-panel{
+  position:relative !important;
+  isolation:isolate !important;
+  align-items:center !important;
+  gap:10px !important;
+  margin:0 0 28px !important;
+  padding:10px 12px !important;
+  border-radius:18px !important;
+  z-index:40 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-top,
+html.directory-mode body.page-home #photographers .directory-filter-options-row{
+  align-items:center !important;
+  gap:8px !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field{
+  width:176px !important;
+  flex:0 0 176px !important;
+  max-width:176px !important;
+}
+html.directory-mode body.page-home #photographers .directory-sort-field{
+  width:132px !important;
+  flex:0 0 132px !important;
+  max-width:132px !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field input,
+html.directory-mode body.page-home #photographers .directory-sort-field select,
+html.directory-mode body.page-home #photographers .directory-reset-filters,
+html.directory-mode body.page-home #photographers .directory-filter-summary{
+  height:36px !important;
+  min-height:36px !important;
+  border-radius:12px !important;
+}
+html.directory-mode body.page-home #photographers .directory-search-field input,
+html.directory-mode body.page-home #photographers .directory-sort-field select{
+  padding:0 12px !important;
+}
+html.directory-mode body.page-home #photographers .directory-reset-filters{
+  padding:0 12px !important;
+  font-size:9.8px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion{
+  z-index:1 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open]{
+  z-index:120 !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary{
+  justify-content:space-between !important;
+  gap:8px !important;
+  padding:0 12px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy strong{
+  font-size:10.2px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body{
+  z-index:121 !important;
+  top:calc(100% + 10px) !important;
+  left:0 !important;
+  min-width:260px !important;
+  max-width:min(460px, calc(100vw - 28px)) !important;
+  padding:14px !important;
+  border-radius:16px !important;
+  box-shadow:0 22px 60px rgba(18,34,43,.18) !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body .filters{
+  gap:8px !important;
+}
+html.directory-mode body.page-home #photographers .directory-filter-body label,
+html.directory-mode body.page-home #photographers .directory-style-wrap .filter{
+  margin:0 6px 6px 0 !important;
+  padding:6px 10px !important;
+  border-radius:999px !important;
+}
+html.directory-mode body.page-home #photographers .directory-results-bar,
+html.directory-mode body.page-home #photographers .cheese-photographer-grid,
+html.directory-mode body.page-home #photographers .cheese-photographer-card{
+  position:relative !important;
+  z-index:1 !important;
+}
+html.directory-mode body.page-home #photographers .directory-results-bar{
+  margin-top:4px !important;
+  margin-bottom:14px !important;
+}
+@media(max-width:1180px){
+  html.directory-mode body.page-home #photographers .directory-filter-panel{
+    gap:8px !important;
+    padding:10px !important;
+  }
+}
+@media(max-width:700px){
+  html.directory-mode body.page-home #photographers .directory-filter-panel{
+    margin:0 0 22px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-search-field{
+    width:162px !important;
+    flex-basis:162px !important;
+    max-width:162px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-sort-field{
+    width:122px !important;
+    flex-basis:122px !important;
+    max-width:122px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-summary,
+  html.directory-mode body.page-home #photographers .directory-reset-filters,
+  html.directory-mode body.page-home #photographers .directory-search-field input,
+  html.directory-mode body.page-home #photographers .directory-sort-field select{
+    height:34px !important;
+    min-height:34px !important;
+  }
+  html.directory-mode body.page-home #photographers .directory-filter-body{
+    min-width:230px !important;
+  }
+}
+
+/* v40 — directory only: compact toolbar and top-layer choices. */
+html.directory-mode body.page-home #photographers {padding:104px clamp(18px,4vw,64px) 64px!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading{display:block!important;width:min(100%,1360px)!important;margin:0 auto 25px!important;padding:0 0 24px!important;border-bottom:1px solid #173d5d14!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading>a{font-size:11px!important;font-weight:400!important;text-transform:none!important;letter-spacing:0!important;margin-bottom:24px!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading .eyebrow{color:#173d5d!important;font-size:9px!important;letter-spacing:.15em!important;margin-bottom:18px!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading h1{font-family:'Playfair Display',Georgia,serif!important;font-size:clamp(34px,4.7vw,68px)!important;line-height:1.16!important;letter-spacing:-.015em!important;max-width:1200px!important;color:#173d5d!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading h1 em{display:inline!important;font-size:1em!important;line-height:inherit!important;color:#a77b16!important;background:none!important;-webkit-text-fill-color:currentColor!important;padding:0!important;margin:0!important;white-space:normal!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading p{max-width:850px!important;margin:16px 0 0!important;font-size:13px!important;line-height:1.75!important;color:#74899b!important}
+html.directory-mode body.page-home #photographers .directory-filter-panel{display:flex!important;flex-wrap:wrap!important;gap:10px!important;padding:10px!important;overflow:visible!important;border:1px solid #173d5d16!important;border-radius:16px!important;background:#fffdf9e8!important;box-shadow:0 6px 25px #173d5d06!important;margin-bottom:15px!important;isolation:auto!important}
+html.directory-mode body.page-home #photographers .directory-filter-top{display:flex!important;gap:8px!important;flex:0 1 auto!important;width:auto!important;margin:0!important}
+html.directory-mode body.page-home #photographers .directory-filter-options-row{display:flex!important;gap:6px!important;flex:1 1 auto!important;min-width:0!important;overflow:visible!important;margin:0!important}
+html.directory-mode body.page-home #photographers .directory-search-field{width:190px!important;max-width:190px!important;flex:0 1 190px!important}
+html.directory-mode body.page-home #photographers .directory-sort-field{width:145px!important;max-width:145px!important;flex:0 1 145px!important}
+html.directory-mode body.page-home #photographers .directory-search-field input,html.directory-mode body.page-home #photographers .directory-sort-field select{height:38px!important;min-height:38px!important;background:#f5f5f1!important;border:1px solid transparent!important;border-radius:9px!important;font-size:11px!important;color:#173d5d!important}
+html.directory-mode body.page-home #photographers .directory-search-field input:focus,html.directory-mode body.page-home #photographers .directory-sort-field select:focus{outline:2px solid #b3904140!important;outline-offset:1px}
+html.directory-mode body.page-home #photographers .directory-reset-filters{height:38px!important;min-height:38px!important;border:0!important;background:transparent!important;font-size:10px!important;color:#8b969e!important;padding:0 10px!important;white-space:nowrap!important}
+html.directory-mode body.page-home #photographers .directory-reset-filters.has-selection{color:#9c751c!important}
+html.directory-mode body.page-home #photographers .directory-filter-accordion{flex:0 0 auto!important;width:auto!important;border:0!important;background:none!important;position:relative!important}
+html.directory-mode body.page-home #photographers .directory-filter-summary{height:38px!important;min-height:38px!important;gap:9px!important;padding:0 12px!important;border:1px solid #173d5d16!important;background:#fffdf9!important;color:#173d5d!important;border-radius:9px!important;transition:background .2s,border-color .2s,box-shadow .2s!important}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy{display:flex!important;align-items:center!important;gap:6px!important}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy strong{font-size:11px!important;font-weight:500!important;white-space:nowrap!important;color:inherit!important}
+html.directory-mode body.page-home #photographers .directory-filter-accordion.has-selection .directory-filter-summary{border-color:#c2a356!important;background:#fbf5e5!important}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary{background:#173d5d!important;border-color:#173d5d!important;color:white!important;box-shadow:0 4px 10px #173d5d16!important}
+html.directory-mode body.page-home #photographers .directory-choice-count{display:inline-flex;align-items:center;justify-content:center;min-width:16px;height:16px;padding:0 4px;border-radius:50%;background:#d8bd79;color:#243f50;font-size:9px;font-weight:700}
+html.directory-mode body.page-home #photographers .directory-choice-count[hidden]{display:none!important}
+html.directory-mode body.page-home #photographers .directory-filter-body{position:fixed!important;inset:auto;z-index:10000!important;margin:0!important;min-width:0!important;padding:14px!important;box-sizing:border-box!important;overflow:auto!important;overscroll-behavior:contain;background:#fffefa!important;border:1px solid #173d5d18!important;border-radius:14px!important;box-shadow:0 20px 55px #15364e26!important;color:#173d5d!important}
+html.directory-mode body.page-home #photographers .directory-filter-body[popover]:not(:popover-open){display:none!important}
+html.directory-mode body.page-home #photographers .directory-filter-body:popover-open{display:block!important}
+html.directory-mode body.page-home #photographers .directory-filter-body::backdrop{background:transparent;pointer-events:none}
+html.directory-mode body.page-home #photographers .directory-filter-group{display:flex!important;flex-direction:column!important;gap:4px!important}
+html.directory-mode body.page-home #photographers .directory-filter-body label{display:flex!important;align-items:center!important;gap:9px!important;min-height:36px!important;padding:9px 10px!important;margin:0!important;border:1px solid transparent!important;border-radius:8px!important;font-size:11px!important;line-height:1.6!important;cursor:pointer!important;white-space:normal!important;background:transparent!important}
+html.directory-mode body.page-home #photographers .directory-filter-body label:hover{background:#f4f2eb!important}
+html.directory-mode body.page-home #photographers .directory-filter-body label:has(input:checked){background:#f5ecd6!important;border-color:#d7bd8050!important;color:#644e1e!important}
+html.directory-mode body.page-home #photographers .directory-filter-body input{accent-color:#173d5d;width:15px!important;height:15px!important;flex:0 0 15px!important}
+html.directory-mode body.page-home #photographers .directory-filter-body .filters{display:flex!important;flex-wrap:wrap!important;gap:6px!important}
+html.directory-mode body.page-home #photographers .directory-style-wrap .filter{border-radius:8px!important;font-size:11px!important;padding:8px 11px!important;margin:0!important;min-height:36px!important}
+html.directory-mode body.page-home #photographers .directory-filter-done{display:block;width:100%;margin-top:12px;padding:10px;border:0;border-top:1px solid #173d5d10;border-radius:8px;background:#173d5d;color:#fff;font-family:inherit;font-size:11px;font-weight:500;line-height:1.5;cursor:pointer}
+html.directory-mode body.page-home #photographers .directory-results-bar{margin:0 0 18px!important;padding:0 3px!important}
+html.directory-mode body.page-home #photographers .directory-results-bar .rail-toolbar{margin:0!important;padding:0!important}
+@media(max-width:1240px){html.directory-mode body.page-home #photographers .directory-filter-top{flex:1 0 100%!important}html.directory-mode body.page-home #photographers .directory-search-field{width:auto!important;max-width:none!important;flex:1 1 auto!important}html.directory-mode body.page-home #photographers .directory-filter-options-row{flex:1 1 100%!important;overflow-x:auto!important;scrollbar-width:none!important;padding-bottom:2px!important}html.directory-mode body.page-home #photographers .directory-filter-options-row::-webkit-scrollbar{display:none}}
+@media(max-width:600px){html.directory-mode body.page-home #photographers {padding:91px 16px 48px!important}html.directory-mode body.page-home #photographers > .directory-page-heading{padding-bottom:20px!important;margin-bottom:18px!important}html.directory-mode body.page-home #photographers > .directory-page-heading>a{margin-bottom:20px!important}html.directory-mode body.page-home #photographers > .directory-page-heading h1{font-size:clamp(30px,8.3vw,43px)!important;line-height:1.23!important;letter-spacing:0!important}html.directory-mode body.page-home #photographers > .directory-page-heading .eyebrow{font-size:8px!important;margin-bottom:13px!important}html.directory-mode body.page-home #photographers > .directory-page-heading p{font-size:11px!important;margin-top:12px!important}html.directory-mode body.page-home #photographers .directory-filter-panel{padding:8px!important;gap:8px!important;border-radius:13px!important}html.directory-mode body.page-home #photographers .directory-filter-top{flex-wrap:nowrap!important;gap:5px!important}html.directory-mode body.page-home #photographers .directory-search-field{min-width:0!important;flex:1 1 0!important}html.directory-mode body.page-home #photographers .directory-sort-field{width:116px!important;max-width:116px!important;flex:0 0 116px!important}html.directory-mode body.page-home #photographers .directory-reset-filters{font-size:0!important;padding:0 6px!important}html.directory-mode body.page-home #photographers .directory-reset-filters span{font-size:20px!important}html.directory-mode body.page-home #photographers .directory-search-field input,html.directory-mode body.page-home #photographers .directory-sort-field select{padding-inline:8px!important;font-size:10px!important}html.directory-mode body.page-home #photographers .directory-filter-summary{padding:0 10px!important}html.directory-mode body.page-home #photographers .directory-filter-body label{min-height:42px!important}}
+@media(prefers-reduced-motion:reduce){html.directory-mode body.page-home #photographers .directory-filter-accordion[open]>.directory-filter-body{animation:none!important}html.directory-mode body.page-home #photographers .directory-filter-summary{transition:none!important}}
+
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy{flex-direction:row!important;flex-wrap:nowrap!important}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy strong{width:auto!important}
+
+/* v41: centered introduction and a left-hand filter column. */
+html.directory-mode body.page-home #photographers > .directory-page-heading{text-align:center!important;border-bottom:0!important;margin-bottom:32px!important;padding-bottom:12px!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading h1{max-width:none!important;font-size:clamp(34px,4.1vw,60px)!important;line-height:1.3!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading h1 em{display:block!important;font-size:clamp(40px,5.5vw,80px)!important;line-height:1.25!important;margin-top:5px!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading .eyebrow{text-align:center!important}
+html.directory-mode body.page-home #photographers > .directory-page-heading p{margin:18px auto 0!important;text-align:center!important}
+html.directory-mode body.page-home #photographers .directory-side-title{display:none}
+html.directory-mode body.page-home #photographers .directory-selection-note{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px solid #173d5d12;border-radius:11px;background:#fffdf8c9;padding:12px 16px;margin-bottom:12px;font-size:10px;color:#7c8c96}
+html.directory-mode body.page-home #photographers .directory-selection-note strong{color:#173d5d;font-size:11px;font-weight:500}
+html.directory-mode body.page-home #photographers .directory-results-bar{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:15px!important;margin-bottom:18px!important}
+@media(min-width:1000px){
+html.directory-mode body.page-home #photographers .directory-shell{display:grid!important;grid-template-columns:225px minmax(0,1fr)!important;align-items:start!important;gap:26px!important}
+html.directory-mode body.page-home #photographers .directory-main{min-width:0!important}
+html.directory-mode body.page-home #photographers .directory-filter-panel{display:flex!important;flex-direction:column!important;align-items:stretch!important;width:100%!important;margin:0!important;padding:14px!important;border-radius:12px!important;gap:12px!important;z-index:2!important;background:#fffefa!important;box-shadow:none!important}
+html.directory-mode body.page-home #photographers .directory-side-title{display:block;color:#173d5d;font-size:13px;font-weight:700;padding:2px 0 0}
+html.directory-mode body.page-home #photographers .directory-filter-top{display:flex!important;flex-direction:column!important;align-items:stretch!important;flex:0 0 auto!important;gap:5px!important;width:100%!important}
+html.directory-mode body.page-home #photographers .directory-search-field{width:100%!important;max-width:none!important;flex:0 0 auto!important}
+html.directory-mode body.page-home #photographers .directory-search-field input{width:100%!important;font-size:10px!important}
+html.directory-mode body.page-home #photographers .directory-reset-filters{height:28px!important;min-height:28px!important;text-align:left!important;padding:0 2px!important}
+html.directory-mode body.page-home #photographers .directory-filter-options-row{display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:0!important;overflow:visible!important;flex:0 0 auto!important;width:100%!important}
+html.directory-mode body.page-home #photographers .directory-filter-accordion{border-top:1px solid #173d5d12!important;padding:9px 0!important;width:100%!important;flex:0 0 auto!important}
+html.directory-mode body.page-home #photographers .directory-filter-summary,html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary,html.directory-mode body.page-home #photographers .directory-filter-accordion.has-selection .directory-filter-summary{width:100%!important;border:0!important;background:transparent!important;color:#173d5d!important;border-radius:0!important;box-shadow:none!important;padding:0 2px!important;height:30px!important;min-height:30px!important}
+html.directory-mode body.page-home #photographers .directory-filter-summary-copy strong,html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary-copy strong{color:#173d5d!important;font-size:10px!important;font-weight:700!important;letter-spacing:.05em!important}
+html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary-icon::before,html.directory-mode body.page-home #photographers .directory-filter-accordion[open] .directory-filter-summary-icon::after{background:#173d5d!important}
+html.directory-mode body.page-home #photographers .directory-filter-body{position:static!important;inset:auto!important;width:100%!important;max-width:none!important;min-width:0!important;max-height:none!important;overflow:visible!important;margin:0!important;padding:6px 0 0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important;backdrop-filter:none!important;animation:none!important}
+html.directory-mode body.page-home #photographers .directory-filter-accordion:not([open])>.directory-filter-body{display:none!important}
+html.directory-mode body.page-home #photographers .directory-filter-group{gap:1px!important}
+html.directory-mode body.page-home #photographers .directory-filter-body label{min-height:29px!important;padding:5px 6px!important;font-size:10px!important;gap:7px!important;line-height:1.5!important}
+html.directory-mode body.page-home #photographers .directory-filter-body input{width:12px!important;height:12px!important;flex-basis:12px!important}
+html.directory-mode body.page-home #photographers .directory-style-wrap .filter{font-size:9px!important;min-height:28px!important;padding:5px 8px!important;border-radius:6px!important}
+html.directory-mode body.page-home #photographers .directory-filter-body .filters{gap:5px!important}
+html.directory-mode body.page-home #photographers .directory-filter-done{display:none!important}
+html.directory-mode body.page-home #photographers .directory-results-bar .directory-sort-field{display:block!important;width:160px!important;max-width:160px!important;flex:0 0 160px!important;font-size:0!important;line-height:0!important}
+html.directory-mode body.page-home #photographers .directory-results-bar .directory-sort-field select{width:100%!important;background:#fffdf8!important;border:1px solid #173d5d18!important;font-size:10px!important;height:34px!important;min-height:34px!important}
+html.directory-mode body.page-home #photographers .cheese-photographer-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:20px!important;width:100%!important}
+html.directory-mode body.page-home #photographers .cheese-photographer-card{min-width:0!important;width:auto!important;border-radius:10px!important;border:1px solid #173d5d15!important;box-shadow:none!important}
+html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image{border-radius:9px 9px 0 0!important;aspect-ratio:4/5!important;min-height:0!important}
+html.directory-mode body.page-home #photographers .cheese-photographer-card .card-body{padding:16px!important}
+html.directory-mode body.page-home #photographers .cheese-photographer-card h3{font-size:24px!important}
+html.directory-mode body.page-home #photographers .cheese-photographer-card .price-block strong{font-size:22px!important}
+}
+@media(min-width:1000px) and (max-width:1199px){html.directory-mode body.page-home #photographers .directory-shell{grid-template-columns:210px minmax(0,1fr)!important;gap:20px!important}html.directory-mode body.page-home #photographers .cheese-photographer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){html.directory-mode body.page-home #photographers > .directory-page-heading h1{font-size:31px!important}html.directory-mode body.page-home #photographers > .directory-page-heading h1 em{font-size:clamp(35px,9.6vw,45px)!important;line-height:1.25!important}html.directory-mode body.page-home #photographers .directory-selection-note{gap:5px;padding:10px 12px}html.directory-mode body.page-home #photographers .directory-selection-note span{display:none}html.directory-mode body.page-home #photographers .directory-selection-note strong{font-size:10px}}
+html.directory-mode body.page-home #photographers > .directory-page-heading h1 em{width:100%!important;max-width:none!important;text-align:center!important;margin:5px auto 0!important}
+@media(min-width:1000px){
+html.directory-mode body.page-home #photographers .directory-shell>.directory-filter-panel{grid-column:1!important;grid-row:1!important}
+html.directory-mode body.page-home #photographers .directory-shell>.directory-main{grid-column:2!important;grid-row:1!important}
+html.directory-mode body.page-home #photographers .directory-shell::before,html.directory-mode body.page-home #photographers .directory-shell::after{display:none!important}
+}
+@media(min-width:1000px){html.directory-mode body.page-home #photographers .directory-filter-body .filters{justify-content:flex-start!important}html.directory-mode body.page-home #photographers .directory-reset-filters{align-self:flex-start!important}}
+
+/* v42: airy stationery background and quiet, responsive motion. */
+html.directory-mode body.page-home{background:radial-gradient(ellipse at 8% 4%,#eadabb80,transparent 34%),radial-gradient(ellipse at 94% 32%,#cddfdc65,transparent 35%),linear-gradient(145deg,#fbf8f1,#f3efe6 60%,#f7faf7)!important}
+html.directory-mode body.page-home #photographers{position:relative;isolation:isolate}
+html.directory-mode body.page-home #photographers .directory-brand-watermark{position:fixed;right:5px;top:52%;transform:translateY(-50%);writing-mode:vertical-rl;font-family:Georgia,serif;font-size:clamp(36px,4vw,62px);font-style:italic;letter-spacing:-.045em;line-height:1;color:#173d5d;opacity:.065;pointer-events:none;user-select:none;z-index:-1;white-space:nowrap}
+html.directory-mode body.page-home #photographers .directory-filter-panel{background:#fffefaeb!important;border-color:#173d5d12!important;box-shadow:0 8px 40px #344b4e05!important}
+html.directory-mode body.page-home #photographers .directory-selection-note{background:linear-gradient(110deg,#fffdf9dd,#edf2edbb);border-color:#173d5d12}
+html.directory-mode body.page-home #photographers .photographer-card{transform-origin:center center;transition:box-shadow .35s ease,border-color .35s ease!important;filter:none;translate:0 0;scale:1}
+html.directory-mode body.page-home #photographers .photographer-card:focus-within{border-color:#b59a57!important;box-shadow:0 8px 28px #173d5d14!important}
+html.directory-mode body.page-home #photographers .photographer-card .card-image{transition:filter .4s ease!important}
+html.directory-mode body.page-home #photographers .directory-filter-body label{transition:background .22s ease,border-color .22s ease,color .22s ease!important}
+html.directory-mode body.page-home #photographers .directory-style-wrap .filter{transition:background .25s ease,color .25s ease,box-shadow .25s ease!important}
+html.directory-mode body.page-home #photographers .directory-filter-body label:has(input:focus-visible){outline:2px solid #b49a5f;outline-offset:2px}
+@media(hover:hover){html.directory-mode body.page-home #photographers .photographer-card:hover{border-color:#bca56d70!important;box-shadow:0 14px 36px #173d5d16!important}html.directory-mode body.page-home #photographers .photographer-card:hover .card-image{filter:brightness(1.035)}}
+@media(max-width:600px){html.directory-mode body.page-home #photographers .directory-brand-watermark{font-size:35px;right:0;opacity:.04}}
+@media(prefers-reduced-motion:reduce){html.directory-mode body.page-home #photographers .photographer-card,html.directory-mode body.page-home #photographers .photographer-card .card-image,html.directory-mode body.page-home #photographers .directory-filter-body label{transition:none!important}}
+
+/* ===== v43 directory filter motion fix =====
+   Dedicated to ?trang=tho. Keeps grid reflow compositor-friendly and prevents
+   old filter animations from fighting new selections. */
+html.directory-mode body.page-home #photographers .cheese-photographer-card {
+  opacity:1;
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+}
+html.directory-mode body.page-home #photographers .cheese-photographer-card .card-image {
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform:translateZ(0);
+}
+html.directory-mode body.page-home #photographers.directory-is-filtering .cheese-photographer-card:not(.directory-card-ghost) {
+  pointer-events:none;
+}
+html.directory-mode body.page-home #photographers .directory-card-ghost {
+  position:fixed !important;
+  left:var(--ghost-left) !important;
+  top:var(--ghost-top) !important;
+  width:var(--ghost-width) !important;
+  height:var(--ghost-height) !important;
+  min-width:0 !important;
+  max-width:none !important;
+  margin:0 !important;
+  z-index:1200 !important;
+  pointer-events:none !important;
+  user-select:none !important;
+  transform:none !important;
+  transform-origin:center center !important;
+  contain:layout paint style;
+  will-change:translate,scale,filter;
+}
+html.directory-mode body.page-home #photographers .directory-card-ghost .heart,
+html.directory-mode body.page-home #photographers .directory-card-ghost .photographer-card-actions {
+  pointer-events:none !important;
+}
+@media(prefers-reduced-motion:reduce){
+  html.directory-mode body.page-home #photographers .directory-card-ghost{display:none!important}
+}

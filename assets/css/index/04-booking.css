@@ -1,0 +1,274 @@
+/* ===== cheese-booking-system-css ===== */
+.booking-panel{width:min(760px,100%);max-height:min(880px,calc(100svh - 28px));padding:34px}
+  .booking-topline{display:flex;justify-content:space-between;align-items:center;gap:14px;padding-right:44px}
+  .db-status{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:9px;font-weight:700;white-space:nowrap}
+  .db-status i{width:7px;height:7px;border-radius:50%;background:#d69a3f;box-shadow:0 0 0 4px rgba(214,154,63,.13)}
+  .db-status.connected{color:#38743d;border-color:rgba(56,116,61,.18);background:#eff8ec}
+  .db-status.connected i{background:#55a85d;box-shadow:0 0 0 4px rgba(85,168,93,.13)}
+  .db-status.demo{color:#8a6328;background:#fff8e6;border-color:rgba(138,99,40,.18)}
+  .booking-intro{margin-bottom:22px!important}
+  .booking-grid{display:grid;gap:12px}
+  .booking-grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #bookingForm{gap:12px!important}
+  #bookingForm label>span:first-child{font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+  #bookingForm textarea{width:100%;min-height:94px;resize:vertical;padding:13px 14px;border:1px solid var(--line);border-radius:13px;background:#fff;color:var(--ink);font:inherit;font-size:12px;outline:none;transition:border-color .2s,box-shadow .2s}
+  #bookingForm textarea:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(22,23,19,.07)}
+  .booking-note-label{display:grid;gap:8px}
+  .booking-consent{display:flex!important;grid-template-columns:none!important;align-items:flex-start;gap:10px!important;margin-top:2px;text-transform:none!important;letter-spacing:0!important;font-weight:500!important;color:var(--muted);line-height:1.5}
+  .booking-consent input{width:17px!important;height:17px!important;min-width:17px;padding:0!important;margin:2px 0 0!important;accent-color:var(--ink)}
+  .booking-consent span{font-size:10px!important;font-weight:500!important;letter-spacing:0!important;text-transform:none!important}
+  .availability-box{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 14px;border:1px solid rgba(23,61,93,.13);border-radius:14px;background:#f4f8fa}
+  .availability-box[hidden]{display:none}
+  .availability-box>div{display:grid;gap:3px}.availability-box b{font-size:11px}.availability-box span{color:var(--muted);font-size:10px;line-height:1.4}
+  .availability-box button{flex:0 0 auto;border:0;border-radius:999px;padding:8px 11px;background:#173d5d;color:#fff;cursor:pointer;font-size:9px;font-weight:800}
+  .booking-submit{width:100%;margin-top:2px}
+  .booking-submit:disabled{opacity:.55;cursor:not-allowed}
+  .booking-success-card{margin-top:18px;padding:17px;border:1px solid rgba(63,134,69,.18);border-radius:16px;background:#edf8e8;display:flex;gap:13px;align-items:flex-start}
+  .booking-success-card[hidden]{display:none}
+  .booking-success-icon{width:38px;height:38px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;background:#458b4b;color:#fff;font-weight:800}
+  .booking-success-card small{display:block;margin-bottom:3px;color:#4a6d4d;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+  .booking-success-card strong{display:block;font-size:20px;letter-spacing:0}
+  .booking-success-card p{margin:5px 0 0!important;color:#537157!important;font-size:10px!important}
+  .card-book-now{width:100%;min-height:43px;margin-top:9px;padding:0 14px;border:1px solid rgba(23,61,93,.14);border-radius:12px;background:#173d5d;color:#fff;cursor:pointer;font:inherit;font-size:10px;font-weight:800;transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+  .card-book-now:hover{transform:translateY(-1px);background:#0e304b;box-shadow:0 9px 22px rgba(23,61,93,.16)}
+  .card-book-now span{margin-left:6px}
+  @media(max-width:720px){
+    .booking-panel{padding:27px 19px 22px;border-radius:22px}
+    .booking-topline{align-items:flex-start;flex-direction:column;padding-right:38px;gap:8px}
+    .booking-grid.two{grid-template-columns:1fr}
+    .availability-box{align-items:flex-start;flex-direction:column}
+  }
+
+/* ===== cheese-realtime-booking-ui ===== */
+.photographer-card-actions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+  margin-top:8px;
+}
+.photographer-card-actions .card-book-link{
+  min-height:38px!important;
+  margin-top:0!important;
+  padding:0 3px!important;
+}
+.photographer-card-actions .card-book-now{
+  margin-top:0!important;
+  min-height:48px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+  border:1px solid rgba(255,255,255,.18)!important;
+  border-radius:13px!important;
+  background:#173d5d!important;
+  color:#fff!important;
+  font-size:11px!important;
+  font-weight:800!important;
+  letter-spacing:.01em!important;
+  box-shadow:0 10px 24px rgba(23,61,93,.12)!important;
+}
+.photographer-card-actions .card-book-now:hover{
+  background:#0c2f4a!important;
+  box-shadow:0 14px 28px rgba(23,61,93,.18)!important;
+  transform:translateY(-2px)!important;
+}
+.book-live-dot{
+  width:7px;
+  height:7px;
+  flex:0 0 auto;
+  border-radius:50%;
+  background:#71d479;
+  box-shadow:0 0 0 4px rgba(113,212,121,.15);
+}
+.booking-system-note{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:10px;
+  color:#567083;
+  font-size:10px;
+}
+.booking-system-note i{
+  width:7px;height:7px;border-radius:50%;background:#57a960;
+  box-shadow:0 0 0 4px rgba(87,169,96,.11);
+}
+@media(max-width:720px){
+  .photographer-card-actions .card-book-now{min-height:46px!important;font-size:10px!important}
+}
+
+/* ===== cheese-external-notify-ui ===== */
+.booking-channel-info{align-content:start}
+.booking-channel-pills{min-height:50px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;padding:8px 10px;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.64)}
+.booking-channel-pills i{font-style:normal;padding:6px 8px;border-radius:999px;background:#eef3f6;color:#35566e;font-size:8px;font-weight:800;letter-spacing:.02em}
+.booking-channel-pills i:nth-child(2){background:#e9f4ff;color:#1662a0}
+.booking-channel-pills i:nth-child(3){background:#fff3d9;color:#8a6328}
+.booking-delivery-note{margin:9px 0 0;padding:10px 12px;border:1px solid rgba(23,61,93,.1);border-radius:12px;background:#f6f9fa;color:#5e7382;font-size:9px;line-height:1.5}
+
+/* ===== dedicated-booking-link-style ===== */
+a.card-book-now.booking-page-link{
+  text-decoration:none!important;
+}
+
+/* ===== profile-simple-booking-css ===== */
+/* Photographer profile: larger imagery + simplified booking */
+.profile-shell{
+  max-width:1060px!important;
+  padding-left:24px!important;
+  padding-right:24px!important;
+}
+.profile-gallery{
+  width:100%;
+}
+.profile-slides{
+  aspect-ratio:16/10!important;
+  min-height:620px!important;
+  border-radius:26px!important;
+  background:#dfe7ec!important;
+  box-shadow:0 24px 70px rgba(23,61,93,.12)!important;
+}
+.profile-slides figure{
+  width:100%!important;
+  height:100%!important;
+}
+.profile-slides img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center center!important;
+  transform:scale(1.015);
+}
+.profile-photo-arrow{
+  width:48px!important;
+  height:48px!important;
+  font-size:28px!important;
+  box-shadow:0 8px 24px rgba(9,39,63,.14)!important;
+}
+.profile-photo-arrow.prev{left:18px!important}
+.profile-photo-arrow.next{right:18px!important}
+.profile-gallery-meta{
+  margin-top:14px!important;
+}
+.profile-portfolio{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:14px!important;
+}
+.profile-portfolio img{
+  width:100%!important;
+  height:480px!important;
+  object-fit:cover!important;
+  border-radius:18px!important;
+}
+.profile-simple-booking{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:28px;
+  padding:26px 28px!important;
+  border:1px solid rgba(23,61,93,.13)!important;
+  border-radius:22px!important;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(230,179,21,.13),transparent 36%),
+    linear-gradient(180deg,#fffefb,#f6f2e8)!important;
+  box-shadow:0 16px 46px rgba(23,61,93,.07)!important;
+}
+.profile-simple-booking-copy small{
+  display:block;
+  margin-bottom:5px;
+  color:#748594;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.profile-simple-booking-copy strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(32px,4vw,48px);
+  line-height:1.3;
+  letter-spacing:0;
+  color:#17354f;
+}
+.profile-simple-booking-copy p{
+  margin:9px 0 0!important;
+  color:#6d7f8d;
+  font-size:10px;
+}
+.profile-simple-booking-btn{
+  flex:0 0 auto;
+  min-width:220px;
+  min-height:54px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:0 22px;
+  border-radius:14px;
+  background:#173d5d;
+  color:#fff!important;
+  font-size:11px;
+  font-weight:900;
+  box-shadow:0 12px 30px rgba(23,61,93,.18);
+  transition:transform .22s ease,background .22s ease,box-shadow .22s ease;
+}
+.profile-simple-booking-btn:hover{
+  transform:translateY(-2px);
+  background:#09273f;
+  box-shadow:0 15px 34px rgba(23,61,93,.22);
+}
+.profile-bookbar{
+  padding-top:12px!important;
+  padding-bottom:12px!important;
+}
+.profile-bookbar-inner{
+  max-width:1000px!important;
+}
+.profile-bookbar a{
+  min-width:185px!important;
+  background:#173d5d!important;
+  color:#fff!important;
+}
+.profile-bookbar a:hover{
+  background:#09273f!important;
+}
+@media(max-width:900px){
+  .profile-slides{
+    min-height:520px!important;
+  }
+  .profile-portfolio img{
+    height:380px!important;
+  }
+}
+@media(max-width:700px){
+  .profile-shell{
+    padding-left:14px!important;
+    padding-right:14px!important;
+  }
+  .profile-slides{
+    aspect-ratio:4/5!important;
+    min-height:0!important;
+    border-radius:18px!important;
+  }
+  .profile-slides img{
+    object-position:center 35%!important;
+  }
+  .profile-photo-arrow{
+    width:42px!important;
+    height:42px!important;
+  }
+  .profile-portfolio{
+    grid-template-columns:1fr!important;
+  }
+  .profile-portfolio img{
+    height:auto!important;
+    aspect-ratio:4/5!important;
+  }
+  .profile-simple-booking{
+    display:grid;
+    gap:18px;
+    padding:20px!important;
+  }
+  .profile-simple-booking-btn{
+    width:100%;
+    min-width:0;
+  }
+}

@@ -1,0 +1,36 @@
+/* A quieter canvas with more deliberate depth and motion. */
+:root{--studio-ease:cubic-bezier(.22,1,.36,1)}
+body{background:#faf7f0}
+.brand-canvas{position:relative;isolation:isolate}
+.brand-canvas>.brand-watermark{position:absolute!important;inset:auto 0;top:20px;display:block;width:100%;max-width:100%!important;overflow:hidden;white-space:nowrap;text-align:center;pointer-events:none;user-select:none;z-index:-1;color:#173d5d;opacity:.055;font:italic 600 clamp(36px,9.4vw,154px)/1.5 var(--font-display);letter-spacing:0;transform:translateY(var(--brand-drift,0px));}
+#photographers{background:radial-gradient(ellipse at 95% 12%,#e9d39226,transparent 50%),#faf7f0!important;padding-top:clamp(100px,11vw,160px)!important}
+#process{background:linear-gradient(145deg,#f3eee3,#fcfaf4)!important;padding-top:clamp(100px,11vw,150px)!important}
+#process>.brand-watermark{top:18px;opacity:.045}
+.final-cta{background:radial-gradient(ellipse at 50% 80%,#e8cf8540,transparent 65%),#f8f3e8!important;padding-top:clamp(110px,12vw,170px)!important;padding-bottom:clamp(70px,8vw,110px)!important}
+.final-cta>.brand-watermark{top:16px;opacity:.06}
+.nav-wrap{background:rgba(250,247,239,.9)!important;backdrop-filter:blur(18px) saturate(1.2);border-bottom:1px solid #173d5d12!important;transition:box-shadow .3s,background .3s}
+body.studio-scrolled .nav-wrap{background:rgba(250,247,239,.97)!important;box-shadow:0 8px 30px #173d5d0d}
+.nav-links a{position:relative}.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-7px;height:2px;background:#b69243;transform:scaleX(0);transform-origin:left;transition:transform .3s var(--studio-ease)}.nav-links a:hover::after{transform:scaleX(1)}
+.cheese-photographer-card{border:1px solid #173d5d14!important;border-radius:24px!important;box-shadow:0 8px 28px #173d5d08!important;background:#fffdf8!important;transition:box-shadow .4s var(--studio-ease),border-color .3s,translate .4s var(--studio-ease)!important}
+.cheese-photographer-card .card-body{padding:22px!important}
+.cheese-photographer-card .card-image{overflow:hidden;border-radius:22px 22px 0 0!important}
+.cheese-photographer-card .card-image img{transition:scale .8s var(--studio-ease)!important}
+.filter{border-radius:999px!important;transition:background .25s,color .25s,box-shadow .25s!important}
+.filter.active{background:#173d5d!important;color:#fff!important;box-shadow:0 5px 15px #173d5d20!important}
+.directory-tools input,.directory-tools select{background:#ffffffb8!important;border:1px solid #173d5d20!important;border-radius:14px!important;transition:border-color .2s,box-shadow .2s}
+.directory-tools input:focus,.directory-tools select:focus{outline:0;border-color:#a78a4a!important;box-shadow:0 0 0 4px #c4a55f20}
+.all-photographers{background:linear-gradient(115deg,#fffaf0,#f5e7bf)!important;border:1px solid #c5a65e88!important;box-shadow:0 8px 24px #aa893615!important;border-radius:18px!important;transition:translate .3s,box-shadow .3s!important}
+.step{border:1px solid #173d5d12!important;background:#ffffffab!important;border-radius:22px!important;padding:26px!important;transition:translate .35s var(--studio-ease),box-shadow .35s!important}
+.step>span{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid #b5965050;border-radius:50%;background:#f7efd9;color:#836c32!important;font-size:14px!important;margin-bottom:18px}
+.step h3{font-size:19px!important;margin-bottom:10px}.step p{line-height:1.8!important}
+.btn-dark,.hero-main-btn{background:linear-gradient(120deg,#173d5d,#245473)!important;box-shadow:0 8px 24px #173d5d24!important;transition:translate .3s var(--studio-ease),box-shadow .3s!important}
+.btn span,.all-photographers span{display:inline-block;transition:translate .3s var(--studio-ease)}
+body>footer{background:linear-gradient(125deg,#173449,#203f55)!important;border-top:1px solid #bb9a5150}
+.founder-credit{border-top-color:#ffffff20!important}
+/* Existing reveal rules can leave text hidden; content always has a visible base. */
+.reveal{opacity:1!important;transform:none!important;filter:none!important}
+@media(hover:hover) and (pointer:fine){.cheese-photographer-card:hover{translate:0 -6px;border-color:#b89a5655!important;box-shadow:0 22px 44px #173d5d16!important}.cheese-photographer-card:hover .card-image img{scale:1.035}.step:hover{translate:0 -4px;box-shadow:0 14px 30px #173d5d0d}.all-photographers:hover,.btn-dark:hover,.hero-main-btn:hover{translate:0 -3px;box-shadow:0 15px 32px #173d5d24!important}.btn:hover span,.all-photographers:hover span{translate:3px -2px}}
+@media(max-width:600px){.brand-canvas>.brand-watermark{font-size:10.1vw;top:24px;opacity:.065}.cheese-photographer-card .card-body{padding:18px!important}.step{padding:22px!important}.final-cta h2{font-size:clamp(32px,9vw,44px)!important}.nav-wrap{backdrop-filter:blur(10px)}}
+@media(prefers-reduced-motion:reduce){.brand-watermark{transform:none!important}.cheese-photographer-card,.step,.btn,.all-photographers,.nav-wrap,.card-image img{transition:none!important;translate:none!important;scale:1!important}}
+#process .steps{gap:12px}
+.brand-canvas{scroll-margin-top:90px}

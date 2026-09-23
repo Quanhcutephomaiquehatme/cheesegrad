@@ -1,0 +1,123 @@
+/* ===== cheese-manual-calendar-css ===== */
+.add-calendar-btn{
+  background:#173d5d!important;
+  color:#fff!important;
+  border-color:#173d5d!important;
+}
+.add-calendar-btn:hover{background:#09273f!important}
+.manual-event-modal{
+  position:fixed;inset:0;z-index:180;display:grid;place-items:center;padding:20px;
+  opacity:0;visibility:hidden;transition:.22s;
+}
+.manual-event-modal.open{opacity:1;visibility:visible}
+.manual-event-backdrop{
+  position:absolute;inset:0;background:rgba(5,24,38,.58);backdrop-filter:blur(8px)
+}
+.manual-event-card{
+  position:relative;z-index:1;width:min(620px,100%);max-height:calc(100svh - 36px);overflow:auto;
+  padding:28px;border:1px solid rgba(255,255,255,.35);border-radius:24px;background:#fffaf0;
+  box-shadow:0 34px 100px rgba(0,0,0,.25);transform:translateY(12px) scale(.985);transition:.25s
+}
+.manual-event-modal.open .manual-event-card{transform:none}
+.manual-event-close{
+  position:absolute;top:16px;right:16px;width:36px;height:36px;border:1px solid var(--line);
+  border-radius:50%;background:#fff;color:var(--ink);font-size:20px
+}
+.manual-event-kicker{display:block;color:#a97810;font-size:8px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+.manual-event-card h2{margin:8px 42px 6px 0;font-family:"Playfair Display",serif;font-size:31px;letter-spacing:0}
+.manual-event-intro{margin:0 0 20px;color:var(--muted);font-size:10px;line-height:1.55}
+#manualEventForm{display:grid;gap:11px}
+#manualEventForm label{display:grid;gap:6px;color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+#manualEventForm input,#manualEventForm select,#manualEventForm textarea{
+  width:100%;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--ink);outline:none;
+  padding:11px;font-size:10px
+}
+#manualEventForm input,#manualEventForm select{height:45px}
+#manualEventForm textarea{min-height:92px;resize:vertical}
+#manualEventForm input:focus,#manualEventForm select:focus,#manualEventForm textarea:focus{
+  border-color:#173d5d;box-shadow:0 0 0 3px rgba(23,61,93,.06)
+}
+.manual-event-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.manual-event-check{
+  display:flex!important;grid-template-columns:none!important;align-items:flex-start;gap:9px!important;
+  padding:10px 11px;border:1px solid rgba(23,61,93,.1);border-radius:11px;background:#f2f6f8;
+  color:#506979!important;text-transform:none!important;letter-spacing:0!important;font-weight:600!important
+}
+.manual-event-check input{width:16px!important;height:16px!important;min-width:16px;margin-top:1px;padding:0!important;accent-color:#173d5d}
+.manual-event-check span{font-size:9px;line-height:1.45}
+.manual-event-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:3px}
+.manual-event-save,.manual-event-delete{
+  min-height:42px;padding:0 15px;border-radius:11px;font-size:9px;font-weight:900
+}
+.manual-event-save{border:0;background:#173d5d;color:#fff}
+.manual-event-delete{border:1px solid rgba(180,77,84,.18);background:#fff3f4;color:#a2474d}
+.event.manual{background:#f1eafa;border-left-color:#7b5aa6}
+.event.manual.personal{background:#f3eef8;border-left-color:#845ea8}
+.event.manual.existing_booking{background:#e9f3fb;border-left-color:#3d78a3}
+.event.manual.other{background:#f5f0e8;border-left-color:#9a7445}
+.event.manual.no-block{opacity:.72;border-left-style:dashed}
+.calendar-legend .manual i{background:#7b5aa6}
+.day-event-actions{display:flex;gap:6px;align-items:center}
+.day-event-edit{
+  border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink);
+  padding:6px 8px;font-size:8px;font-weight:800
+}
+.day-booking.manual-entry{border-color:rgba(123,90,166,.18);background:#faf7fd}
+@media(max-width:760px){
+  .manual-event-grid{grid-template-columns:1fr}
+  .manual-event-card{padding:24px 17px}
+  .manual-event-actions{display:grid;grid-template-columns:1fr 1fr}
+}
+
+/* ===== admin-public-availability-css ===== */
+.manual-web-status{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:10px 11px;border:1px solid rgba(23,61,93,.1);border-radius:11px;background:#fff
+}
+.manual-web-status b{font-size:8px;text-transform:uppercase;letter-spacing:.08em}
+.manual-web-status span{font-size:8px;color:#9a4d51;text-align:right}
+.manual-web-status.is-free span{color:#3f8249}
+
+
+/* ===== calendar-edit-delete-manager ===== */
+.day-event-actions{display:flex;gap:6px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.day-event-edit,.day-event-delete{
+  min-height:30px;padding:0 9px;border-radius:8px;font-size:7.5px;font-weight:900;cursor:pointer
+}
+.day-event-edit{border:1px solid var(--line);background:#fff;color:#173d5d}
+.day-event-delete{border:1px solid rgba(180,77,84,.20);background:#fff2f3;color:#a3464d}
+.day-event-edit:hover{background:#edf4f8}.day-event-delete:hover{background:#fae6e8}
+.manual-month-manager{margin-top:14px;overflow:hidden}
+.manual-month-head{align-items:center}
+.manual-month-list{display:grid}
+.manual-month-row{
+  display:grid;grid-template-columns:115px 150px 125px minmax(170px,1fr) 105px auto;
+  gap:10px;align-items:center;padding:12px 16px;border-top:1px solid rgba(23,61,93,.08);background:#fff
+}
+.manual-month-row:first-child{border-top:0}
+.manual-month-row:hover{background:#fbfaf6}
+.manual-month-date b,.manual-month-title b{display:block;font-size:9px;color:#173d5d}
+.manual-month-date small,.manual-month-title small,.manual-month-photographer,.manual-month-slot{font-size:7.5px;color:#758793;line-height:1.45}
+.manual-month-title small{margin-top:3px;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:360px}
+.manual-month-status{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.manual-month-status span{display:inline-flex;padding:4px 6px;border-radius:999px;background:#edf3f7;color:#48677b;font-size:6.5px;font-weight:900}
+.manual-month-status span.blocking{background:#f7e7e8;color:#944a51}
+.manual-month-actions{display:flex;gap:5px;justify-content:flex-end}
+.manual-month-actions button{height:31px;border-radius:8px;padding:0 9px;font-size:7px;font-weight:900;cursor:pointer}
+.manual-month-actions .edit{border:1px solid #d7e2e8;background:#f7fafb;color:#173d5d}
+.manual-month-actions .delete{border:1px solid #ebd0d3;background:#fff2f3;color:#a3464d}
+.manual-month-actions .edit:hover{background:#eaf2f6}.manual-month-actions .delete:hover{background:#fae5e7}
+.manual-month-manager .empty{border-top:1px solid rgba(23,61,93,.08)}
+@media(max-width:1100px){
+  .manual-month-row{grid-template-columns:105px 130px 110px 1fr auto}
+  .manual-month-status{display:none}
+}
+@media(max-width:760px){
+  .manual-month-head{align-items:stretch!important}
+  .manual-month-head .add-calendar-btn{width:100%}
+  .manual-month-row{grid-template-columns:1fr auto;gap:7px 10px;padding:13px}
+  .manual-month-date,.manual-month-photographer,.manual-month-slot,.manual-month-title{grid-column:1}
+  .manual-month-actions{grid-column:2;grid-row:1/5;align-self:center;flex-direction:column}
+  .manual-month-title small{max-width:230px}
+  .day-event-actions{width:100%;justify-content:flex-start;margin-top:7px}
+}

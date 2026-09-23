@@ -1,0 +1,165 @@
+
+/* =========================================================
+   Booking page — mobile UX final overrides
+   ========================================================= */
+html,body{max-width:100%;overflow-x:hidden}
+@media(max-width:700px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{
+    padding-bottom:env(safe-area-inset-bottom);
+    touch-action:manipulation
+  }
+  button,a,input,select,textarea{touch-action:manipulation}
+  button,a{-webkit-tap-highlight-color:transparent}
+
+  .topbar{
+    height:auto!important;min-height:64px!important;
+    padding:9px max(12px,env(safe-area-inset-right)) 9px max(12px,env(safe-area-inset-left))!important;
+    gap:9px!important
+  }
+  .topbar .brand{font-size:18px!important}
+  .topbar .back{
+    max-width:48vw;
+    font-size:11px!important;
+    line-height:1.25!important;
+    text-align:right
+  }
+  .page{
+    width:min(100% - 20px,1180px)!important;
+    padding:20px 0 38px!important
+  }
+
+  .hero{gap:14px!important}
+  .photo-card{
+    grid-template-columns:98px 1fr!important;
+    border-radius:15px!important
+  }
+  .photo{min-height:128px!important}
+  .photo-info{padding:14px!important}
+  .photo-info strong{font-size:24px!important}
+  .photo-info p{font-size:12px!important}
+  .hero-copy h1,.hero h1{
+    font-size:clamp(38px,12vw,50px)!important;
+    line-height:1.3!important
+  }
+  .hero-copy>p{font-size:14px!important;line-height:1.7!important}
+  .eyebrow{font-size:9px!important}
+
+  .compact-switch-shell{margin:2px 0 14px!important}
+  .compact-switch-trigger{
+    min-height:62px!important;
+    border-radius:14px!important
+  }
+  .compact-switch-copy small{font-size:9px!important}
+  .compact-switch-copy b{font-size:13px!important}
+
+  .panel{
+    padding:15px!important;
+    border-radius:16px!important
+  }
+  .booking-intro h2{font-size:34px!important}
+  .booking-intro p{font-size:13px!important}
+
+  /* Prevent iPhone auto-zoom and make forms thumb-friendly */
+  input,select,textarea{
+    min-height:48px!important;
+    font-size:16px!important;
+    border-radius:11px!important
+  }
+  textarea{min-height:110px!important}
+  label>span,.field-label{font-size:11px!important}
+  .hint,.package-note,.yearbook-panel-note,.grad-helper,.message-note,.contact-hint{
+    font-size:11px!important;line-height:1.55!important
+  }
+
+  .duration-toggle,.half-day-toggle{gap:8px!important}
+  .duration-main,.half-slot,.shoot-type-option,.booking-type-tab{
+    min-height:50px!important;
+    font-size:13px!important
+  }
+  .booking-type-tab small{font-size:10px!important}
+  .booking-type-tabs{grid-template-columns:1fr!important}
+
+  .package-options{
+    grid-template-columns:1fr 1fr!important;
+    gap:8px!important
+  }
+  .package-option{
+    min-height:92px!important;
+    padding:10px!important
+  }
+  .package-option:first-child{grid-column:1/-1!important}
+  .package-option small{font-size:11px!important}
+  .package-option b{font-size:12px!important}
+  .package-count{width:34px!important;height:34px!important;font-size:14px!important}
+  .package-summary{text-align:left!important;margin-top:10px!important}
+  .package-summary span{font-size:10px!important}
+  .package-summary b{font-size:20px!important}
+
+  .grad-package-panel{padding:13px!important}
+  .grad-package-panel h3{font-size:28px!important}
+  .grad-lead{font-size:12px!important}
+  .grad-package-card{
+    min-height:0!important;padding:14px!important
+  }
+  .grad-package-card h4{font-size:14px!important}
+  .grad-from,.grad-group,.grad-detail{font-size:11px!important}
+  .grad-price{font-size:20px!important}
+  .grad-summary{display:grid!important;gap:6px!important}
+  .grad-summary b,.grad-summary strong{font-size:12px!important}
+
+  .availability-slots{grid-template-columns:1fr!important}
+  .availability-slot{
+    min-height:58px!important;
+    padding:12px!important
+  }
+  .availability-slot b{font-size:13px!important}
+  .availability-slot span{font-size:11px!important}
+
+  .message-panel{position:relative!important;top:auto!important}
+  .message-title{font-size:26px!important}
+  .message-box{
+    min-height:190px!important;
+    font-size:13px!important;
+    line-height:1.65!important
+  }
+  .copy-btn{min-height:44px!important;font-size:11px!important}
+  .contact-buttons{grid-template-columns:1fr!important}
+  .contact-btn{
+    min-height:50px!important;
+    font-size:13px!important
+  }
+  .contact-btn.instagram{grid-column:auto!important;font-size:13px!important}
+
+  .compact-switch-popover{
+    place-items:end center!important;
+    padding:0!important
+  }
+  .compact-switch-card{
+    width:100%!important;
+    max-height:86svh!important;
+    border-radius:22px 22px 0 0!important;
+    padding:18px 14px calc(18px + env(safe-area-inset-bottom))!important
+  }
+  .compact-switch-head strong{font-size:26px!important}
+  .compact-switch-head button{width:44px!important;height:44px!important}
+  .compact-photographer-option{
+    grid-template-columns:64px 1fr!important;
+    min-height:82px!important;
+    padding:9px!important
+  }
+  .compact-photographer-option img{width:64px!important;height:72px!important}
+  .compact-photographer-option b{font-size:13px!important}
+  .compact-photographer-option small,.compact-photographer-option .price{font-size:10px!important}
+
+  .steps-list{margin-top:18px!important}
+  .step strong{font-size:13px!important}
+  .step span:not(.step-num){font-size:11px!important}
+}
+
+@media(max-width:380px){
+  .topbar .back{font-size:10px!important}
+  .photo-card{grid-template-columns:86px 1fr!important}
+  .photo{min-height:116px!important}
+  .hero-copy h1,.hero h1{font-size:38px!important}
+}

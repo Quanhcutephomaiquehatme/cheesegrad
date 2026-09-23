@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Cheese.Graduation — Quản lý lịch</title>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="assets/css/admin/01-core.css">
+<link rel="stylesheet" href="assets/css/admin/02-calendar.css">
+<link rel="stylesheet" href="assets/css/admin/03-photographer-cms.css">
+<link rel="stylesheet" href="assets/css/admin/04-pricing-cms.css">
+<link rel="stylesheet" href="assets/css/admin/05-takecare-cms.css">
+<link rel="stylesheet" href="assets/css/admin/06-hero-cms.css">
+<link rel="stylesheet" href="assets/css/admin/07-upcoming-dashboard.css">
+<link rel="stylesheet" href="assets/css/admin/08-finance-admin.css">
+<link rel="stylesheet" href="assets/css/admin/09-mobile-optimized.css">
+<link rel="stylesheet" href="assets/css/admin/10-ui-images.css">
+<link rel="stylesheet" href="assets/css/admin/11-library-money.css">
+<link rel="stylesheet" href="assets/css/admin/12-photographer-accounts.css">
+<link rel="stylesheet" href="assets/css/shared/typography.css">
+<link rel="stylesheet" href="assets/css/shared/premium-2026.css">
+<link rel="stylesheet" href="assets/css/admin/13-responsive-v64.css">
+</head>
+<body class="portal-admin">
+<div class="login" id="loginScreen"><div class="login-card"><h1>Cheese.Graduation</h1><p>Đang kiểm tra phiên đăng nhập…</p><a href="dang-nhap.html">Về trang đăng nhập</a></div></div>
+
+<div class="mobile-top">
+  <b>Cheese.Graduation</b>
+  <select id="mobileView">
+    <option value="overview">Tổng quan</option>
+    <option value="calendar">Lịch chụp</option>
+    <option value="bookings">Lịch sắp tới</option>
+    <option value="photographers">Photographer</option>
+    <option value="finance">Dòng tiền</option>
+    <option value="hero">Ảnh giao diện</option>
+    <option value="pricing">Bảng giá & phụ phí</option>
+    <option value="takecare">Take Care</option>
+  </select>
+</div>
+
+<div class="shell">
+  <aside class="sidebar">
+    <div class="brand"><b>Cheese.Graduation</b><span>Studio management</span></div>
+    <div class="nav">
+      <button class="active" data-view="overview"><span class="ico">⌂</span>Tổng quan</button>
+      <button data-view="calendar"><span class="ico">▦</span>Lịch chụp</button>
+      <button data-view="bookings"><span class="ico">≡</span>Lịch sắp tới</button>
+      <button data-view="photographers"><span class="ico">◎</span>Photographer</button>
+      <button data-view="finance"><span class="ico">₫</span>Dòng tiền</button>
+      <button data-view="hero"><span class="ico">▣</span>Ảnh giao diện</button>
+      <button data-view="pricing"><span class="ico">₫</span>Bảng giá & phụ phí</button>
+      <button data-view="takecare"><span class="ico">✦</span>Take Care</button>
+    </div>
+    <div class="sidebar-footer">
+      <small id="adminEmail">Chưa đăng nhập</small>
+      <button id="logoutButton">Đăng xuất</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><h1 id="viewTitle">Tổng quan</h1><p id="viewSubtitle">Theo dõi lịch chụp theo tháng, năm và doanh thu đã ghi nhận.</p></div>
+      <div class="notify-tools">
+        <button class="notify-enable" id="enableNotifications" type="button">Bật thông báo</button>
+        <button class="admin-bell" id="adminBell" type="button" aria-label="Thông báo booking">🔔<span class="badge" id="notificationBadge" hidden>0</span></button>
+        <div class="live"><i></i><span id="syncStatus">Đồng bộ Supabase</span></div>
+      </div>
+    </div>
+
+    <section class="view active" id="view-overview">
+      <div class="stats overview-stats">
+        <div class="stat"><small>Lịch trong tháng</small><strong id="statMonth">0</strong><span id="statMonthLabel">Lịch chụp tháng này</span></div>
+        <div class="stat"><small>Lịch trong năm</small><strong id="statYear">0</strong><span id="statYearLabel">Lịch chụp năm nay</span></div>
+        <div class="stat money-stat"><small>Doanh thu tháng</small><strong id="statMoneyMonth">0đ</strong><span>Tiền cọc / tiền đã ghi nhận</span></div>
+        <div class="stat money-stat"><small>Doanh thu năm</small><strong id="statMoneyYear">0đ</strong><span>Tiền cọc / tiền đã ghi nhận</span></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div><h2>Lịch sắp tới gần nhất</h2><p>Các lịch được xếp theo ngày gần nhất. Bấm vào từng lịch để xem chi tiết.</p></div>
+          <button class="overview-open-upcoming" type="button" data-open-upcoming>Xem tất cả lịch sắp tới →</button>
+        </div>
+        <div class="overview-upcoming" id="overviewUpcoming"></div>
+        <div class="empty" id="overviewUpcomingEmpty" hidden>Chưa có lịch sắp tới.</div>
+      </div>
+    </section>
+
+    <section class="view" id="view-calendar">
+      <div class="calendar-toolbar">
+        <div>
+          <button id="prevMonth">←</button><div class="month-title" id="monthTitle"></div><button id="nextMonth">→</button>
+        </div>
+        <div>
+          <select id="calendarPhotographer"><option value="all">Tất cả photographer</option></select>
+          <button id="todayButton">Hôm nay</button>
+          <button class="add-calendar-btn" id="addCalendarEvent" type="button">+ Thêm lịch</button>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="calendar-wrap">
+          <div class="calendar" id="calendarGrid"></div>
+        </div>
+        <div class="calendar-legend">
+          <span><i></i>Booking</span><span class="paid"><i></i>Đã cọc</span><span class="pending"><i></i>Chờ cọc</span><span class="full"><i></i>Kín lịch</span><span class="blocked"><i></i>Khóa lịch</span><span class="manual"><i></i>Lịch tự thêm</span>
+        </div>
+      </div>
+      <div class="panel day-drawer" id="dayPanel" hidden>
+        <div class="panel-head">
+          <div><h2 id="dayTitle">Chi tiết lịch chụp trong ngày</h2><p id="daySummary"></p></div>
+          <div class="day-actions"><button class="small-btn danger" id="toggleBlockDay">Khóa ngày</button></div>
+        </div>
+        <div class="day-bookings" id="dayBookings"></div>
+      </div>
+
+      <div class="panel manual-month-manager" id="manualMonthManager">
+        <div class="panel-head manual-month-head">
+          <div>
+            <h2>Lịch tự thêm trong tháng</h2>
+            <p id="manualMonthSummary">Quản lý nhanh lịch do Admin tự thêm.</p>
+          </div>
+          <button class="add-calendar-btn" id="addCalendarEventFromList" type="button">+ Thêm lịch mới</button>
+        </div>
+        <div class="manual-month-list" id="manualMonthList"></div>
+        <div class="empty" id="manualMonthEmpty" hidden>Tháng này chưa có lịch tự thêm.</div>
+      </div>
+    </section>
+
+    <section class="view" id="view-bookings">
+      <div class="panel upcoming-panel">
+        <div class="panel-head upcoming-panel-head">
+          <div>
+            <h2>Lịch sắp tới</h2>
+            <p>Chỉ hiện những ngày có lịch, xếp từ ngày gần nhất đến xa nhất. Bao gồm booking khách và lịch Admin tự thêm.</p>
+          </div>
+          <div class="filters">
+            <input id="searchInput" placeholder="Tìm khách, trường, mã lịch, ghi chú...">
+            <select id="filterPhotographer"><option value="all">Tất cả photographer</option></select>
+          </div>
+        </div>
+        <div class="upcoming-schedule-list" id="upcomingScheduleList"></div>
+        <div class="empty" id="bookingEmpty" hidden>Chưa có lịch sắp tới phù hợp.</div>
+      </div>
+    </section>
+
+
+    <section class="view" id="view-finance">
+      <div class="finance-rule-banner">
+        <div class="founder-rule">
+          <small>FOUNDER</small>
+          <strong>STU 0%</strong>
+          <span>Founder nhận 100% doanh thu buổi chụp</span>
+        </div>
+        <div>
+          <small>THỢ ĐỐI TÁC</small>
+          <strong>STU 15%</strong>
+          <span>Photographer 85% doanh thu buổi chụp</span>
+        </div>
+        <div>
+          <small>THỢ THƯỜNG</small>
+          <strong>STU 20%</strong>
+          <span>Photographer 80% doanh thu buổi chụp</span>
+        </div>
+        <p>Chi phí vận hành được theo dõi riêng để biết phần STU thực giữ sau chi phí. Tỷ lệ được lưu theo từng buổi khi bạn bấm lưu dòng tiền.</p>
+      </div>
+
+      <div class="finance-filterbar">
+        <div class="finance-filter-main">
+          <label><span>Xem theo</span>
+            <select id="financePeriodMode">
+              <option value="month">Tháng</option>
+              <option value="year">Năm</option>
+              <option value="all">Toàn bộ</option>
+            </select>
+          </label>
+          <label id="financeMonthWrap"><span>Tháng</span><input id="financeMonth" type="month"></label>
+          <label id="financeYearWrap" hidden><span>Năm</span><input id="financeYear" type="number" min="2020" max="2100"></label>
+          <label><span>Photographer</span><select id="financePhotographerFilter"><option value="all">Tất cả photographer</option></select></label>
+          <label><span>Loại thợ</span>
+            <select id="financeTypeFilter">
+              <option value="all">Tất cả</option>
+              <option value="founder">Founder · STU 0%</option>
+              <option value="partner">Thợ đối tác · STU 15%</option>
+              <option value="regular">Thợ thường · STU 20%</option>
+            </select>
+          </label>
+        </div>
+        <button id="financeReload" type="button">Tải lại dữ liệu</button>
+      </div>
+
+      <div class="finance-stats">
+        <article><small>Doanh thu buổi chụp</small><strong id="finGross">0đ</strong><span>Tổng doanh thu đã nhập</span></article>
+        <article><small>Khách đã thanh toán</small><strong id="finCollected">0đ</strong><span id="finReceivable">Còn phải thu 0đ</span></article>
+        <article class="studio"><small>Phần STU theo tỷ lệ</small><strong id="finStudioShare">0đ</strong><span id="finStudioNet">Sau chi phí: 0đ</span></article>
+        <article><small>Phần photographer</small><strong id="finPhotographerShare">0đ</strong><span id="finPhotographerPayable">Còn phải trả 0đ</span></article>
+        <article><small>Tổng chi phí</small><strong id="finCosts">0đ</strong><span>Take Care · đi lại · hậu kỳ · khác</span></article>
+        <article class="cash"><small>Tiền STU đang giữ</small><strong id="finCashHeld">0đ</strong><span>Đã thu − đã trả thợ − chi phí</span></article>
+      </div>
+
+      <div class="panel finance-panel">
+        <div class="panel-head finance-panel-head">
+          <div>
+            <h2>Bảng kiểm soát dòng tiền từng buổi</h2>
+            <p>Nhập doanh thu thực tế và các khoản chi. Hệ thống tự chia STU / photographer theo loại thợ.</p>
+          </div>
+          <div class="finance-table-legend">
+            <span class="founder">Founder 0%</span>
+            <span class="partner">Đối tác 15%</span>
+            <span class="regular">Thường 20%</span>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="booking-table finance-table">
+            <thead>
+              <tr>
+                <th>Ngày / lịch</th>
+                <th>Photographer</th>
+                <th>Doanh thu</th>
+                <th>Chi phí</th>
+                <th>STU</th>
+                <th>Thợ</th>
+                <th>Khách đã trả</th>
+                <th>Đã trả thợ</th>
+                <th>Còn phải thu</th>
+                <th>Còn phải trả thợ</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="financeRows"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="financeEmpty" hidden>Chưa có lịch chụp phù hợp trong khoảng thời gian này.</div>
+      </div>
+    </section>
+
+
+    <section class="view" id="view-hero">
+      <div class="panel ui-images-panel">
+        <div class="panel-head ui-images-head">
+          <div>
+            <h2>Ảnh giao diện</h2>
+            <p>Quản lý ảnh đầu trang, slider Real Work và ảnh profile photographer tại một nơi. Ảnh tải từ máy sẽ tự nén sang WebP trước khi upload.</p>
+          </div>
+          <a class="hero-admin-preview" href="index.html" target="_blank" rel="noopener">Xem trang chính ↗</a>
+        </div>
+
+        <div class="ui-image-tabs" id="uiImageTabs">
+          <button class="active" type="button" data-ui-image-tab="hero">Ảnh đầu trang</button>
+          <button type="button" data-ui-image-tab="realwork">Real Work</button>
+          <button type="button" data-ui-image-tab="profile">Ảnh profile</button>
+          <button type="button" data-ui-image-tab="library">Thư viện ảnh</button>
+        </div>
+
+        <div class="ui-image-tab-panel active" data-ui-image-panel="hero">
+          <div class="ui-image-tab-intro">
+            <div><b>Ảnh đầu trang</b><span>Ảnh chạy ở hero đầu trang chính.</span></div>
+            <span class="ui-optimize-badge">Tự tối ưu WebP</span>
+          </div>
+          <div class="hero-admin-upload">
+            <label class="hero-upload-file"><span>Chọn ảnh từ máy</span><input id="heroImageFile" type="file" accept="image/*" multiple></label>
+            <div class="hero-upload-or">hoặc</div>
+            <label><span>URL ảnh</span><input id="heroImageUrl" type="url" placeholder="https://.../image.jpg"></label>
+            <label><span>Mô tả ảnh</span><input id="heroImageAlt" placeholder="Ảnh tốt nghiệp Cheese.Graduation"></label>
+            <button id="heroAddButton" type="button">+ Thêm ảnh</button>
+          </div>
+          <div class="hero-admin-help" id="heroUploadStatus">Ảnh sẽ tự giảm kích thước và nén WebP trước khi upload.</div>
+          <div class="hero-admin-toolbar">
+            <div><b id="heroImageCount">0 ảnh</b><span>Sắp xếp bằng nút ← → hoặc nhập số thứ tự.</span></div>
+            <button id="heroReloadButton" type="button">Tải lại</button>
+          </div>
+          <div class="hero-admin-grid" id="heroAdminGrid"></div>
+          <div class="empty" id="heroAdminEmpty" hidden>Chưa có ảnh đầu trang.</div>
+        </div>
+
+        <div class="ui-image-tab-panel" data-ui-image-panel="realwork">
+          <div class="ui-image-tab-intro">
+            <div><b>Slider Real Work</b><span>Ảnh hiển thị thành một dải ngang tự chạy; ảnh ở giữa phóng to, ảnh xung quanh mờ đi.</span></div>
+            <span class="ui-optimize-badge">Tự tối ưu WebP</span>
+          </div>
+          <div class="hero-admin-upload">
+            <label class="hero-upload-file"><span>Chọn ảnh Real Work</span><input id="realWorkImageFile" type="file" accept="image/*" multiple></label>
+            <div class="hero-upload-or">hoặc</div>
+            <label><span>URL ảnh</span><input id="realWorkImageUrl" type="url" placeholder="https://.../image.jpg"></label>
+            <label><span>Chú thích</span><input id="realWorkImageAlt" placeholder="VD: NEU · Nắng chiều"></label>
+            <button id="realWorkAddButton" type="button">+ Thêm ảnh</button>
+          </div>
+          <div class="hero-admin-help" id="realWorkUploadStatus">Bạn có thể chọn nhiều ảnh cùng lúc. Ảnh sẽ tự nén WebP trước khi lưu.</div>
+          <div class="hero-admin-toolbar">
+            <div><b id="realWorkImageCount">0 ảnh</b><span>Ảnh active sẽ tự xuất hiện trong slider trang chủ.</span></div>
+            <button id="realWorkReloadButton" type="button">Tải lại</button>
+          </div>
+          <div class="hero-admin-grid real-work-admin-grid" id="realWorkAdminGrid"></div>
+          <div class="empty" id="realWorkAdminEmpty" hidden>Chưa có ảnh Real Work.</div>
+        </div>
+
+        <div class="ui-image-tab-panel" data-ui-image-panel="profile">
+          <div class="ui-image-tab-intro">
+            <div><b>Ảnh profile photographer</b><span>Ảnh số 1 là ảnh bìa/card. Ảnh 2–5 là gallery trong hồ sơ photographer.</span></div>
+            <span class="ui-optimize-badge">Tự tối ưu WebP</span>
+          </div>
+          <div class="profile-media-toolbar">
+            <label><span>Chọn photographer</span><select id="profileMediaPhotographer"></select></label>
+            <button id="profileMediaReload" type="button">Tải lại</button>
+          </div>
+          <div class="hero-admin-help" id="profileMediaStatus">Mọi ảnh tải từ máy ở đây đều được tối ưu dung lượng trước khi upload.</div>
+          <div class="profile-media-grid" id="profileMediaGrid"></div>
+          <div class="empty" id="profileMediaEmpty" hidden>Chưa có photographer để quản lý ảnh.</div>
+        </div>
+
+        <div class="ui-image-tab-panel" data-ui-image-panel="library">
+          <div class="ui-image-tab-intro">
+            <div><b>Thư viện ảnh Studio</b><span>Toàn bộ ảnh upload ở đây sẽ xuất hiện trên trang Thư viện ảnh. Ảnh ngang/dọc được giữ đúng tỉ lệ và tự xếp masonry.</span></div>
+            <span class="ui-optimize-badge">Tự tối ưu WebP</span>
+          </div>
+
+          <div class="hero-admin-upload">
+            <label class="hero-upload-file">
+              <span>Chọn ảnh thư viện</span>
+              <input id="libraryImageFile" type="file" accept="image/*" multiple>
+            </label>
+            <div class="hero-upload-or">hoặc</div>
+            <label>
+              <span>URL ảnh</span>
+              <input id="libraryImageUrl" type="url" placeholder="https://.../image.jpg">
+            </label>
+            <label>
+              <span>Chú thích</span>
+              <input id="libraryImageAlt" placeholder="VD: NEU · Chân dung tốt nghiệp">
+            </label>
+            <button id="libraryAddButton" type="button">+ Thêm ảnh</button>
+          </div>
+          <div class="hero-admin-help" id="libraryUploadStatus">Bạn có thể chọn nhiều ảnh ngang và dọc cùng lúc. Mỗi ảnh sẽ tự tạo 1 thumbnail nhẹ + 1 ảnh full để xem lớn.</div>
+
+          <div class="hero-admin-toolbar">
+            <div><b id="libraryImageCount">0 ảnh</b><span>Thumbnail dùng cho lưới · ảnh full chỉ tải khi mở lớn. Có thể đưa ảnh nổi bật sang Real Work.</span></div>
+            <div class="library-admin-toolbar-actions">
+              <a href="thu-vien.html" target="_blank" rel="noopener">Xem thư viện ↗</a>
+              <button id="libraryReloadButton" type="button">Tải lại</button>
+            </div>
+          </div>
+          <div class="hero-admin-grid library-admin-grid" id="libraryAdminGrid"></div>
+          <div class="empty" id="libraryAdminEmpty" hidden>Chưa có ảnh trong thư viện.</div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <section class="view" id="view-pricing">
+      <div class="panel pricing-admin-panel">
+        <div class="panel-head pricing-admin-head">
+          <div>
+            <h2>Bảng giá & phụ phí tỉnh</h2>
+            <p>Mọi thay đổi ở đây sẽ đồng bộ sang trang Bảng giá và danh sách tỉnh ở trang đặt lịch.</p>
+          </div>
+          <a class="pricing-preview-link" href="bang-gia.html" target="_blank" rel="noopener">Xem trang bảng giá ↗</a>
+        </div>
+
+        <div class="pricing-admin-highlight">
+          <label>
+            <span>Giá tham khảo hiển thị đầu trang</span>
+            <input id="pricingReferencePrice" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" value="1500000">
+          </label>
+          <p>Giá mặc định hiện tại: <b>từ 1.500.000đ</b>. Bạn có thể sửa trực tiếp tại đây.</p>
+        </div>
+
+        <div class="pricing-admin-section">
+          <div class="pricing-admin-section-head">
+            <div><b>Hạng ekip / bảng giá chính</b><small>Sửa tên, giá, mô tả và nhóm photographer được liên kết.</small></div>
+            <button id="addTeamPrice" type="button">+ Thêm hạng</button>
+          </div>
+          <div id="teamPriceEditor" class="team-price-editor"></div>
+        </div>
+
+        <div class="pricing-admin-section">
+          <div class="pricing-admin-section-head">
+            <div><b>Phụ phí tỉnh / khu vực</b><small>Toàn bộ tên khu vực, giá đi lại và ghi chú đều sửa được. Trang đặt lịch dùng chung dữ liệu này.</small></div>
+            <button id="addProvincePrice" type="button">+ Thêm khu vực</button>
+          </div>
+          <div class="province-price-editor-head">
+            <span>Nhóm vùng</span><span>Tỉnh / khu vực</span><span>Phụ phí / 1 thợ</span><span>Ghi chú</span><span></span>
+          </div>
+          <div id="provincePriceEditor" class="province-price-editor"></div>
+        </div>
+
+        <div class="pricing-admin-savebar">
+          <div><b id="pricingSyncLabel">Dữ liệu bảng giá đang đồng bộ.</b><small>Sau khi lưu, tải lại trang Bảng giá để xem dữ liệu mới.</small></div>
+          <button id="savePricingSettings" type="button">Lưu bảng giá & phụ phí</button>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="view" id="view-takecare">
+      <div class="takecare-rate-strip">
+        <div class="takecare-rate-card primary editable">
+          <small>CHI PHÍ TAKE CARE · CẢ NGÀY</small>
+          <label class="takecare-rate-input">
+            <input id="takecareFullDayRate" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" value="400000">
+            <span>đ / 1 người / 1 ngày</span>
+          </label>
+        </div>
+        <div class="takecare-rate-card editable">
+          <small>CHI PHÍ TAKE CARE · NỬA NGÀY</small>
+          <label class="takecare-rate-input">
+            <input id="takecareHalfDayRate" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" value="250000">
+            <span>đ / 1 người / nửa ngày</span>
+          </label>
+        </div>
+        <div class="takecare-rate-note">
+          <b>Chi phí nội bộ</b>
+          <p>Lịch mới sẽ dùng mức giá hiện tại. Các lịch đã lưu vẫn giữ nguyên chi phí cũ để không sai lịch sử.</p>
+          <button id="saveTakecareRates" type="button">Lưu giá công Take Care</button>
+        </div>
+      </div>
+
+      <div class="takecare-stats">
+        <article><small>Take Care đang hoạt động</small><strong id="tcStatActive">0</strong><span>nhân sự</span></article>
+        <article><small>Ca trong tháng</small><strong id="tcStatShifts">0</strong><span>lịch làm</span></article>
+        <article><small>Cả ngày</small><strong id="tcStatFull">0</strong><span id="tcFullRateLabel">× 400.000đ</span></article>
+        <article><small>Nửa ngày</small><strong id="tcStatHalf">0</strong><span id="tcHalfRateLabel">× 250.000đ</span></article>
+        <article class="money"><small>Tổng chi phí tháng</small><strong id="tcStatCost">0đ</strong><span>Take Care</span></article>
+      </div>
+
+      <div class="takecare-grid-layout">
+        <section class="panel takecare-panel">
+          <div class="panel-head takecare-panel-head">
+            <div><h2>Danh sách Take Care</h2><p>Thêm, sửa, ẩn hoặc quản lý từng nhân sự Take Care.</p></div>
+          </div>
+          <form class="takecare-add-form" id="takecareStaffForm">
+            <label><span>Tên *</span><input id="takecareStaffName" required placeholder="VD: Linh"></label>
+            <label><span>Số điện thoại</span><input id="takecareStaffPhone" inputmode="tel" placeholder="09xx xxx xxx"></label>
+            <label><span>Ghi chú</span><input id="takecareStaffNote" placeholder="VD: Ưu tiên cuối tuần"></label>
+            <button type="submit">+ Thêm Take Care</button>
+          </form>
+          <div class="takecare-staff-list" id="takecareStaffList"></div>
+          <div class="empty" id="takecareStaffEmpty" hidden>Chưa có nhân sự Take Care.</div>
+        </section>
+
+        <section class="panel takecare-panel">
+          <div class="panel-head takecare-panel-head">
+            <div><h2>Thêm lịch làm</h2><p>Chọn người, ngày và ca. Chi phí được tính tự động.</p></div>
+          </div>
+          <form class="takecare-shift-form" id="takecareShiftForm">
+            <label><span>Take Care *</span><select id="takecareShiftStaff" required></select></label>
+            <label><span>Ngày làm *</span><input id="takecareShiftDate" type="date" required></label>
+            <label><span>Ca làm *</span>
+              <select id="takecareShiftType" required>
+                <option value="full_day">Cả ngày</option>
+                <option value="half_morning">Nửa ngày sáng</option>
+                <option value="half_afternoon">Nửa ngày chiều</option>
+              </select>
+            </label>
+            <label class="wide"><span>Ghi chú</span><input id="takecareShiftNote" placeholder="VD: Đi cùng ekip Quang Anh / 12A1"></label>
+            <div class="takecare-cost-preview"><small>Chi phí ca này</small><strong id="takecareShiftCost">400.000đ</strong></div>
+            <button type="submit">Lưu lịch làm</button>
+          </form>
+          <p class="takecare-form-help">Mỗi Take Care chỉ có 1 loại ca trong cùng một ngày. Nếu làm cả sáng và chiều, hãy chọn <b>Cả ngày</b>. Chi phí được lấy theo mức giá đang lưu ở phía trên.</p>
+        </section>
+      </div>
+
+      <section class="panel takecare-schedule-panel">
+        <div class="panel-head takecare-schedule-head">
+          <div><h2>Lịch làm & chi phí</h2><p>Xem từng người làm ngày nào và tổng công trong tháng.</p></div>
+          <div class="takecare-filters">
+            <input id="takecareMonthFilter" type="month">
+            <select id="takecareStaffFilter"><option value="all">Tất cả Take Care</option></select>
+          </div>
+        </div>
+        <div class="takecare-person-summary" id="takecarePersonSummary"></div>
+        <div class="table-wrap">
+          <table class="booking-table takecare-table">
+            <thead><tr><th>Ngày làm</th><th>Take Care</th><th>Ca</th><th>Chi phí</th><th>Ghi chú</th><th></th></tr></thead>
+            <tbody id="takecareShiftRows"></tbody>
+          </table>
+        </div>
+        <div class="empty" id="takecareShiftEmpty" hidden>Tháng này chưa có lịch Take Care.</div>
+      </section>
+    </section>
+
+    <section class="view" id="view-photographers">
+      <div class="panel">
+        <div class="panel-head photographer-admin-head">
+          <div><h2>Quản lý photographer</h2><p>Sửa giá, hồ sơ, ảnh, thứ tự hiển thị; thêm thợ mới hoặc ẩn thợ khỏi website.</p></div>
+          <button class="photographer-add-btn" id="addPhotographer" type="button">+ Thêm photographer</button>
+        </div>
+        <p class="account-guide">Bấm “Tài khoản đăng nhập” trên từng thợ để cấp email và đặt mật khẩu. Thợ đăng nhập tại <a href="dang-nhap.html">trang đăng nhập chung ↗</a>.</p>
+<div class="photographer-admin-grid" id="photographerAdminGrid"></div>
+        <div class="empty" id="photographerAdminEmpty" hidden>Chưa có photographer.</div>
+      </div>
+      <div class="panel crew-confirm-panel"><div class="panel-head"><div><h2>Xác nhận lịch của thợ</h2><p>Trạng thái nhận lịch của thợ, độc lập với trạng thái chốt lịch của studio. Tự kiểm tra mỗi 30 giây.</p></div><button id="refreshCrewConfirmation" type="button">Làm mới</button></div><label>Hiển thị <select id="crewConfirmationFilter"><option value="pending">Chưa xác nhận</option><option value="confirmed">Đã xác nhận</option><option value="all">Tất cả</option></select></label><p id="crewConfirmSync" role="status"></p><div id="crewConfirmationList"></div></div>
+    </section>
+
+  </main>
+</div>
+
+
+<div class="notify-popover" id="notifyPopover">
+  <div class="notify-popover-head"><b>Booking mới</b><button id="clearNotifications" type="button">Đánh dấu đã đọc</button></div>
+  <div class="notify-list" id="notifyList"><div class="notify-empty">Chưa có thông báo mới.</div></div>
+</div>
+<div class="realtime-toast-stack" id="realtimeToastStack"></div>
+
+
+<div class="manual-event-modal" id="manualEventModal" aria-hidden="true">
+  <div class="manual-event-backdrop" data-manual-close></div>
+  <div class="manual-event-card" role="dialog" aria-modal="true" aria-labelledby="manualEventTitle">
+    <button class="manual-event-close" type="button" data-manual-close aria-label="Đóng">×</button>
+    <span class="manual-event-kicker">Lịch nội bộ</span>
+    <h2 id="manualEventTitle">Thêm lịch vào hệ thống</h2>
+    <p class="manual-event-intro">Admin là nơi quản lý lịch chính thức. Thêm lịch đã chốt, lịch cá nhân hoặc thời gian ekip bận để website khách tra lịch chính xác.</p>
+
+    <form id="manualEventForm">
+      <input type="hidden" id="manualEventId">
+
+      <label>
+        <span>Loại lịch *</span>
+        <select id="manualEventType" required>
+          <option value="existing_booking">Lịch đã có / đã chốt</option>
+          <option value="personal">Lịch cá nhân</option>
+          <option value="other">Lịch khác</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Tiêu đề *</span>
+        <input id="manualEventTitleInput" required placeholder="VD: 12A1 THPT Chu Văn An / Việc cá nhân">
+      </label>
+
+      <div class="manual-event-grid">
+        <label>
+          <span>Photographer *</span>
+          <select id="manualEventPhotographer" required></select>
+        </label>
+        <label>
+          <span>Ngày *</span>
+          <input id="manualEventDate" type="date" required>
+        </label>
+      </div>
+
+      <div class="manual-event-grid">
+        <label>
+          <span>Khung giờ *</span>
+          <select id="manualEventTime" required>
+            <option value="Sáng">Sáng · 07:00–12:00</option>
+            <option value="Chiều">Chiều · 13:00–18:00</option>
+            <option value="Cả ngày">Cả ngày</option>
+          </select>
+        </label>
+        <label>
+          <span>Nguồn lịch</span>
+          <input id="manualEventSource" placeholder="VD: Instagram, Facebook, khách cũ...">
+        </label>
+      </div>
+
+      <label>
+        <span>Ghi chú</span>
+        <textarea id="manualEventNote" placeholder="Địa điểm, số người, thông tin liên hệ, việc cần chuẩn bị..."></textarea>
+      </label>
+
+      <label class="manual-event-check">
+        <input id="manualEventBlocks" type="checkbox" checked>
+        <span>Hiển thị HẾT LỊCH khung giờ này trên website khách</span>
+      </label>
+      <div class="manual-web-status">
+        <b>Trạng thái website</b>
+        <span id="manualWebStatusText">Hết lịch · khách sẽ không chọn được khung giờ này</span>
+      </div>
+
+      <div class="manual-event-actions">
+        <button class="manual-event-delete" id="deleteManualEvent" type="button" hidden>Xóa lịch</button>
+        <button class="manual-event-save" id="saveManualEvent" type="submit">Thêm lịch</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="photographer-editor-modal" id="photographerEditorModal" aria-hidden="true">
+  <div class="photographer-editor-backdrop" data-photographer-close></div>
+  <div class="photographer-editor-card" role="dialog" aria-modal="true" aria-labelledby="photographerEditorTitle">
+    <button class="photographer-editor-close" type="button" data-photographer-close aria-label="Đóng">×</button>
+    <span class="photographer-editor-kicker">Photographer CMS</span>
+    <h2 id="photographerEditorTitle">Thêm photographer</h2>
+    <p class="photographer-editor-intro">Thông tin lưu ở Supabase và tự đồng bộ sang trang chính, hồ sơ thợ và trang đặt lịch.</p>
+    <div class="photographer-visible-note">
+      <b>Nội dung khách nhìn thấy:</b> 5 ảnh đầu hồ sơ, tên, ekip, khu vực, đánh giá, số buổi đã chụp,
+      mô tả, tag, giá, dịch vụ đi kèm và nút Google Drive đều chỉnh trực tiếp ở đây.
+    </div>
+    <form id="photographerEditorForm">
+      <input type="hidden" id="photographerEditorId">
+      <div class="photographer-form-grid">
+        <label><span>Tên *</span><input id="photographerName" required placeholder="VD: Quang Anh"></label>
+        <label><span>Slug *</span><input id="photographerSlug" required placeholder="quang-anh"></label>
+      </div>
+      <div class="photographer-form-grid four">
+        <label><span>Ekip</span><input id="photographerTeam" placeholder="Founder / Ekip 1"></label>
+        <label><span>Loại photographer</span>
+          <select id="photographerType">
+            <option value="founder">Founder · STU 0%</option>
+            <option value="partner">Thợ đối tác · STU 15%</option>
+            <option value="regular">Thợ thường · STU 20%</option>
+          </select>
+        </label>
+        <label><span>Khu vực hiển thị</span><input id="photographerLocation" placeholder="VD: Hà Nội"></label>
+        <label><span>Giá từ (VNĐ)</span><input id="photographerPrice" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" placeholder="2.300.000"></label>
+      </div>
+      <div class="photographer-form-grid">
+        <label><span>Nhãn giá</span><input id="photographerPriceLabel" placeholder="VD: Liên hệ"></label>
+        <div class="photographer-type-note"><b id="photographerTypeRate">STU nhận 20%</b><span>Tỷ lệ này được dùng khi tính dòng tiền của buổi chụp.</span></div>
+      </div>
+      <div class="photographer-form-grid">
+        <label><span>Phong cách</span><input id="photographerStyle" placeholder="Trong trẻo · Outdoor"></label>
+        <label><span>Tag</span><input id="photographerTags" placeholder="Trong trẻo, Outdoor, Kỷ yếu"></label>
+      </div>
+      <label><span>Giới thiệu photographer</span><textarea id="photographerBio" placeholder="Mô tả ngắn về phong cách, thế mạnh..."></textarea></label>
+      <label class="drive-url-field"><span>Link Google Drive album đầy đủ</span><input id="photographerDriveUrl" type="url" placeholder="https://drive.google.com/drive/folders/..."></label>
+      <div class="photographer-form-grid three">
+        <label><span>Rating</span><input id="photographerRating" type="number" min="0" max="5" step="0.1" placeholder="4.9"></label>
+        <label><span>Số buổi đã chụp</span><input id="photographerShoots" type="number" min="0" step="1" placeholder="120"></label>
+        <label><span>Thứ tự</span><input id="photographerSort" type="number" min="0" step="1" value="100"></label>
+      </div>
+
+
+      <div class="photographer-pricing-section">
+        <div class="photographer-image-section-head">
+          <div><b>Giá Kỷ yếu</b><small>Giá riêng của photographer theo số người. Giá 1 người cũng được dùng làm “Giá từ” trên website.</small></div>
+        </div>
+        <div class="photographer-price-grid five">
+          <label><span>1 người</span><input id="yearbookPrice1" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" placeholder="1.700.000"></label>
+          <label><span>2 người</span><input id="yearbookPrice2" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+          <label><span>3 người</span><input id="yearbookPrice3" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+          <label><span>4 người</span><input id="yearbookPrice4" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+          <label><span>5 người</span><input id="yearbookPrice5" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+        </div>
+      </div>
+
+      <div class="photographer-pricing-section">
+        <div class="photographer-image-section-head">
+          <div><b>Giá Tốt nghiệp đại học</b><small>Giá riêng của photographer cho từng gói trên trang đặt lịch.</small></div>
+        </div>
+        <div class="photographer-price-grid grad">
+          <label><span>Lễ Tốt Nghiệp</span><input id="graduationPriceCeremony" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" placeholder="1.700.000"></label>
+          <label><span>Pre-Grad</span><input id="graduationPricePregrad" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" placeholder="2.000.000"></label>
+          <label><span>Pre-Grad Plus</span><input id="graduationPricePregradPlus" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" placeholder="2.500.000"></label>
+          <label><span>Phụ thu / người thêm</span><input id="graduationExtraPerPerson" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" placeholder="300.000"></label>
+        </div>
+      </div>
+
+      <div class="photographer-pricing-section">
+        <div class="photographer-image-section-head photographer-services-head">
+          <div><b>Dịch vụ đi kèm</b><small>Các dòng này hiển thị trực tiếp trong mục “Dịch vụ đi kèm” khi khách xem hồ sơ thợ.</small></div>
+          <button id="addPhotographerService" type="button">+ Thêm dịch vụ</button>
+        </div>
+        <div class="photographer-services-editor" id="photographerServicesEditor"></div>
+      </div>
+
+      <div class="photographer-image-section">
+        <div class="photographer-image-section-head">
+          <div><b>5 ảnh hiển thị của photographer</b><small>Ảnh 1 là ảnh chính/card ngoài trang chủ. Ảnh 2–5 là các ảnh khách vuốt xem trong hồ sơ thợ.</small></div>
+        </div>
+        <div class="photographer-photo-slots" id="photographerPhotoSlots"></div>
+        <div class="photographer-photo-note" id="photographerPhotoCounter">Bạn có thể thay từng ảnh riêng. Ảnh lớn sẽ được <b>tự động tối ưu</b> trước khi upload. Sau khi chọn ảnh, hãy bấm <b>Lưu thay đổi</b>.</div>
+      </div>
+
+      <div class="photographer-publish-row">
+        <label class="photographer-active-check"><input id="photographerActive" type="checkbox" checked><span>Hiển thị photographer trên website</span></label>
+        <small>Bỏ chọn để ẩn thợ nhưng vẫn giữ lịch sử booking.</small>
+      </div>
+      <div class="photographer-editor-actions">
+        <button class="photographer-delete-btn" id="deletePhotographer" type="button" hidden>Xóa photographer</button>
+        <button class="photographer-save-btn" id="savePhotographer" type="submit">Lưu thay đổi</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="finance-modal" id="financeModal" aria-hidden="true">
+  <div class="finance-modal-backdrop" data-finance-close></div>
+  <div class="finance-modal-card" role="dialog" aria-modal="true" aria-labelledby="financeModalTitle">
+    <button class="finance-modal-close" type="button" data-finance-close aria-label="Đóng">×</button>
+    <span class="finance-modal-kicker">Cash flow</span>
+    <h2 id="financeModalTitle">Dòng tiền buổi chụp</h2>
+    <p id="financeModalMeta" class="finance-modal-meta"></p>
+
+    <form id="financeForm">
+      <input id="financeBookingId" type="hidden">
+
+      <div class="finance-split-preview">
+        <div><small>Loại thợ</small><strong id="financeTypePreview">Thợ thường</strong></div>
+        <div><small>Tỷ lệ STU</small><strong id="financeRatePreview">20%</strong></div>
+        <div><small>STU được hưởng</small><strong id="financeStudioPreview">0đ</strong></div>
+        <div><small>Thợ được hưởng</small><strong id="financePhotographerPreview">0đ</strong></div>
+      </div>
+
+      <div class="finance-form-section">
+        <b>Doanh thu & tiền đã thu</b>
+        <div class="finance-form-grid">
+          <label><span>Doanh thu thực tế buổi chụp *</span><input id="financeGrossRevenue" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000" required></label>
+          <label><span>Khách đã thanh toán cho STU</span><input id="financeCustomerReceived" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+        </div>
+      </div>
+
+      <div class="finance-form-section">
+        <b>Chi phí của buổi chụp</b>
+        <div class="finance-form-grid two">
+          <label><span>Chi phí Take Care</span><input id="financeTakecareCost" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+          <label><span>Chi phí di chuyển</span><input id="financeTravelCost" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+          <label><span>Hậu kỳ / in ấn</span><input id="financePostCost" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+          <label><span>Chi phí khác</span><input id="financeOtherCost" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+        </div>
+        <label><span>Nội dung chi phí khác</span><input id="financeOtherCostNote" placeholder="VD: thuê đạo cụ, gửi xe..."></label>
+      </div>
+
+      <div class="finance-form-section">
+        <b>Thanh toán photographer</b>
+        <div class="finance-form-grid">
+          <label><span>Đã chuyển cho photographer</span><input id="financePhotographerPaid" type="text" inputmode="numeric" data-money-input="1" min="0" step="50000"></label>
+          <label><span>Ghi chú dòng tiền</span><input id="financeNote" placeholder="VD: chuyển khoản đợt 1..."></label>
+        </div>
+      </div>
+
+      <div class="finance-live-summary">
+        <div><span>Tổng chi phí</span><b id="financeCostPreview">0đ</b></div>
+        <div><span>STU sau chi phí</span><b id="financeStudioNetPreview">0đ</b></div>
+        <div><span>Còn phải thu khách</span><b id="financeReceivablePreview">0đ</b></div>
+        <div><span>Còn phải trả thợ</span><b id="financePayablePreview">0đ</b></div>
+        <div class="cash"><span>Tiền STU đang giữ</span><b id="financeCashPreview">0đ</b></div>
+      </div>
+
+      <div class="finance-modal-actions">
+        <button class="finance-reset-btn" id="financeReset" type="button">Đặt lại dòng tiền</button>
+        <button class="finance-save-btn" type="submit">Lưu dòng tiền</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="drawer" id="bookingDrawer">
+  <button class="drawer-close" id="drawerClose">×</button>
+  <span class="eyebrow">Chi tiết lịch khách</span>
+  <h2 id="drawerCode">CG-...</h2>
+  <div class="drawer-sub" id="drawerCreated"></div>
+  <div class="detail-grid" id="detailGrid"></div>
+  <form class="edit-form schedule-edit-form" id="editForm">
+    <div class="schedule-edit-section">
+      <b>Thông tin lịch</b>
+      <div class="schedule-edit-grid">
+        <label>Tên khách<input id="editCustomerName" required></label>
+        <label>Số điện thoại<input id="editPhone" required></label>
+      </div>
+      <div class="schedule-edit-grid">
+        <label>Ngày chụp<input id="editShootDate" type="date" required></label>
+        <label>Khung giờ<select id="editTimeSlot" required><option value="Sáng">Sáng</option><option value="Chiều">Chiều</option><option value="Cả ngày">Cả ngày</option></select></label>
+      </div>
+      <label>Photographer<select id="editPhotographer" required></select></label>
+      <div class="schedule-edit-grid">
+        <label>Trường<input id="editSchool"></label>
+        <label>Tên nhóm (nếu có)<input id="editClassName" placeholder="VD: nhóm bạn thân"></label>
+      </div>
+      <div class="schedule-edit-grid">
+        <label>Gói chụp<input id="editPackageName" required></label>
+        <label>Số lượng<input id="editGroupSize" required></label>
+      </div>
+      <label>Ghi chú khách<textarea id="editCustomerNote"></textarea></label>
+    </div>
+
+    <div class="schedule-edit-section">
+      <b>Trạng thái & doanh thu</b>
+      <label>Trạng thái<select id="editStatus"><option value="new">Mới</option><option value="contacted">Đã liên hệ</option><option value="deposit_pending">Chờ cọc</option><option value="confirmed">Đã chốt</option><option value="completed">Hoàn thành</option><option value="cancelled">Hủy</option><option value="rejected">Từ chối</option></select></label>
+      <label>Trạng thái tiền cọc<select id="editDepositStatus"><option value="unpaid">Chưa cọc</option><option value="partial">Cọc một phần</option><option value="paid">Đã cọc đủ</option><option value="refunded">Đã hoàn cọc</option></select></label>
+      <label>Số tiền đã ghi nhận<input id="editDepositAmount" min="0" step="50000" type="text" inputmode="numeric" data-money-input="1"></label>
+      <label>Ghi chú nội bộ<textarea id="editInternalNote" placeholder="Ví dụ: đã gọi lúc 15:20, chờ khách xác nhận..."></textarea></label>
+    </div>
+
+    <div class="booking-edit-actions">
+      <button class="booking-delete-btn" id="deleteBooking" type="button">Xóa lịch</button>
+      <button class="save-btn" type="submit">Lưu thay đổi lịch</button>
+    </div>
+  </form>
+</aside>
+
+<dialog id="crewAccountDialog" class="crew-account-dialog"><div class="crew-account-head"><h2 id="crewAccountTitle">Tài khoản thợ</h2><button type="button" id="closeCrewAccount" aria-label="Đóng">×</button></div><p id="crewAccountInfo"></p><form id="crewAccountForm"><label>Email đăng nhập<input type="email" id="crewAccountEmail" autocomplete="off" required></label><label>Mật khẩu mới<input type="password" id="crewAccountPassword" autocomplete="new-password" minlength="10" maxlength="128" required placeholder="Tối thiểu 10 ký tự"></label><small>Mật khẩu cũ không hiển thị. Chỉ nhập khi cấp hoặc đặt lại mật khẩu cho thợ.</small><p id="crewAccountMessage" role="status"></p><button type="submit" id="crewAccountSave">Lưu tài khoản</button></form><a href="dang-nhap.html">Mở trang đăng nhập chung ↗</a></dialog>
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/js/shared/studio-auth.js"></script>
+<script src="assets/js/booking/booking-prices.js"></script>
+<script src="assets/js/admin/cheese-admin.js"></script>
+<script src="assets/js/admin/hero-admin.js"></script>
+<script src="assets/js/shared/music-player.js"></script>
+<a href="dang-nhap.html" style="display:block;text-align:center;padding:16px;font-size:12px">Mở trang đăng nhập chung ↗</a>
+</body></html>

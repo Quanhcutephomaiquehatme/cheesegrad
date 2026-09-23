@@ -1,0 +1,165 @@
+/* Cheese.Graduation — mobile homepage stability v57
+   Loaded last to resolve legacy mobile rules without changing desktop. */
+
+/* Desktop/tablet: keep the brand on one typographic line when there is room. */
+body.page-home .hero-wordmark .wordmark-part{
+  display:inline-block;
+}
+
+@media (max-width: 600px){
+  /* Hero: deterministic line breaks. Never split "Graduation" mid-word. */
+  body.page-home .cheese-motion-hero{
+    min-height:680px!important;
+    padding:104px 16px 76px!important;
+  }
+  body.page-home .cheese-motion-hero .hero-copy{
+    width:100%!important;
+    max-width:420px!important;
+    padding:70px 0 52px!important;
+    margin:0 auto!important;
+  }
+  body.page-home .hero-copy::before{
+    margin-bottom:12px!important;
+  }
+  body.page-home .hero-eyebrow{
+    margin-bottom:14px!important;
+    font-size:7.5px!important;
+    letter-spacing:.11em!important;
+    white-space:nowrap!important;
+  }
+  body.page-home .cheese-motion-hero .hero-wordmark{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    width:100%!important;
+    max-width:100%!important;
+    margin:0 auto!important;
+    font-size:clamp(46px,15.1vw,62px)!important;
+    line-height:.88!important;
+    letter-spacing:-.045em!important;
+    white-space:normal!important;
+    text-wrap:nowrap!important;
+    overflow:visible!important;
+  }
+  body.page-home .hero-wordmark .wordmark-part{
+    display:block!important;
+    width:auto!important;
+    max-width:100%!important;
+    white-space:nowrap!important;
+    overflow-wrap:normal!important;
+    word-break:keep-all!important;
+    hyphens:none!important;
+  }
+  body.page-home .hero-wordmark .wordmark-graduation{
+    margin-top:.08em!important;
+  }
+  body.page-home .cheese-motion-hero .hero-copy>.hero-subtitle{
+    max-width:310px!important;
+    margin:20px auto 0!important;
+    font-size:13px!important;
+    line-height:1.45!important;
+    text-wrap:balance!important;
+  }
+
+  /* Three equal stats in one horizontal framed row. */
+  body.page-home .hero-stats{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    width:min(100%,360px)!important;
+    max-width:360px!important;
+    margin:22px auto 0!important;
+    padding:0!important;
+    gap:6px!important;
+    border:0!important;
+  }
+  body.page-home .hero-stats span,
+  body.page-home .hero-stats span:nth-child(2){
+    display:flex!important;
+    min-width:0!important;
+    min-height:62px!important;
+    margin:0!important;
+    padding:9px 4px 8px!important;
+    border:1px solid rgba(255,255,255,.14)!important;
+    border-radius:10px!important;
+    background:rgba(5,28,44,.34)!important;
+    backdrop-filter:blur(6px)!important;
+    -webkit-backdrop-filter:blur(6px)!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:3px!important;
+    color:rgba(255,255,255,.72)!important;
+    font-size:7.5px!important;
+    line-height:1.22!important;
+    text-align:center!important;
+    white-space:normal!important;
+  }
+  body.page-home .hero-stats b{
+    display:block!important;
+    margin:0!important;
+    color:#fff!important;
+    font-size:14px!important;
+    line-height:1!important;
+  }
+
+  body.page-home .hero-cta-row{
+    width:min(100%,360px)!important;
+    margin:18px auto 0!important;
+  }
+
+  /* Mobile footer: descriptive note + copyright are the final block. */
+  body.page-home footer{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    gap:22px!important;
+    padding:48px 20px 26px!important;
+  }
+  body.page-home footer .footer-left-stack{
+    order:1!important;
+    width:100%!important;
+  }
+  body.page-home footer > div:not(.footer-left-stack):not(.footer-copy-block){
+    order:2!important;
+    width:100%!important;
+  }
+  body.page-home footer > p:last-of-type{
+    order:3!important;
+    width:100%!important;
+    margin:0!important;
+  }
+  body.page-home footer .footer-copy-block{
+    order:99!important;
+    width:100%!important;
+    margin-top:2px!important;
+    padding-top:18px!important;
+    border-top:1px solid rgba(255,255,255,.10)!important;
+    gap:5px!important;
+  }
+  body.page-home footer .footer-copy-block p{
+    color:rgba(255,255,255,.58)!important;
+    font-size:11px!important;
+    line-height:1.5!important;
+  }
+  body.page-home footer .footer-copy-block small{
+    color:rgba(255,255,255,.34)!important;
+    font-size:9px!important;
+    line-height:1.45!important;
+  }
+}
+
+@media (max-width: 360px){
+  body.page-home .cheese-motion-hero .hero-wordmark{
+    font-size:clamp(43px,14.7vw,53px)!important;
+  }
+  body.page-home .hero-stats{
+    gap:4px!important;
+  }
+  body.page-home .hero-stats span,
+  body.page-home .hero-stats span:nth-child(2){
+    min-height:58px!important;
+    padding-inline:3px!important;
+    font-size:7px!important;
+  }
+}
