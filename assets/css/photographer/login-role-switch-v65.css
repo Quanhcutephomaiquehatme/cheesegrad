@@ -128,3 +128,6 @@ body.portal-login[data-login-role="photographer"] .role-login-panel{background:#
 @media(prefers-reduced-motion:reduce){
   body.portal-login .role-hero-image,body.portal-login .role-login-panel,body.portal-login .login-role-button{transition:none!important}
 }
+.login-demos {
+  display: none !important;
+}
