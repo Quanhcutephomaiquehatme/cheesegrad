@@ -29,7 +29,7 @@ a{color:inherit;text-decoration:none}button{font:inherit}img{max-width:100%}
 .library-live-dot{width:7px;height:7px;border-radius:50%;background:#85a942;box-shadow:0 0 0 5px rgba(133,169,66,.11)}
 .library-masonry{column-count:4;column-gap:14px}
 .library-card{position:relative;break-inside:avoid;margin:0 0 14px;overflow:hidden;border-radius:18px;background:#e7e2d8;cursor:zoom-in;box-shadow:0 7px 20px rgba(18,20,16,.025);content-visibility:auto;contain-intrinsic-size:300px 420px}
-.library-card img{display:block;width:100%;height:auto;min-height:150px;transition:transform .45s cubic-bezier(.2,.75,.2,1),filter .3s ease}
+.library-card img{display:block;width:100%;height:auto;min-height:0;object-fit:contain;transition:transform .45s cubic-bezier(.2,.75,.2,1),filter .3s ease}
 .library-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 68%,rgba(10,11,9,.48));opacity:0;transition:.3s ease;pointer-events:none}
 .library-card figcaption{position:absolute;left:11px;right:11px;bottom:10px;z-index:2;color:#fff;font-size:10px;font-weight:700;opacity:0;transform:translateY(7px);transition:.3s ease}
 .library-card:hover img{transform:scale(1.018)}.library-card:hover::after,.library-card:hover figcaption{opacity:1}.library-card:hover figcaption{transform:none}
@@ -69,7 +69,7 @@ footer{display:flex;justify-content:space-between;width:min(1180px,calc(100% - 3
 @media(max-width:650px){
   .library-nav{top:7px;width:calc(100% - 14px);min-height:60px;border-radius:15px}.library-logo{width:98px;height:42px}.library-book{min-height:42px}
   .library-hero{width:calc(100% - 26px);padding:54px 0 34px}.library-hero h1{font-size:clamp(52px,17vw,78px);line-height:1.3}.library-hero-bottom{display:grid}.library-count{text-align:left}
-  .library-shell{width:calc(100% - 18px)}.library-masonry{column-count:2;column-gap:8px}.library-card{margin-bottom:8px;border-radius:12px}
+  .library-shell{width:calc(100% - 18px)}.library-masonry{column-count:2;column-gap:8px}.library-card{margin-bottom:8px;border-radius:12px}.library-card img{min-height:0;height:auto;object-fit:contain}
   .library-card figcaption{display:none}.library-toolbar{padding:0 4px}.library-toolbar>span{display:none}
   .library-bottom{width:calc(100% - 20px);margin-bottom:45px;padding:28px 20px;border-radius:22px}
   footer{width:calc(100% - 26px);padding-bottom:24px}
@@ -80,7 +80,7 @@ footer{display:flex;justify-content:space-between;width:min(1180px,calc(100% - 3
 .library-more{display:flex;align-items:center;justify-content:center;gap:13px;padding:24px 0 3px;color:#83877f;font-size:9px}
 .library-more button{min-height:42px;padding:0 16px;border:1px solid rgba(23,24,20,.13);border-radius:999px;background:#fff;color:#173d5d;font-size:9px;font-weight:850;cursor:pointer}
 .library-more button:hover{background:#173d5d;color:#fff;border-color:#173d5d}
-.library-sentinel{height:1px}
+.library-sentinel{height:2px;clear:both}
 .library-card.is-new{animation:libraryIn .42s ease both}
 @keyframes libraryIn{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
 @media(max-width:650px){.library-more{display:grid;justify-items:center;gap:6px}.library-more button{min-height:44px}}
