@@ -458,8 +458,8 @@ section[id]{
   .hero-photo-stage{gap:2px}
   .hero-strip-top{height:48%}
   .hero-strip-bottom{height:52%}
-  .hero-strip-top .hero-strip-track{animation-duration:34s}
-  .hero-strip-bottom .hero-strip-track{animation-duration:40s}
+  .hero-strip-top .hero-strip-track{animation-duration:68s}
+  .hero-strip-bottom .hero-strip-track{animation-duration:80s}
 
   .hero-shot{margin:0 1px}
   .hero-shot.wide{width:72vw;min-width:300px}
