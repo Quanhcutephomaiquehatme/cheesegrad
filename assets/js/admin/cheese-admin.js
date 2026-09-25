@@ -1646,16 +1646,66 @@ async function openCrewAccount(id){
 $('#closeCrewAccount').addEventListener('click',()=>$('#crewAccountDialog').close());
 $('#crewAccountDialog').addEventListener('close',()=>{crewAccountEpoch++;$('#crewAccountPassword').value='';crewAccountId=null;});
 $('#crewAccountForm').addEventListener('submit',async event=>{
- event.preventDefault();if(demoMode||!crewAccountId||!event.currentTarget.reportValidity())return;
- const epoch=crewAccountEpoch,id=crewAccountId;$('#crewAccountSave').disabled=true;$('#crewAccountMessage').textContent='Đang lưu tài khoản…';
- const body={photographer_id:id,email:$('#crewAccountEmail').value.trim(),password:$('#crewAccountPassword').value};
+ event.preventDefault();
+ if(demoMode||!crewAccountId||!event.currentTarget.reportValidity())return;
+
+ const epoch=crewAccountEpoch,id=crewAccountId;
+ const email=$('#crewAccountEmail').value.trim().toLowerCase();
+ const password=$('#crewAccountPassword').value;
+
+ if(password.length<10||password.length>128){
+  $('#crewAccountMessage').textContent='Mật khẩu phải có từ 10 đến 128 ký tự.';
+  return;
+ }
+
+ $('#crewAccountSave').disabled=true;
+ $('#crewAccountMessage').textContent='Đang lưu tài khoản…';
+
+ const body={photographer_id:id,email,password};
+
  try{
-  const {data,error}=await db.functions.invoke('photographer-account',{body});
-  if(error){let message='Chưa lưu được. Kiểm tra kết nối hoặc cấu hình dịch vụ tài khoản.';try{message=(await error.context.json()).message||message;}catch{}throw Error(message);}
+  // Lấy session hiện tại một cách tường minh để chắc chắn Edge Function nhận Bearer token admin.
+  const {data:sessionData,error:sessionError}=await db.auth.getSession();
+  if(sessionError)throw Error('Không đọc được phiên đăng nhập admin: '+sessionError.message);
+  const session=sessionData?.session;
+  if(!session?.access_token)throw Error('Phiên đăng nhập admin đã hết hạn. Hãy đăng nhập lại.');
+
+  const functionUrl=String(cfg.supabaseUrl||'').replace(/\/$/,'')+'/functions/v1/photographer-account';
+
+  const response=await fetch(functionUrl,{
+   method:'POST',
+   headers:{
+    'Content-Type':'application/json',
+    'apikey':cfg.supabaseAnonKey,
+    'Authorization':'Bearer '+session.access_token
+   },
+   body:JSON.stringify(body)
+  });
+
+  let data=null;
+  try{data=await response.json();}catch{}
+
+  if(!response.ok){
+   const code=data?.code?` [${data.code}]`:'';
+   throw Error((data?.message||`Dịch vụ tài khoản trả về lỗi HTTP ${response.status}.`)+code);
+  }
+
   if(epoch!==crewAccountEpoch)return;
-  $('#crewAccountPassword').value='';$('#crewAccountEmail').readOnly=true;$('#crewAccountMessage').textContent=data.message+' Thợ có thể đăng nhập tại trang lịch dành cho thợ.';$('#crewAccountSave').textContent='Đặt mật khẩu mới';$('#crewAccountInfo').textContent='Tài khoản đã được liên kết.';
- }catch(error){if(epoch===crewAccountEpoch)$('#crewAccountMessage').textContent=error.message;}
- finally{body.password='';if(epoch===crewAccountEpoch)$('#crewAccountSave').disabled=false;}
+
+  $('#crewAccountPassword').value='';
+  $('#crewAccountEmail').readOnly=true;
+  $('#crewAccountMessage').textContent=(data?.message||'Đã lưu tài khoản.')+' Thợ có thể đăng nhập tại trang lịch dành cho thợ.';
+  $('#crewAccountSave').textContent='Đặt mật khẩu mới';
+  $('#crewAccountInfo').textContent='Tài khoản đã được liên kết.';
+ }catch(error){
+  console.error('photographer-account:',error);
+  if(epoch===crewAccountEpoch){
+   $('#crewAccountMessage').textContent=error?.message||'Chưa lưu được tài khoản.';
+  }
+ }finally{
+  body.password='';
+  if(epoch===crewAccountEpoch)$('#crewAccountSave').disabled=false;
+ }
 });
 $('#crewConfirmationFilter').addEventListener('change',renderCrewConfirmations);
 $('#refreshCrewConfirmation').addEventListener('click',syncCrewConfirmations);
