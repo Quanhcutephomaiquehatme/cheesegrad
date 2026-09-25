@@ -20,8 +20,17 @@ async function resolve(){
  return {role:'photographer',user:data.session.user};
 }
 async function guard(role){
- try{const account=await resolve();if(!account){location.replace('dang-nhap.html');return null;}if(account.role!==role){location.replace(destination(account.role));return null;}return account;}
- catch{location.replace('dang-nhap.html');return null;}
+ try{
+  const account=await resolve();
+  if(!account){location.replace('dang-nhap.html');return null;}
+  if(account.role!==role){location.replace(destination(account.role));return null;}
+  return account;
+ }catch(error){
+  console.error('CheeseAuth.guard:',error);
+  try{if(client)await client.auth.signOut({scope:'local'});}catch{}
+  location.replace('dang-nhap.html');
+  return null;
+ }
 }
 async function logout(){
  if(client){const {error}=await client.auth.signOut({scope:'local'});if(error)throw Error('Chưa đăng xuất được. Kiểm tra kết nối rồi thử lại.');}
